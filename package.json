@@ -89,11 +89,6 @@
     "vitest": "npm:@voidzero-dev/vite-plus-test@latest",
     "vue-tsc": "3.2.2"
   },
-  "pnpm": {
-    "patchedDependencies": {
-      "@jsr/deno__doc@0.189.1": "patches/@jsr__deno__doc@0.189.1.patch"
-    }
-  },
   "simple-git-hooks": {
     "pre-commit": "npx lint-staged"
   },
