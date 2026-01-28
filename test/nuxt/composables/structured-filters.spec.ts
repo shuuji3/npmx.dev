@@ -52,7 +52,7 @@ describe('useStructuredFilters', () => {
       addKeyword('react')
 
       expect(sortedPackages.value).toHaveLength(1)
-      expect(sortedPackages.value[0].package.name).toBe('pkg-a')
+      expect(sortedPackages.value[0]!.package.name).toBe('pkg-a')
     })
 
     it('uses AND logic for multiple keywords', () => {
@@ -98,7 +98,7 @@ describe('useStructuredFilters', () => {
       setTextFilter('react')
 
       expect(sortedPackages.value).toHaveLength(1)
-      expect(sortedPackages.value[0].package.name).toBe('react-query')
+      expect(sortedPackages.value[0]!.package.name).toBe('react-query')
     })
 
     it('filters by description when scope is description', () => {
@@ -112,7 +112,7 @@ describe('useStructuredFilters', () => {
       setTextFilter('React')
 
       expect(sortedPackages.value).toHaveLength(1)
-      expect(sortedPackages.value[0].package.name).toBe('pkg-a')
+      expect(sortedPackages.value[0]!.package.name).toBe('pkg-a')
     })
 
     it('filters by keywords when scope is keywords', () => {
@@ -126,7 +126,7 @@ describe('useStructuredFilters', () => {
       setTextFilter('type')
 
       expect(sortedPackages.value).toHaveLength(1)
-      expect(sortedPackages.value[0].package.name).toBe('pkg-a')
+      expect(sortedPackages.value[0]!.package.name).toBe('pkg-a')
     })
 
     it('filters by all fields when scope is all', () => {
@@ -141,7 +141,7 @@ describe('useStructuredFilters', () => {
       setTextFilter('search-term')
 
       expect(sortedPackages.value).toHaveLength(1)
-      expect(sortedPackages.value[0].package.name).toBe('search-term')
+      expect(sortedPackages.value[0]!.package.name).toBe('search-term')
     })
   })
 
@@ -157,7 +157,7 @@ describe('useStructuredFilters', () => {
       setTextFilter('name:react')
 
       expect(sortedPackages.value).toHaveLength(1)
-      expect(sortedPackages.value[0].package.name).toBe('react-query')
+      expect(sortedPackages.value[0]!.package.name).toBe('react-query')
     })
 
     it('parses desc: operator in all scope', () => {
@@ -171,7 +171,7 @@ describe('useStructuredFilters', () => {
       setTextFilter('desc:fantastic')
 
       expect(sortedPackages.value).toHaveLength(1)
-      expect(sortedPackages.value[0].package.name).toBe('pkg-a')
+      expect(sortedPackages.value[0]!.package.name).toBe('pkg-a')
     })
 
     it('parses kw: operator in all scope', () => {
@@ -185,7 +185,7 @@ describe('useStructuredFilters', () => {
       setTextFilter('kw:typescript')
 
       expect(sortedPackages.value).toHaveLength(1)
-      expect(sortedPackages.value[0].package.name).toBe('pkg-a')
+      expect(sortedPackages.value[0]!.package.name).toBe('pkg-a')
     })
 
     it('combines multiple operators with AND logic', () => {
@@ -200,7 +200,7 @@ describe('useStructuredFilters', () => {
       setTextFilter('name:react desc:hooks')
 
       expect(sortedPackages.value).toHaveLength(1)
-      expect(sortedPackages.value[0].package.name).toBe('react-lib')
+      expect(sortedPackages.value[0]!.package.name).toBe('react-lib')
     })
 
     it('handles comma-separated keyword values with OR logic', () => {
@@ -239,7 +239,7 @@ describe('useStructuredFilters', () => {
       setTextFilter('name:react fetching')
 
       expect(sortedPackages.value).toHaveLength(1)
-      expect(sortedPackages.value[0].package.name).toBe('react-query')
+      expect(sortedPackages.value[0]!.package.name).toBe('react-query')
     })
   })
 
@@ -267,7 +267,7 @@ describe('useStructuredFilters', () => {
       setDownloadRange('1k-10k')
 
       expect(sortedPackages.value).toHaveLength(1)
-      expect(sortedPackages.value[0].package.name).toBe('pkg-b')
+      expect(sortedPackages.value[0]!.package.name).toBe('pkg-b')
     })
   })
 
@@ -282,9 +282,9 @@ describe('useStructuredFilters', () => {
       const { sortedPackages, setSort } = useStructuredFilters({ packages })
       setSort('downloads-week-desc')
 
-      expect(sortedPackages.value[0].package.name).toBe('pkg-b')
-      expect(sortedPackages.value[1].package.name).toBe('pkg-c')
-      expect(sortedPackages.value[2].package.name).toBe('pkg-a')
+      expect(sortedPackages.value[0]!.package.name).toBe('pkg-b')
+      expect(sortedPackages.value[1]!.package.name).toBe('pkg-c')
+      expect(sortedPackages.value[2]!.package.name).toBe('pkg-a')
     })
 
     it('sorts by name ascending', () => {
@@ -297,9 +297,9 @@ describe('useStructuredFilters', () => {
       const { sortedPackages, setSort } = useStructuredFilters({ packages })
       setSort('name-asc')
 
-      expect(sortedPackages.value[0].package.name).toBe('axios')
-      expect(sortedPackages.value[1].package.name).toBe('lodash')
-      expect(sortedPackages.value[2].package.name).toBe('zlib')
+      expect(sortedPackages.value[0]!.package.name).toBe('axios')
+      expect(sortedPackages.value[1]!.package.name).toBe('lodash')
+      expect(sortedPackages.value[2]!.package.name).toBe('zlib')
     })
 
     it('sorts by updated date descending', () => {
@@ -312,9 +312,9 @@ describe('useStructuredFilters', () => {
       const { sortedPackages, setSort } = useStructuredFilters({ packages })
       setSort('updated-desc')
 
-      expect(sortedPackages.value[0].package.name).toBe('new')
-      expect(sortedPackages.value[1].package.name).toBe('mid')
-      expect(sortedPackages.value[2].package.name).toBe('old')
+      expect(sortedPackages.value[0]!.package.name).toBe('new')
+      expect(sortedPackages.value[1]!.package.name).toBe('mid')
+      expect(sortedPackages.value[2]!.package.name).toBe('old')
     })
   })
 

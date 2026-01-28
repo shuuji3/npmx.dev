@@ -1,5 +1,6 @@
 import type { AxeResults, RunOptions } from 'axe-core'
 import type { VueWrapper } from '@vue/test-utils'
+import type { ColumnConfig, FilterChip } from '#shared/types/preferences'
 import 'axe-core'
 import { afterEach, describe, expect, it } from 'vitest'
 import { mountSuspended } from '@nuxt/test-utils/runtime'
@@ -901,7 +902,7 @@ describe('component accessibility audits', () => {
   })
 
   describe('ColumnPicker', () => {
-    const mockColumns = [
+    const mockColumns: ColumnConfig[] = [
       { id: 'name', label: 'Name', visible: true, sortable: true },
       { id: 'version', label: 'Version', visible: true, sortable: false },
       { id: 'downloads', label: 'Downloads', visible: false, sortable: true },
@@ -918,9 +919,9 @@ describe('component accessibility audits', () => {
 
   describe('FilterChips', () => {
     it('should have no accessibility violations with chips', async () => {
-      const chips = [
+      const chips: FilterChip[] = [
         { id: 'text', type: 'text', label: 'Search', value: 'react' },
-        { id: 'keyword', type: 'keyword', label: 'Keyword', value: 'hooks' },
+        { id: 'keyword', type: 'keywords', label: 'Keyword', value: 'hooks' },
       ]
       const component = await mountSuspended(FilterChips, {
         props: { chips },
@@ -981,7 +982,7 @@ describe('component accessibility audits', () => {
       keywords: [],
     }
 
-    const mockColumns = [
+    const mockColumns: ColumnConfig[] = [
       { id: 'name', label: 'Name', visible: true, sortable: true },
       { id: 'version', label: 'Version', visible: true, sortable: false },
     ]
@@ -994,7 +995,7 @@ describe('component accessibility audits', () => {
           viewMode: 'cards',
           columns: mockColumns,
           paginationMode: 'infinite',
-          pageSize: 20,
+          pageSize: 25,
           totalCount: 100,
           filteredCount: 100,
           activeFilters: [],
@@ -1022,7 +1023,7 @@ describe('component accessibility audits', () => {
       },
     ]
 
-    const mockColumns = [
+    const mockColumns: ColumnConfig[] = [
       { id: 'name', label: 'Name', visible: true, sortable: true },
       { id: 'version', label: 'Version', visible: true, sortable: false },
       { id: 'description', label: 'Description', visible: true, sortable: false },
@@ -1082,7 +1083,7 @@ describe('component accessibility audits', () => {
       searchScore: 99999,
     }
 
-    const mockColumns = [
+    const mockColumns: ColumnConfig[] = [
       { id: 'name', label: 'Name', visible: true, sortable: true },
       { id: 'version', label: 'Version', visible: true, sortable: false },
       { id: 'description', label: 'Description', visible: true, sortable: false },
@@ -1118,7 +1119,7 @@ describe('component accessibility audits', () => {
       const component = await mountSuspended(PaginationControls, {
         props: {
           mode: 'infinite',
-          pageSize: 20,
+          pageSize: 25,
           currentPage: 1,
           totalItems: 100,
         },
@@ -1131,7 +1132,7 @@ describe('component accessibility audits', () => {
       const component = await mountSuspended(PaginationControls, {
         props: {
           mode: 'paginated',
-          pageSize: 20,
+          pageSize: 25,
           currentPage: 1,
           totalItems: 100,
         },
