@@ -200,7 +200,7 @@ export const SORT_KEYS: SortKeyConfig[] = [
 ]
 
 /** All valid sort keys for validation */
-const VALID_SORT_KEYS: SortKey[] = new Set([
+const VALID_SORT_KEYS = new Set<SortKey>([
   'downloads-week',
   'downloads-day',
   'downloads-month',
