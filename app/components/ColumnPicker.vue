@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import type { ColumnConfig, ColumnId } from '~~/shared/types/preferences'
+import type { ColumnConfig, ColumnId } from '#shared/types/preferences'
 
 const props = defineProps<{
   columns: ColumnConfig[]

@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import type { ViewMode } from '~~/shared/types/preferences'
+import type { ViewMode } from '#shared/types/preferences'
 
 const viewMode = defineModel<ViewMode>({ default: 'cards' })
 </script>

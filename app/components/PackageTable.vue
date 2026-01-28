@@ -1,7 +1,7 @@
 <script setup lang="ts">
-import type { NpmSearchResult } from '~~/shared/types/npm-registry'
-import type { ColumnConfig, ColumnId, SortKey, SortOption } from '~~/shared/types/preferences'
-import { buildSortOption, parseSortOption, toggleDirection } from '~~/shared/types/preferences'
+import type { NpmSearchResult } from '#shared/types/npm-registry'
+import type { ColumnConfig, ColumnId, SortKey, SortOption } from '#shared/types/preferences'
+import { buildSortOption, parseSortOption, toggleDirection } from '#shared/types/preferences'
 
 const props = defineProps<{
   results: NpmSearchResult[]

@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import type { FilterChip } from '~~/shared/types/preferences'
+import type { FilterChip } from '#shared/types/preferences'
 
 defineProps<{
   chips: FilterChip[]

@@ -1,13 +1,8 @@
 <script setup lang="ts">
 import type { NpmSearchResult } from '#shared/types'
 import type { WindowVirtualizerHandle } from '~/composables/useVirtualInfiniteScroll'
-import type {
-  ColumnConfig,
-  PaginationMode,
-  SortOption,
-  ViewMode,
-} from '~~/shared/types/preferences'
-import { DEFAULT_COLUMNS } from '~~/shared/types/preferences'
+import type { ColumnConfig, PaginationMode, SortOption, ViewMode } from '#shared/types/preferences'
+import { DEFAULT_COLUMNS } from '#shared/types/preferences'
 import { WindowVirtualizer } from 'virtua/vue'
 
 const props = defineProps<{

@@ -1,7 +1,7 @@
 /**
  * Filter pipeline and sorting logic for package lists
  */
-import type { NpmSearchResult } from '~~/shared/types/npm-registry'
+import type { NpmSearchResult } from '#shared/types/npm-registry'
 import type {
   DownloadRange,
   FilterChip,
@@ -10,14 +10,14 @@ import type {
   SortOption,
   StructuredFilters,
   UpdatedWithin,
-} from '~~/shared/types/preferences'
+} from '#shared/types/preferences'
 import {
   DEFAULT_FILTERS,
   DOWNLOAD_RANGES,
   parseSortOption,
   SECURITY_FILTER_OPTIONS,
   UPDATED_WITHIN_OPTIONS,
-} from '~~/shared/types/preferences'
+} from '#shared/types/preferences'
 
 /**
  * Parsed search operators from text input

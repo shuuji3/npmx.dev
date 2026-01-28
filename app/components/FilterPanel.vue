@@ -5,13 +5,13 @@ import type {
   SecurityFilter,
   StructuredFilters,
   UpdatedWithin,
-} from '~~/shared/types/preferences'
+} from '#shared/types/preferences'
 import {
   DOWNLOAD_RANGES,
   SEARCH_SCOPE_OPTIONS,
   SECURITY_FILTER_OPTIONS,
   UPDATED_WITHIN_OPTIONS,
-} from '~~/shared/types/preferences'
+} from '#shared/types/preferences'
 
 const props = defineProps<{
   filters: StructuredFilters

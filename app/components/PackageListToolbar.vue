@@ -13,13 +13,13 @@ import type {
   StructuredFilters,
   UpdatedWithin,
   ViewMode,
-} from '~~/shared/types/preferences'
+} from '#shared/types/preferences'
 import {
   buildSortOption,
   parseSortOption,
   SORT_KEYS,
   toggleDirection,
-} from '~~/shared/types/preferences'
+} from '#shared/types/preferences'
 
 const props = defineProps<{
   filters: StructuredFilters

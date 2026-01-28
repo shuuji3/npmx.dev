@@ -1,6 +1,6 @@
 <script setup lang="ts">
-import type { PageSize, PaginationMode } from '~~/shared/types/preferences'
-import { PAGE_SIZE_OPTIONS } from '~~/shared/types/preferences'
+import type { PageSize, PaginationMode } from '#shared/types/preferences'
+import { PAGE_SIZE_OPTIONS } from '#shared/types/preferences'
 
 const props = defineProps<{
   mode: PaginationMode

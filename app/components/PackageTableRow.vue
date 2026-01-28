@@ -1,6 +1,6 @@
 <script setup lang="ts">
-import type { NpmSearchResult } from '~~/shared/types/npm-registry'
-import type { ColumnConfig } from '~~/shared/types/preferences'
+import type { NpmSearchResult } from '#shared/types/npm-registry'
+import type { ColumnConfig } from '#shared/types/preferences'
 
 const props = defineProps<{
   result: NpmSearchResult

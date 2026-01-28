@@ -8,8 +8,8 @@ import type {
   PageSize,
   PaginationMode,
   ViewMode,
-} from '~~/shared/types/preferences'
-import { DEFAULT_COLUMNS, DEFAULT_PREFERENCES } from '~~/shared/types/preferences'
+} from '#shared/types/preferences'
+import { DEFAULT_COLUMNS, DEFAULT_PREFERENCES } from '#shared/types/preferences'
 
 /**
  * Composable for managing package list display preferences
