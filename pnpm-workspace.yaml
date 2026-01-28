@@ -5,7 +5,6 @@ packages:
 
 overrides:
   sharp: 0.34.5
-  vite: '^8.0.0-beta.10'
 
 packageExtensions:
   '@nuxt/scripts':
