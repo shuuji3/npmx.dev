@@ -83,7 +83,7 @@ watch(open, isOpen => {
               <button
                 type="button"
                 class="text-fg-subtle hover:text-fg transition-colors duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-fg/50 rounded"
-                :aria-label="$t('connector.modal.close')"
+                :aria-label="$t('common.close')"
                 @click="open = false"
               >
                 <span class="i-carbon-close block w-5 h-5" aria-hidden="true" />
@@ -125,10 +125,10 @@ watch(open, isOpen => {
               </p>
 
               <div
-                class="flex items-center p-3 bg-[#0d0d0d] border border-border rounded-lg font-mono text-sm"
+                class="flex items-center p-3 bg-bg-muted border border-border rounded-lg font-mono text-sm"
               >
                 <span class="text-fg-subtle">$</span>
-                <span class="text-fg ml-2">{{ executeNpmxConnectorCommand }}</span>
+                <span class="text-fg-subtle ml-2">{{ executeNpmxConnectorCommand }}</span>
                 <button
                   type="button"
                   :aria-label="

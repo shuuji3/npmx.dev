@@ -183,6 +183,15 @@ const docsLink = computed(() => {
   }
 })
 
+const fundingUrl = computed(() => {
+  let funding = displayVersion.value?.funding
+  if (Array.isArray(funding)) funding = funding[0]
+
+  if (!funding) return null
+
+  return typeof funding === 'string' ? funding : funding.url
+})
+
 function normalizeGitUrl(url: string): string {
   return url
     .replace(/^git\+/, '')
@@ -295,12 +304,15 @@ defineOgImageComponent('Package', {
 </script>
 
 <template>
-  <main class="container py-8 sm:py-12 overflow-hidden w-full">
+  <main class="container py-8 xl:py-12">
     <PackageSkeleton v-if="status === 'pending'" />
 
-    <article v-else-if="status === 'success' && pkg" class="motion-safe:animate-fade-in min-w-0">
+    <article
+      v-else-if="status === 'success' && pkg"
+      class="package-page motion-safe:animate-fade-in overflow-x-hidden"
+    >
       <!-- Package header -->
-      <header class="mb-8 pb-8 border-b border-border">
+      <header class="area-header pb-8 border-b border-border">
         <div class="mb-4">
           <!-- Package name and version -->
           <div class="flex items-baseline gap-2 mb-1.5 sm:gap-3 sm:mb-2 flex-wrap min-w-0">
@@ -632,6 +644,15 @@ defineOgImageComponent('Package', {
                 {{ $t('package.links.docs') }}
               </NuxtLink>
             </li>
+            <li v-if="fundingUrl">
+              <NuxtLink
+                :to="fundingUrl"
+                class="link-subtle font-mono text-sm inline-flex items-center gap-1.5"
+              >
+                <span class="i-carbon-favorite w-4 h-4" aria-hidden="true" />
+                {{ $t('package.links.fund') }}
+              </NuxtLink>
+            </li>
             <li v-if="displayVersion" class="sm:ml-auto">
               <NuxtLink
                 :to="{
@@ -660,17 +681,27 @@ defineOgImageComponent('Package', {
         v-if="displayVersion"
         :package-name="pkg.name"
         :version="displayVersion.version"
+        class="area-vulns"
       />
 
       <!-- Install command with package manager selector -->
-      <section aria-labelledby="install-heading" class="mb-8">
+      <section id="install" aria-labelledby="install-heading" class="area-install scroll-mt-20">
         <div class="flex flex-wrap items-center justify-between mb-3">
-          <h2 id="install-heading" class="text-xs text-fg-subtle uppercase tracking-wider">
-            {{ $t('package.install.title') }}
+          <h2 id="install-heading" class="group text-xs text-fg-subtle uppercase tracking-wider">
+            <a
+              href="#install"
+              class="inline-flex items-center gap-1.5 text-fg-subtle hover:text-fg-muted transition-colors duration-200 no-underline"
+            >
+              {{ $t('package.install.title') }}
+              <span
+                class="i-carbon-link w-3 h-3 block opacity-0 group-hover:opacity-100 transition-opacity duration-200"
+                aria-hidden="true"
+              />
+            </a>
           </h2>
           <!-- Package manager tabs -->
           <div
-            class="flex items-center gap-1 p-0.5 bg-bg-subtle border border-border-subtle rounded-md"
+            class="flex items-center gap-1 p-0.5 bg-bg-subtle border border-border-subtle rounded-md overflow-x-auto"
             role="tablist"
             :aria-label="$t('package.install.pm_label')"
           >
@@ -680,7 +711,7 @@ defineOgImageComponent('Package', {
                 :key="pm.id"
                 role="tab"
                 :aria-selected="selectedPM === pm.id"
-                class="px-2 py-1 font-mono text-xs rounded transition-colors duration-150 border border-solid focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-fg/50"
+                class="px-2 py-1 font-mono text-xs rounded transition-colors duration-150 border border-solid focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-fg/50 inline-flex items-center gap-1.5"
                 :class="
                   selectedPM === pm.id
                     ? 'bg-bg shadow text-fg border-border'
@@ -688,6 +719,7 @@ defineOgImageComponent('Package', {
                 "
                 @click="selectedPM = pm.id"
               >
+                <span class="inline-block h-3 w-3" :class="pm.icon" aria-hidden="true" />
                 {{ pm.label }}
               </button>
               <template #fallback>
@@ -711,11 +743,11 @@ defineOgImageComponent('Package', {
               <span class="w-2.5 h-2.5 rounded-full bg-fg-subtle" />
               <span class="w-2.5 h-2.5 rounded-full bg-fg-subtle" />
             </div>
-            <div class="space-y-1 px-3 pt-2 pb-3 sm:px-4 sm:pt-3 sm:pb-4">
+            <div class="space-y-1 px-3 pt-2 pb-3 sm:px-4 sm:pt-3 sm:pb-4 overflow-x-auto">
               <!-- Main package install -->
-              <div class="flex items-center gap-2">
-                <span class="text-fg-subtle font-mono text-sm select-none">$</span>
-                <code class="font-mono text-sm"
+              <div class="flex items-center gap-2 min-w-0">
+                <span class="text-fg-subtle font-mono text-sm select-none shrink-0">$</span>
+                <code class="font-mono text-sm min-w-0"
                   ><ClientOnly
                     ><span
                       v-for="(part, i) in installCommandParts"
@@ -730,9 +762,9 @@ defineOgImageComponent('Package', {
                 >
               </div>
               <!-- @types package install (when enabled) -->
-              <div v-if="showTypesInInstall" class="flex items-center gap-2">
-                <span class="text-fg-subtle font-mono text-sm select-none">$</span>
-                <code class="font-mono text-sm"
+              <div v-if="showTypesInInstall" class="flex items-center gap-2 min-w-0">
+                <span class="text-fg-subtle font-mono text-sm select-none shrink-0">$</span>
+                <code class="font-mono text-sm min-w-0"
                   ><span
                     v-for="(part, i) in typesInstallCommandParts"
                     :key="i"
@@ -763,35 +795,41 @@ defineOgImageComponent('Package', {
         </div>
       </section>
 
-      <!-- Two column layout for sidebar content -->
-      <div class="grid lg:grid-cols-3 gap-8">
-        <!-- Main content (README) -->
-        <div class="lg:col-span-2 order-2 lg:order-1 min-w-0">
-          <section aria-labelledby="readme-heading">
-            <h2 id="readme-heading" class="text-xs text-fg-subtle uppercase tracking-wider mb-4">
-              {{ $t('package.readme.title') }}
-            </h2>
-            <!-- eslint-disable vue/no-v-html -- HTML is sanitized server-side -->
-            <div
-              v-if="readmeData?.html"
-              class="readme-content prose prose-invert max-w-none"
-              v-html="readmeData.html"
+      <!-- README -->
+      <section
+        id="readme"
+        aria-labelledby="readme-heading"
+        class="area-readme min-w-0 scroll-mt-20"
+      >
+        <h2 id="readme-heading" class="group text-xs text-fg-subtle uppercase tracking-wider mb-4">
+          <a
+            href="#readme"
+            class="inline-flex items-center gap-1.5 text-fg-subtle hover:text-fg-muted transition-colors duration-200 no-underline"
+          >
+            {{ $t('package.readme.title') }}
+            <span
+              class="i-carbon-link w-3 h-3 block opacity-0 group-hover:opacity-100 transition-opacity duration-200"
+              aria-hidden="true"
             />
-            <p v-else class="text-fg-subtle italic">
-              {{ $t('package.readme.no_readme') }}
-              <a
-                v-if="repositoryUrl"
-                :href="repositoryUrl"
-                rel="noopener noreferrer"
-                class="link"
-                >{{ $t('package.readme.view_on_github') }}</a
-              >
-            </p>
-          </section>
-        </div>
+          </a>
+        </h2>
+        <!-- eslint-disable vue/no-v-html -- HTML is sanitized server-side -->
+        <div
+          v-if="readmeData?.html"
+          class="readme-content prose prose-invert max-w-[70ch]"
+          v-html="readmeData.html"
+        />
+        <p v-else class="text-fg-subtle italic">
+          {{ $t('package.readme.no_readme') }}
+          <a v-if="repositoryUrl" :href="repositoryUrl" rel="noopener noreferrer" class="link">{{
+            $t('package.readme.view_on_github')
+          }}</a>
+        </p>
+      </section>
 
+      <div class="area-sidebar">
         <!-- Sidebar -->
-        <div class="order-1 lg:order-2 space-y-6 sm:space-y-8 min-w-0 overflow-hidden">
+        <aside class="sticky top-20 space-y-6 sm:space-y-8 min-w-0 overflow-hidden">
           <!-- Maintainers (with admin actions when connected) -->
           <PackageMaintainers :package-name="pkg.name" :maintainers="pkg.maintainers" />
 
@@ -801,9 +839,26 @@ defineOgImageComponent('Package', {
           </ClientOnly>
 
           <!-- Keywords -->
-          <section v-if="displayVersion?.keywords?.length" aria-labelledby="keywords-heading">
-            <h2 id="keywords-heading" class="text-xs text-fg-subtle uppercase tracking-wider mb-3">
-              {{ $t('package.keywords_title') }}
+          <section
+            id="keywords"
+            v-if="displayVersion?.keywords?.length"
+            aria-labelledby="keywords-heading"
+            class="scroll-mt-20"
+          >
+            <h2
+              id="keywords-heading"
+              class="group text-xs text-fg-subtle uppercase tracking-wider mb-3"
+            >
+              <a
+                href="#keywords"
+                class="inline-flex items-center gap-1.5 text-fg-subtle hover:text-fg-muted transition-colors duration-200 no-underline"
+              >
+                {{ $t('package.keywords_title') }}
+                <span
+                  class="i-carbon-link w-3 h-3 block opacity-0 group-hover:opacity-100 transition-opacity duration-200"
+                  aria-hidden="true"
+                />
+              </a>
             </h2>
             <ul class="flex flex-wrap gap-1.5 list-none m-0 p-0">
               <li v-for="keyword in displayVersion.keywords.slice(0, 15)" :key="keyword">
@@ -824,16 +879,27 @@ defineOgImageComponent('Package', {
           />
 
           <section
+            id="compatibility"
             v-if="
               displayVersion?.engines && (displayVersion.engines.node || displayVersion.engines.npm)
             "
             aria-labelledby="compatibility-heading"
+            class="scroll-mt-20"
           >
             <h2
               id="compatibility-heading"
-              class="text-xs text-fg-subtle uppercase tracking-wider mb-3"
+              class="group text-xs text-fg-subtle uppercase tracking-wider mb-3"
             >
-              {{ $t('package.compatibility') }}
+              <a
+                href="#compatibility"
+                class="inline-flex items-center gap-1.5 text-fg-subtle hover:text-fg-muted transition-colors duration-200 no-underline"
+              >
+                {{ $t('package.compatibility') }}
+                <span
+                  class="i-carbon-link w-3 h-3 block opacity-0 group-hover:opacity-100 transition-opacity duration-200"
+                  aria-hidden="true"
+                />
+              </a>
             </h2>
             <dl class="space-y-2">
               <div v-if="displayVersion.engines.node" class="flex justify-between gap-4 py-1">
@@ -882,12 +948,16 @@ defineOgImageComponent('Package', {
             :peer-dependencies-meta="displayVersion?.peerDependenciesMeta"
             :optional-dependencies="displayVersion?.optionalDependencies"
           />
-        </div>
+        </aside>
       </div>
     </article>
 
     <!-- Error state -->
-    <div v-else-if="status === 'error'" role="alert" class="py-20 text-center">
+    <div
+      v-else-if="status === 'error'"
+      role="alert"
+      class="flex flex-col items-center py-20 text-center"
+    >
       <h1 class="font-mono text-2xl font-medium mb-4">{{ $t('package.not_found') }}</h1>
       <p class="text-fg-muted mb-8">
         {{ error?.message ?? $t('package.not_found_message') }}
@@ -896,3 +966,91 @@ defineOgImageComponent('Package', {
     </div>
   </main>
 </template>
+
+<style scoped>
+.package-page {
+  display: grid;
+  gap: 2rem;
+
+  /* Mobile: single column, sidebar above readme */
+  grid-template-columns: minmax(0, 1fr);
+  grid-template-areas:
+    'header'
+    'install'
+    'vulns'
+    'sidebar'
+    'readme';
+}
+
+/* Tablet/medium: header/install/vulns full width, readme+sidebar side by side */
+@media (min-width: 1024px) {
+  .package-page {
+    grid-template-columns: 2fr 1fr;
+    grid-template-areas:
+      'header  header'
+      'install install'
+      'vulns   vulns'
+      'readme  sidebar';
+  }
+}
+
+/* Desktop: floating sidebar alongside all content */
+@media (min-width: 1280px) {
+  .package-page {
+    grid-template-columns: 1fr 20rem;
+    grid-template-areas:
+      'header  sidebar'
+      'install sidebar'
+      'vulns   sidebar'
+      'readme  sidebar';
+  }
+}
+
+.area-header {
+  grid-area: header;
+}
+.area-install {
+  grid-area: install;
+}
+.area-vulns {
+  grid-area: vulns;
+}
+.area-readme {
+  grid-area: readme;
+}
+.area-sidebar {
+  grid-area: sidebar;
+}
+
+/* Improve package name wrapping for narrow screens */
+.area-header h1 {
+  overflow-wrap: anywhere;
+}
+
+/* Ensure description text wraps properly */
+.area-header p {
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+  word-break: break-word;
+}
+
+/* Allow install command text to break on narrow screens */
+.area-install code {
+  word-break: break-word;
+  overflow-wrap: anywhere;
+  white-space: pre-wrap;
+}
+
+/* Ensure all text content wraps on narrow screens */
+.package-page {
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+  max-width: 100%;
+}
+
+/* Ensure all children respect max-width */
+.package-page > * {
+  max-width: 100%;
+  min-width: 0;
+}
+</style>
