@@ -77,7 +77,7 @@ export function usePackageListPreferences() {
   }
 
   function resetColumns() {
-    preferences.value.columns = [...DEFAULT_COLUMNS]
+    preferences.value.columns = DEFAULT_COLUMNS.map(col => ({ ...col }))
     save()
   }
 

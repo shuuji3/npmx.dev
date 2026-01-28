@@ -56,41 +56,62 @@ const hasMoreKeywords = computed(() => {
 })
 
 // i18n mappings for filter options
-const scopeLabelKey: Record<string, string> = {
+const scopeLabelKeys = {
   name: 'filters.scope_name',
   description: 'filters.scope_description',
   keywords: 'filters.scope_keywords',
   all: 'filters.scope_all',
-}
+} as const
 
-const scopeDescriptionKey: Record<string, string> = {
+const scopeDescriptionKeys = {
   name: 'filters.scope_name_description',
   description: 'filters.scope_description_description',
   keywords: 'filters.scope_keywords_description',
   all: 'filters.scope_all_description',
-}
+} as const
 
-const downloadRangeLabelKey: Record<string, string> = {
+const downloadRangeLabelKeys = {
   'any': 'filters.download_range.any',
   'lt100': 'filters.download_range.lt100',
   '100-1k': 'filters.download_range.100_1k',
   '1k-10k': 'filters.download_range.1k_10k',
   '10k-100k': 'filters.download_range.10k_100k',
   'gt100k': 'filters.download_range.gt100k',
-}
+} as const
 
-const updatedWithinLabelKey: Record<string, string> = {
+const updatedWithinLabelKeys = {
   any: 'filters.updated.any',
   week: 'filters.updated.week',
   month: 'filters.updated.month',
   quarter: 'filters.updated.quarter',
   year: 'filters.updated.year',
-}
+} as const
 
-const securityLabelKey: Record<string, string> = {
+const securityLabelKeys = {
   all: 'filters.security_options.all',
   secure: 'filters.security_options.secure',
   warnings: 'filters.security_options.insecure',
+} as const
+
+// Type-safe accessor functions
+function getScopeLabelKey(value: SearchScope): string {
+  return scopeLabelKeys[value]
+}
+
+function getScopeDescriptionKey(value: SearchScope): string {
+  return scopeDescriptionKeys[value]
+}
+
+function getDownloadRangeLabelKey(value: DownloadRange): string {
+  return downloadRangeLabelKeys[value]
+}
+
+function getUpdatedWithinLabelKey(value: UpdatedWithin): string {
+  return updatedWithinLabelKeys[value]
+}
+
+function getSecurityLabelKey(value: SecurityFilter): string {
+  return securityLabelKeys[value]
 }
 
 function handleTextInput(event: Event) {
@@ -195,10 +216,10 @@ const hasActiveFilters = computed(() => !!filterSummary.value)
                     : 'text-fg-muted hover:text-fg'
                 "
                 :aria-pressed="filters.searchScope === option.value"
-                :title="$t(scopeDescriptionKey[option.value])"
+                :title="$t(getScopeDescriptionKey(option.value))"
                 @click="emit('update:searchScope', option.value)"
               >
-                {{ $t(scopeLabelKey[option.value]) }}
+                {{ $t(getScopeLabelKey(option.value)) }}
               </button>
             </div>
           </div>
@@ -232,7 +253,7 @@ const hasActiveFilters = computed(() => !!filterSummary.value)
               :class="filters.downloadRange === range.value ? 'bg-fg text-bg border-fg' : ''"
               @click="emit('update:downloadRange', range.value)"
             >
-              {{ $t(downloadRangeLabelKey[range.value]) }}
+              {{ $t(getDownloadRangeLabelKey(range.value)) }}
             </button>
           </div>
         </fieldset>
@@ -257,7 +278,7 @@ const hasActiveFilters = computed(() => !!filterSummary.value)
               :class="filters.updatedWithin === option.value ? 'bg-fg text-bg border-fg' : ''"
               @click="emit('update:updatedWithin', option.value)"
             >
-              {{ $t(updatedWithinLabelKey[option.value]) }}
+              {{ $t(getUpdatedWithinLabelKey(option.value)) }}
             </button>
           </div>
         </fieldset>
@@ -281,7 +302,7 @@ const hasActiveFilters = computed(() => !!filterSummary.value)
               class="tag transition-colors duration-200 opacity-50 cursor-not-allowed"
               :class="filters.security === option.value ? 'bg-fg text-bg border-fg' : ''"
             >
-              {{ $t(securityLabelKey[option.value]) }}
+              {{ $t(getSecurityLabelKey(option.value)) }}
             </button>
           </div>
         </fieldset>

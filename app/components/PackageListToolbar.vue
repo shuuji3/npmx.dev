@@ -80,7 +80,7 @@ function handleToggleDirection() {
 }
 
 // Map sort key to i18n key
-const sortKeyLabelKey: Record<string, string> = {
+const sortKeyLabelKeys: Record<SortKey, string> = {
   'downloads-week': 'filters.sort.downloads_week',
   'downloads-day': 'filters.sort.downloads_day',
   'downloads-month': 'filters.sort.downloads_month',
@@ -91,6 +91,10 @@ const sortKeyLabelKey: Record<string, string> = {
   'popularity': 'filters.sort.popularity',
   'maintenance': 'filters.sort.maintenance',
   'score': 'filters.sort.score',
+}
+
+function getSortKeyLabelKey(key: SortKey): string {
+  return sortKeyLabelKeys[key]
 }
 </script>
 
@@ -141,7 +145,7 @@ const sortKeyLabelKey: Record<string, string> = {
                 :value="keyConfig.key"
                 :disabled="keyConfig.disabled"
               >
-                {{ $t(sortKeyLabelKey[keyConfig.key])
+                {{ $t(getSortKeyLabelKey(keyConfig.key))
                 }}{{ keyConfig.disabled ? ` (${$t('filters.columns.coming_soon')})` : '' }}
               </option>
             </select>

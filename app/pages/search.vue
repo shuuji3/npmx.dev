@@ -177,21 +177,22 @@ const {
   setSort,
 } = useStructuredFilters({
   packages: resultsArray,
-  initialSort: 'score', // Default to search relevance (combined score)
+  initialSort: 'score-desc', // Default to search relevance (combined score)
 })
 
 // Client-side filtered/sorted results for display
 const displayResults = computed(() => {
-  // Only apply client-side filtering if filters are active
+  // Check if any client-side filters are active (including text filter from filter panel)
   const hasActiveClientFilters =
+    filters.value.text !== '' ||
     filters.value.downloadRange !== 'any' ||
     filters.value.keywords.length > 0 ||
     filters.value.security !== 'all' ||
     filters.value.updatedWithin !== 'any'
 
-  // Don't apply text filter here as that's the main search query
-  if (!hasActiveClientFilters && sortOption.value === 'score') {
-    // Return original server-sorted results
+  // When using default score sort (search relevance) and no client filters,
+  // return original server-sorted results to preserve search ranking
+  if (!hasActiveClientFilters && sortOption.value === 'score-desc') {
     return resultsArray.value
   }
 

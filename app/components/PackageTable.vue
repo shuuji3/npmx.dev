@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import type { NpmSearchResult } from '~~/shared/types/npm-registry'
-import type { ColumnConfig, SortKey, SortOption } from '~~/shared/types/preferences'
+import type { ColumnConfig, ColumnId, SortKey, SortOption } from '~~/shared/types/preferences'
 import { buildSortOption, parseSortOption, toggleDirection } from '~~/shared/types/preferences'
 
 const props = defineProps<{
@@ -84,7 +84,7 @@ function toggleSort(id: string) {
 const { t } = useI18n()
 
 // Map column IDs to i18n keys
-const columnLabelKey: Record<string, string> = {
+const columnLabelKeys: Record<ColumnId, string> = {
   name: 'filters.columns.name',
   version: 'filters.columns.version',
   description: 'filters.columns.description',
@@ -97,6 +97,10 @@ const columnLabelKey: Record<string, string> = {
   maintenanceScore: 'filters.columns.maintenance_score',
   combinedScore: 'filters.columns.combined_score',
   security: 'filters.columns.security',
+}
+
+function getColumnLabelKey(id: ColumnId): string {
+  return columnLabelKeys[id]
 }
 </script>
 
@@ -126,7 +130,7 @@ const columnLabelKey: Record<string, string> = {
             @keydown.space.prevent="toggleSort('name')"
           >
             <span class="inline-flex items-center gap-1">
-              {{ $t(columnLabelKey['name']) }}
+              {{ $t(getColumnLabelKey('name')) }}
               <template v-if="isSortable('name')">
                 <span
                   v-if="isColumnSorted('name')"
@@ -144,7 +148,7 @@ const columnLabelKey: Record<string, string> = {
             scope="col"
             class="py-3 px-3 text-xs font-mono font-medium text-fg-muted uppercase tracking-wider"
           >
-            {{ $t(columnLabelKey['version']) }}
+            {{ $t(getColumnLabelKey('version')) }}
           </th>
 
           <th
@@ -152,7 +156,7 @@ const columnLabelKey: Record<string, string> = {
             scope="col"
             class="py-3 px-3 text-xs font-mono font-medium text-fg-muted uppercase tracking-wider"
           >
-            {{ $t(columnLabelKey['description']) }}
+            {{ $t(getColumnLabelKey('description')) }}
           </th>
 
           <th
@@ -177,7 +181,7 @@ const columnLabelKey: Record<string, string> = {
             @keydown.space.prevent="toggleSort('downloads')"
           >
             <span class="inline-flex items-center gap-1 justify-end">
-              {{ $t(columnLabelKey['downloads']) }}
+              {{ $t(getColumnLabelKey('downloads')) }}
               <template v-if="isSortable('downloads')">
                 <span
                   v-if="isColumnSorted('downloads')"
@@ -211,7 +215,7 @@ const columnLabelKey: Record<string, string> = {
             @keydown.space.prevent="toggleSort('updated')"
           >
             <span class="inline-flex items-center gap-1">
-              {{ $t(columnLabelKey['updated']) }}
+              {{ $t(getColumnLabelKey('updated')) }}
               <template v-if="isSortable('updated')">
                 <span
                   v-if="isColumnSorted('updated')"
@@ -229,7 +233,7 @@ const columnLabelKey: Record<string, string> = {
             scope="col"
             class="py-3 px-3 text-xs font-mono font-medium text-fg-muted uppercase tracking-wider"
           >
-            {{ $t(columnLabelKey['maintainers']) }}
+            {{ $t(getColumnLabelKey('maintainers')) }}
           </th>
 
           <th
@@ -237,7 +241,7 @@ const columnLabelKey: Record<string, string> = {
             scope="col"
             class="py-3 px-3 text-xs font-mono font-medium text-fg-muted uppercase tracking-wider"
           >
-            {{ $t(columnLabelKey['keywords']) }}
+            {{ $t(getColumnLabelKey('keywords')) }}
           </th>
 
           <th
@@ -245,7 +249,7 @@ const columnLabelKey: Record<string, string> = {
             scope="col"
             class="py-3 px-3 text-xs font-mono font-medium text-fg-muted uppercase tracking-wider text-right"
           >
-            {{ $t(columnLabelKey['qualityScore']) }}
+            {{ $t(getColumnLabelKey('qualityScore')) }}
           </th>
 
           <th
@@ -253,7 +257,7 @@ const columnLabelKey: Record<string, string> = {
             scope="col"
             class="py-3 px-3 text-xs font-mono font-medium text-fg-muted uppercase tracking-wider text-right"
           >
-            {{ $t(columnLabelKey['popularityScore']) }}
+            {{ $t(getColumnLabelKey('popularityScore')) }}
           </th>
 
           <th
@@ -261,7 +265,7 @@ const columnLabelKey: Record<string, string> = {
             scope="col"
             class="py-3 px-3 text-xs font-mono font-medium text-fg-muted uppercase tracking-wider text-right"
           >
-            {{ $t(columnLabelKey['maintenanceScore']) }}
+            {{ $t(getColumnLabelKey('maintenanceScore')) }}
           </th>
 
           <th
@@ -269,7 +273,7 @@ const columnLabelKey: Record<string, string> = {
             scope="col"
             class="py-3 px-3 text-xs font-mono font-medium text-fg-muted uppercase tracking-wider text-right"
           >
-            {{ $t(columnLabelKey['combinedScore']) }}
+            {{ $t(getColumnLabelKey('combinedScore')) }}
           </th>
 
           <th
@@ -277,7 +281,7 @@ const columnLabelKey: Record<string, string> = {
             scope="col"
             class="py-3 px-3 text-xs font-mono font-medium text-fg-muted uppercase tracking-wider"
           >
-            {{ $t(columnLabelKey['security']) }}
+            {{ $t(getColumnLabelKey('security')) }}
           </th>
         </tr>
       </thead>

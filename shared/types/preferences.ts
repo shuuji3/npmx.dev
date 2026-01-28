@@ -199,14 +199,33 @@ export const SORT_KEYS: SortKeyConfig[] = [
   },
 ]
 
+/** All valid sort keys for validation */
+const VALID_SORT_KEYS: SortKey[] = new Set([
+  'downloads-week',
+  'downloads-day',
+  'downloads-month',
+  'downloads-year',
+  'updated',
+  'name',
+  'quality',
+  'popularity',
+  'maintenance',
+  'score',
+])
+
 /** Parse a SortOption into key and direction */
 export function parseSortOption(option: SortOption): { key: SortKey; direction: SortDirection } {
   const match = option.match(/^(.+)-(asc|desc)$/)
   if (match) {
-    return { key: match[1] as SortKey, direction: match[2] as SortDirection }
+    const key = match[1]
+    const direction = match[2] as SortDirection
+    // Validate that the key is a known sort key
+    if (VALID_SORT_KEYS.has(key as SortKey)) {
+      return { key: key as SortKey, direction }
+    }
   }
-  // Fallback for old format without direction
-  return { key: option as unknown as SortKey, direction: 'desc' }
+  // Fallback to default sort option
+  return { key: 'downloads-week', direction: 'desc' }
 }
 
 /** Build a SortOption from key and direction */

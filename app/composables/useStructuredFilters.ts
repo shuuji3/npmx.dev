@@ -50,6 +50,8 @@ export function parseSearchOperators(input: string): ParsedSearchOperators {
 
   while ((match = operatorRegex.exec(input)) !== null) {
     const [fullMatch, operator, value] = match
+    if (!operator || !value) continue
+
     const values = value
       .split(',')
       .map(v => v.trim())

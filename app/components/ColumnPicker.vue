@@ -11,12 +11,16 @@ const emit = defineEmits<{
 }>()
 
 const isOpen = ref(false)
-const buttonRef = ref<HTMLButtonElement>()
+const buttonRef = useTemplateRef('buttonRef')
+const menuRef = useTemplateRef('menuRef')
 const menuId = useId()
 
-// Close on click outside
+// Close on click outside (check both button and menu)
 function handleClickOutside(event: MouseEvent) {
-  if (buttonRef.value && !buttonRef.value.contains(event.target as Node)) {
+  const target = event.target as Node
+  const isOutsideButton = buttonRef.value && !buttonRef.value.contains(target)
+  const isOutsideMenu = !menuRef.value || !menuRef.value.contains(target)
+  if (isOutsideButton && isOutsideMenu) {
     isOpen.value = false
   }
 }
@@ -89,11 +93,11 @@ function handleReset() {
     <Transition name="dropdown">
       <div
         v-if="isOpen"
+        ref="menuRef"
         :id="menuId"
         class="absolute right-0 mt-2 w-56 bg-bg-subtle border border-border rounded-lg shadow-lg z-20"
         role="group"
         :aria-label="$t('filters.columns.show')"
-        @click.stop
       >
         <div class="py-1">
           <div

@@ -234,7 +234,7 @@ defineExpose({
       v-if="results.length === 0 && !isLoading && viewMode !== 'table'"
       class="py-12 text-center text-fg-subtle font-mono text-sm"
     >
-      No packages found
+      {{ $t('filters.table.no_packages') }}
     </p>
   </div>
 </template>
