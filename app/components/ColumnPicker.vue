@@ -46,8 +46,6 @@ onUnmounted(() => {
 // Columns that can be toggled (name is always visible)
 const toggleableColumns = computed(() => props.columns.filter(col => col.id !== 'name'))
 
-const { t } = useI18n()
-
 // Map column IDs to i18n keys
 const columnLabelKey: Record<string, string> = {
   name: 'filters.columns.name',
@@ -66,7 +64,7 @@ const columnLabelKey: Record<string, string> = {
 
 function getColumnLabel(id: string): string {
   const key = columnLabelKey[id]
-  return key ? t(key) : id
+  return key ? $t(key) : id
 }
 
 function handleReset() {

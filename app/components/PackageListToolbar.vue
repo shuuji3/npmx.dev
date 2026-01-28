@@ -59,8 +59,6 @@ const viewMode = computed({
 
 const showingFiltered = computed(() => props.filteredCount !== props.totalCount)
 
-const { t } = useI18n()
-
 // Parse current sort option into key and direction
 const currentSort = computed(() => parseSortOption(props.sortOption))
 

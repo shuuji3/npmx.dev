@@ -81,8 +81,6 @@ function toggleSort(id: string) {
   }
 }
 
-const { t } = useI18n()
-
 // Map column IDs to i18n keys
 const columnLabelKeys: Record<ColumnId, string> = {
   name: 'filters.columns.name',

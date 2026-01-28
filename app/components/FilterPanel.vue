@@ -29,7 +29,6 @@ const emit = defineEmits<{
 
 const isExpanded = ref(false)
 const showAllKeywords = ref(false)
-const { t } = useI18n()
 
 const displayedKeywords = computed(() => {
   const keywords = props.availableKeywords ?? []
@@ -39,15 +38,15 @@ const displayedKeywords = computed(() => {
 const searchPlaceholder = computed(() => {
   switch (props.filters.searchScope) {
     case 'name':
-      return t('filters.search_placeholder_name')
+      return $t('filters.search_placeholder_name')
     case 'description':
-      return t('filters.search_placeholder_description')
+      return $t('filters.search_placeholder_description')
     case 'keywords':
-      return t('filters.search_placeholder_keywords')
+      return $t('filters.search_placeholder_keywords')
     case 'all':
-      return t('filters.search_placeholder_all')
+      return $t('filters.search_placeholder_all')
     default:
-      return t('filters.search_placeholder_name')
+      return $t('filters.search_placeholder_name')
   }
 })
 
