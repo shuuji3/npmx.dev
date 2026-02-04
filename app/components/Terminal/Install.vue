@@ -112,18 +112,20 @@ const copyCreateCommand = () => copyCreate(getFullCreateCommand())
           :data-pm-cmd="pm.id"
           class="flex items-center gap-2 group/installcmd min-w-0"
         >
-          <span class="text-fg-subtle font-mono text-sm select-none shrink-0">$</span>
-          <code class="font-mono text-sm min-w-0"
-            ><span
-              v-for="(part, i) in getInstallPartsForPM(pm.id)"
-              :key="i"
-              :class="i === 0 ? 'text-fg' : 'text-fg-muted'"
-              >{{ i > 0 ? ' ' : '' }}{{ part }}</span
-            ></code
-          >
+          <code class="flex gap-2 font-mono text-sm min-w-0">
+            <span class="text-fg-subtle font-mono text-sm select-none shrink-0">$</span>
+            <span class="whitespace-pre-wrap break-all">
+              <span
+                v-for="(part, i) in getInstallPartsForPM(pm.id)"
+                :key="i"
+                :class="i === 0 ? 'text-fg' : 'text-fg-muted'"
+                >{{ i > 0 ? ' ' : '' }}{{ part }}</span
+              >
+            </span>
+          </code>
           <button
             type="button"
-            class="px-2 py-0.5 font-mono text-xs text-fg-muted bg-bg-subtle/80 border border-border rounded transition-colors duration-200 opacity-0 group-hover/installcmd:opacity-100 hover:(text-fg border-border-hover) active:scale-95 focus-visible:opacity-100 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-fg/50"
+            class="flex px-2 py-0.5 min-w-24 font-mono text-xs text-fg-muted bg-bg-subtle/80 border border-border rounded transition-colors duration-200 opacity-0 group-hover/installcmd:opacity-100 hover:(text-fg border-border-hover) active:scale-95 focus-visible:opacity-100 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-fg/50"
             :aria-label="$t('package.get_started.copy_command')"
             @click.stop="copyInstallCommand"
           >
