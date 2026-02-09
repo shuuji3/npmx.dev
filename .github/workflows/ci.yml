@@ -84,12 +84,12 @@ jobs:
         run: pnpm install
 
       - name: 🧪 Unit tests
-        run: pnpm test:unit run --coverage --reporter=default --reporter=junit --outputFile=test-report.junit.xml --reporter=html
+        run: pnpm test:unit run --coverage --reporter=default --reporter=junit --outputFile=test-report-unit.junit.xml --reporter=html --outputDir=html-unit
 
       - name: 📝 Test Summary
         uses: test-summary/action@31493c76ec9e7aa675f1585d3ed6f1da69269a86 # v2.4
         with:
-          paths: 'test-report.junit.xml'
+          paths: 'test-report-unit.junit.xml'
         if: always()
 
       - name: ⬆︎ Upload unit test report
@@ -97,7 +97,7 @@ jobs:
         uses: actions/upload-artifact@b7c566a772e6b6bfb58ed0dc250532a479d7789f # v6.0.0
         with:
           name: unit-test-report
-          path: html/
+          path: html-unit/
 
       - name: ⬆︎ Upload test results to Codecov
         if: ${{ !cancelled() }}
@@ -128,12 +128,12 @@ jobs:
         run: pnpm playwright install chromium-headless-shell
 
       - name: 🧪 Component tests
-        run: pnpm test:nuxt run --coverage --reporter=default --reporter=junit --outputFile=test-report.junit.xml --reporter=html
+        run: pnpm test:nuxt run --coverage --reporter=default --reporter=junit --outputFile=test-report-component.junit.xml --reporter=html --outputDir=html--component
 
       - name: 📝 Test Summary
         uses: test-summary/action@31493c76ec9e7aa675f1585d3ed6f1da69269a86 # v2.4
         with:
-          paths: 'test-report.junit.xml'
+          paths: 'test-report-component.junit.xml'
         if: always()
 
       - name: ⬆︎ Upload component test report
@@ -141,7 +141,7 @@ jobs:
         uses: actions/upload-artifact@b7c566a772e6b6bfb58ed0dc250532a479d7789f # v6.0.0
         with:
           name: component-test-report
-          path: html/
+          path: html-component/
 
       - name: ⬆︎ Upload coverage reports to Codecov
         uses: codecov/codecov-action@671740ac38dd9b0130fbe1cec585b89eea48d3de # v5
