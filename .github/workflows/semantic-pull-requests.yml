@@ -15,7 +15,7 @@ jobs:
       contents: read
       pull-requests: read # for amannn/action-semantic-pull-request to analyze PRs
       statuses: write # for amannn/action-semantic-pull-request to mark status of analyzed PR
-    if: github.repository == 'npmx-dev/npmx.dev'
+    if: github.repository == 'shuuji3/npmx.dev'
     runs-on: ubuntu-slim
     name: 🏷️ Validate PR title
     steps:
