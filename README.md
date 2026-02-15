@@ -1,6 +1,5 @@
 pr title check test
 
-
 # npmx.dev
 
 > A fast, modern browser for the npm registry.
