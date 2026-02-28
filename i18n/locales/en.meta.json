@@ -26,8 +26,8 @@
         "commit": "f7e5460c3c8aac851b3f5a209096ebee1a2346fe"
       },
       "description": {
-        "text": "a fast, modern browser for the npm registry. Search, browse, and explore packages with a modern interface.",
-        "commit": "f7e5460c3c8aac851b3f5a209096ebee1a2346fe"
+        "text": "a fast, modern browser for the npm registry.",
+        "commit": "3fa279c9fb09ce6520e47d6099358a7b812b2429"
       },
       "new key": {
         "text": "new value",
