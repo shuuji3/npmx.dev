@@ -15,15 +15,15 @@
             },
             "description": {
               "type": "string"
+            },
+            "new key": {
+              "type": "string"
             }
           },
           "additionalProperties": false
         }
       },
       "additionalProperties": false
-    },
-    "built_at": {
-      "type": "string"
     },
     "alt_logo": {
       "type": "string"
