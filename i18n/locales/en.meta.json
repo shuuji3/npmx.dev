@@ -3,10 +3,6 @@
     "text": "../schema.json",
     "commit": "f7e5460c3c8aac851b3f5a209096ebee1a2346fe"
   },
-  "built_at": {
-    "text": "built {0}",
-    "commit": "f7e5460c3c8aac851b3f5a209096ebee1a2346fe"
-  },
   "alt_logo": {
     "text": "npmx logo",
     "commit": "f7e5460c3c8aac851b3f5a209096ebee1a2346fe"
@@ -32,6 +28,10 @@
       "description": {
         "text": "a fast, modern browser for the npm registry. Search, browse, and explore packages with a modern interface.",
         "commit": "f7e5460c3c8aac851b3f5a209096ebee1a2346fe"
+      },
+      "new key": {
+        "text": "new value",
+        "commit": "2739f14e6ce35c1a7dde17cf195075e94a09c6f1"
       }
     }
   },
