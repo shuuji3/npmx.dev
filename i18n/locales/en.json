@@ -3,7 +3,7 @@
   "seo": {
     "home": {
       "title": "npmx - Package Browser for the npm Registry",
-      "description": "a fast, modern browser for the npm registry. Search, browse, and explore packages with a modern interface.",
+      "description": "a fast, modern browser for the npm registry.",
       "new key": "new value"
     }
   },
