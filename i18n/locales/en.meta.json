@@ -1,0 +1,4180 @@
+{
+  "$meta": {
+    "last_updated_commit": "fb6e8269f2312471e2cadbead53542187432ffd7",
+    "updated_at": "2026-03-01T09:36:08.287Z"
+  },
+  "$schema": {
+    "text": "../schema.json",
+    "commit": "fb6e8269f2312471e2cadbead53542187432ffd7"
+  },
+  "built_at": {
+    "text": "built {0}",
+    "commit": "fb6e8269f2312471e2cadbead53542187432ffd7"
+  },
+  "alt_logo": {
+    "text": "npmx logo",
+    "commit": "fb6e8269f2312471e2cadbead53542187432ffd7"
+  },
+  "tagline": {
+    "text": "a better browser for the npm registry",
+    "commit": "fb6e8269f2312471e2cadbead53542187432ffd7"
+  },
+  "non_affiliation_disclaimer": {
+    "text": "not affiliated with npm, Inc.",
+    "commit": "fb6e8269f2312471e2cadbead53542187432ffd7"
+  },
+  "trademark_disclaimer": {
+    "text": "npm is a registered trademark of npm, Inc. This site is not affiliated with npm, Inc.",
+    "commit": "fb6e8269f2312471e2cadbead53542187432ffd7"
+  },
+  "seo": {
+    "home": {
+      "title": {
+        "text": "npmx - Package Browser for the npm Registry",
+        "commit": "fb6e8269f2312471e2cadbead53542187432ffd7"
+      },
+      "description": {
+        "text": "a better browser for the npm registry. Search, browse, and explore packages with a modern interface.",
+        "commit": "fb6e8269f2312471e2cadbead53542187432ffd7"
+      }
+    }
+  },
+  "footer": {
+    "about": {
+      "text": "about",
+      "commit": "fb6e8269f2312471e2cadbead53542187432ffd7"
+    },
+    "docs": {
+      "text": "docs",
+      "commit": "fb6e8269f2312471e2cadbead53542187432ffd7"
+    },
+    "source": {
+      "text": "source",
+      "commit": "fb6e8269f2312471e2cadbead53542187432ffd7"
+    },
+    "social": {
+      "text": "social",
+      "commit": "fb6e8269f2312471e2cadbead53542187432ffd7"
+    },
+    "chat": {
+      "text": "chat",
+      "commit": "fb6e8269f2312471e2cadbead53542187432ffd7"
+    },
+    "keyboard_shortcuts": {
+      "text": "keyboard shortcuts",
+      "commit": "fb6e8269f2312471e2cadbead53542187432ffd7"
+    }
+  },
+  "shortcuts": {
+    "section": {
+      "global": {
+        "text": "Global",
+        "commit": "fb6e8269f2312471e2cadbead53542187432ffd7"
+      },
+      "search": {
+        "text": "Search",
+        "commit": "fb6e8269f2312471e2cadbead53542187432ffd7"
+      },
+      "package": {
+        "text": "Package",
+        "commit": "fb6e8269f2312471e2cadbead53542187432ffd7"
+      }
+    },
+    "focus_search": {
+      "text": "Focus search",
+      "commit": "fb6e8269f2312471e2cadbead53542187432ffd7"
+    },
+    "show_kbd_hints": {
+      "text": "Highlight keyboard hints",
+      "commit": "fb6e8269f2312471e2cadbead53542187432ffd7"
+    },
+    "settings": {
+      "text": "Open settings",
+      "commit": "fb6e8269f2312471e2cadbead53542187432ffd7"
+    },
+    "compare": {
+      "text": "Open compare",
+      "commit": "fb6e8269f2312471e2cadbead53542187432ffd7"
+    },
+    "compare_from_package": {
+      "text": "Open compare (prefilled with current package)",
+      "commit": "fb6e8269f2312471e2cadbead53542187432ffd7"
+    },
+    "navigate_results": {
+      "text": "Navigate results",
+      "commit": "fb6e8269f2312471e2cadbead53542187432ffd7"
+    },
+    "go_to_result": {
+      "text": "Go to result",
+      "commit": "fb6e8269f2312471e2cadbead53542187432ffd7"
+    },
+    "open_code_view": {
+      "text": "Open code view",
+      "commit": "fb6e8269f2312471e2cadbead53542187432ffd7"
+    },
+    "open_docs": {
+      "text": "Open docs",
+      "commit": "fb6e8269f2312471e2cadbead53542187432ffd7"
+    },
+    "disable_shortcuts": {
+      "text": "You can disable keyboard shortcuts in {settings}.",
+      "commit": "fb6e8269f2312471e2cadbead53542187432ffd7"
+    }
+  },
+  "search": {
+    "label": {
+      "text": "Search npm packages",
+      "commit": "fb6e8269f2312471e2cadbead53542187432ffd7"
+    },
+    "placeholder": {
+      "text": "search packages...",
+      "commit": "fb6e8269f2312471e2cadbead53542187432ffd7"
+    },
+    "button": {
+      "text": "search",
+      "commit": "fb6e8269f2312471e2cadbead53542187432ffd7"
+    },
+    "searching": {
+      "text": "Searching...",
+      "commit": "fb6e8269f2312471e2cadbead53542187432ffd7"
+    },
+    "found_packages": {
+      "text": "No packages found | Found 1 package | Found {count} packages",
+      "commit": "fb6e8269f2312471e2cadbead53542187432ffd7"
+    },
+    "found_packages_sorted": {
+      "text": "No results found | Sorting top {count} result | Sorting top {count} results",
+      "commit": "fb6e8269f2312471e2cadbead53542187432ffd7"
+    },
+    "updating": {
+      "text": "(updating...)",
+      "commit": "fb6e8269f2312471e2cadbead53542187432ffd7"
+    },
+    "no_results": {
+      "text": "No packages found for \"{query}\"",
+      "commit": "fb6e8269f2312471e2cadbead53542187432ffd7"
+    },
+    "rate_limited": {
+      "text": "Hit npm rate limit, try again in a moment",
+      "commit": "fb6e8269f2312471e2cadbead53542187432ffd7"
+    },
+    "title": {
+      "text": "search",
+      "commit": "fb6e8269f2312471e2cadbead53542187432ffd7"
+    },
+    "title_search": {
+      "text": "search: {search}",
+      "commit": "fb6e8269f2312471e2cadbead53542187432ffd7"
+    },
+    "title_packages": {
+      "text": "search packages",
+      "commit": "fb6e8269f2312471e2cadbead53542187432ffd7"
+    },
+    "meta_description": {
+      "text": "Search results for '{search}'",
+      "commit": "fb6e8269f2312471e2cadbead53542187432ffd7"
+    },
+    "meta_description_packages": {
+      "text": "Search npm packages",
+      "commit": "fb6e8269f2312471e2cadbead53542187432ffd7"
+    },
+    "not_taken": {
+      "text": "{name} is not taken",
+      "commit": "fb6e8269f2312471e2cadbead53542187432ffd7"
+    },
+    "claim_prompt": {
+      "text": "Claim this package name on npm",
+      "commit": "fb6e8269f2312471e2cadbead53542187432ffd7"
+    },
+    "claim_button": {
+      "text": "Claim \"{name}\"",
+      "commit": "fb6e8269f2312471e2cadbead53542187432ffd7"
+    },
+    "want_to_claim": {
+      "text": "Want to claim this package name?",
+      "commit": "fb6e8269f2312471e2cadbead53542187432ffd7"
+    },
+    "start_typing": {
+      "text": "Start typing to search packages",
+      "commit": "fb6e8269f2312471e2cadbead53542187432ffd7"
+    },
+    "algolia_disclaimer": {
+      "text": "Powered by Algolia",
+      "commit": "fb6e8269f2312471e2cadbead53542187432ffd7"
+    },
+    "exact_match": {
+      "text": "exact",
+      "commit": "fb6e8269f2312471e2cadbead53542187432ffd7"
+    },
+    "suggestion": {
+      "user": {
+        "text": "user",
+        "commit": "fb6e8269f2312471e2cadbead53542187432ffd7"
+      },
+      "org": {
+        "text": "org",
+        "commit": "fb6e8269f2312471e2cadbead53542187432ffd7"
+      },
+      "view_user_packages": {
+        "text": "View packages by this user",
+        "commit": "fb6e8269f2312471e2cadbead53542187432ffd7"
+      },
+      "view_org_packages": {
+        "text": "View packages by this organization",
+        "commit": "fb6e8269f2312471e2cadbead53542187432ffd7"
+      }
+    }
+  },
+  "nav": {
+    "main_navigation": {
+      "text": "Main",
+      "commit": "fb6e8269f2312471e2cadbead53542187432ffd7"
+    },
+    "popular_packages": {
+      "text": "Popular packages",
+      "commit": "fb6e8269f2312471e2cadbead53542187432ffd7"
+    },
+    "settings": {
+      "text": "settings",
+      "commit": "fb6e8269f2312471e2cadbead53542187432ffd7"
+    },
+    "compare": {
+      "text": "compare",
+      "commit": "fb6e8269f2312471e2cadbead53542187432ffd7"
+    },
+    "back": {
+      "text": "back",
+      "commit": "fb6e8269f2312471e2cadbead53542187432ffd7"
+    },
+    "menu": {
+      "text": "Menu",
+      "commit": "fb6e8269f2312471e2cadbead53542187432ffd7"
+    },
+    "mobile_menu": {
+      "text": "Navigation menu",
+      "commit": "fb6e8269f2312471e2cadbead53542187432ffd7"
+    },
+    "open_menu": {
+      "text": "Open menu",
+      "commit": "fb6e8269f2312471e2cadbead53542187432ffd7"
+    },
+    "links": {
+      "text": "Links",
+      "commit": "fb6e8269f2312471e2cadbead53542187432ffd7"
+    },
+    "tap_to_search": {
+      "text": "Tap to search",
+      "commit": "fb6e8269f2312471e2cadbead53542187432ffd7"
+    }
+  },
+  "settings": {
+    "title": {
+      "text": "settings",
+      "commit": "fb6e8269f2312471e2cadbead53542187432ffd7"
+    },
+    "tagline": {
+      "text": "customize your npmx experience",
+      "commit": "fb6e8269f2312471e2cadbead53542187432ffd7"
+    },
+    "meta_description": {
+      "text": "Customize your npmx.dev experience with theme, language, and display preferences.",
+      "commit": "fb6e8269f2312471e2cadbead53542187432ffd7"
+    },
+    "sections": {
+      "appearance": {
+        "text": "Appearance",
+        "commit": "fb6e8269f2312471e2cadbead53542187432ffd7"
+      },
+      "display": {
+        "text": "Display",
+        "commit": "fb6e8269f2312471e2cadbead53542187432ffd7"
+      },
+      "search": {
+        "text": "Data source",
+        "commit": "fb6e8269f2312471e2cadbead53542187432ffd7"
+      },
+      "language": {
+        "text": "Language",
+        "commit": "fb6e8269f2312471e2cadbead53542187432ffd7"
+      },
+      "keyboard_shortcuts": {
+        "text": "Keyboard shortcuts",
+        "commit": "fb6e8269f2312471e2cadbead53542187432ffd7"
+      }
+    },
+    "data_source": {
+      "label": {
+        "text": "Data source",
+        "commit": "fb6e8269f2312471e2cadbead53542187432ffd7"
+      },
+      "description": {
+        "text": "Choose where npmx gets search data. Individual package pages always use the npm registry directly.",
+        "commit": "fb6e8269f2312471e2cadbead53542187432ffd7"
+      },
+      "npm": {
+        "text": "npm Registry",
+        "commit": "fb6e8269f2312471e2cadbead53542187432ffd7"
+      },
+      "npm_description": {
+        "text": "Fetches search, org and user listings directly from the official npm registry. Authoritative, but can be slower.",
+        "commit": "fb6e8269f2312471e2cadbead53542187432ffd7"
+      },
+      "algolia": {
+        "text": "Algolia",
+        "commit": "fb6e8269f2312471e2cadbead53542187432ffd7"
+      },
+      "algolia_description": {
+        "text": "Uses Algolia for faster search, org and user pages.",
+        "commit": "fb6e8269f2312471e2cadbead53542187432ffd7"
+      }
+    },
+    "relative_dates": {
+      "text": "Relative dates",
+      "commit": "fb6e8269f2312471e2cadbead53542187432ffd7"
+    },
+    "include_types": {
+      "text": "Include {'@'}types in install",
+      "commit": "fb6e8269f2312471e2cadbead53542187432ffd7"
+    },
+    "include_types_description": {
+      "text": "Add {'@'}types package to install commands for untyped packages",
+      "commit": "fb6e8269f2312471e2cadbead53542187432ffd7"
+    },
+    "hide_platform_packages": {
+      "text": "Hide platform-specific packages in search",
+      "commit": "fb6e8269f2312471e2cadbead53542187432ffd7"
+    },
+    "hide_platform_packages_description": {
+      "text": "Hide native binary packages like {'@'}esbuild/linux-x64 from results",
+      "commit": "fb6e8269f2312471e2cadbead53542187432ffd7"
+    },
+    "theme": {
+      "text": "Theme",
+      "commit": "fb6e8269f2312471e2cadbead53542187432ffd7"
+    },
+    "theme_light": {
+      "text": "Light",
+      "commit": "fb6e8269f2312471e2cadbead53542187432ffd7"
+    },
+    "theme_dark": {
+      "text": "Dark",
+      "commit": "fb6e8269f2312471e2cadbead53542187432ffd7"
+    },
+    "theme_system": {
+      "text": "System",
+      "commit": "fb6e8269f2312471e2cadbead53542187432ffd7"
+    },
+    "language": {
+      "text": "Language",
+      "commit": "fb6e8269f2312471e2cadbead53542187432ffd7"
+    },
+    "help_translate": {
+      "text": "Help translate npmx",
+      "commit": "fb6e8269f2312471e2cadbead53542187432ffd7"
+    },
+    "accent_colors": {
+      "text": "Accent colors",
+      "commit": "fb6e8269f2312471e2cadbead53542187432ffd7"
+    },
+    "clear_accent": {
+      "text": "Clear accent color",
+      "commit": "fb6e8269f2312471e2cadbead53542187432ffd7"
+    },
+    "translation_progress": {
+      "text": "Translation progress",
+      "commit": "fb6e8269f2312471e2cadbead53542187432ffd7"
+    },
+    "background_themes": {
+      "text": "Background shade",
+      "commit": "fb6e8269f2312471e2cadbead53542187432ffd7"
+    },
+    "keyboard_shortcuts_enabled": {
+      "text": "Enable keyboard shortcuts",
+      "commit": "fb6e8269f2312471e2cadbead53542187432ffd7"
+    },
+    "keyboard_shortcuts_enabled_description": {
+      "text": "Keyboard shortcuts can be disabled if they conflict with other browser or system shortcuts",
+      "commit": "fb6e8269f2312471e2cadbead53542187432ffd7"
+    }
+  },
+  "i18n": {
+    "missing_keys": {
+      "text": "{count} missing translation | {count} missing translations",
+      "commit": "fb6e8269f2312471e2cadbead53542187432ffd7"
+    },
+    "copy_keys": {
+      "text": "Copy keys",
+      "commit": "fb6e8269f2312471e2cadbead53542187432ffd7"
+    },
+    "show_more_keys": {
+      "text": "Show {count} more...",
+      "commit": "fb6e8269f2312471e2cadbead53542187432ffd7"
+    },
+    "contribute_hint": {
+      "text": "Help improve this translation by adding the missing keys.",
+      "commit": "fb6e8269f2312471e2cadbead53542187432ffd7"
+    },
+    "edit_on_github": {
+      "text": "Edit on GitHub",
+      "commit": "fb6e8269f2312471e2cadbead53542187432ffd7"
+    },
+    "view_guide": {
+      "text": "Translation guide",
+      "commit": "fb6e8269f2312471e2cadbead53542187432ffd7"
+    }
+  },
+  "common": {
+    "loading": {
+      "text": "Loading...",
+      "commit": "fb6e8269f2312471e2cadbead53542187432ffd7"
+    },
+    "loading_more": {
+      "text": "Loading more...",
+      "commit": "fb6e8269f2312471e2cadbead53542187432ffd7"
+    },
+    "loading_packages": {
+      "text": "Loading packages...",
+      "commit": "fb6e8269f2312471e2cadbead53542187432ffd7"
+    },
+    "end_of_results": {
+      "text": "End of results",
+      "commit": "fb6e8269f2312471e2cadbead53542187432ffd7"
+    },
+    "try_again": {
+      "text": "Try again",
+      "commit": "fb6e8269f2312471e2cadbead53542187432ffd7"
+    },
+    "close": {
+      "text": "Close",
+      "commit": "fb6e8269f2312471e2cadbead53542187432ffd7"
+    },
+    "or": {
+      "text": "or",
+      "commit": "fb6e8269f2312471e2cadbead53542187432ffd7"
+    },
+    "retry": {
+      "text": "Retry",
+      "commit": "fb6e8269f2312471e2cadbead53542187432ffd7"
+    },
+    "copy": {
+      "text": "copy",
+      "commit": "fb6e8269f2312471e2cadbead53542187432ffd7"
+    },
+    "copied": {
+      "text": "copied!",
+      "commit": "fb6e8269f2312471e2cadbead53542187432ffd7"
+    },
+    "skip_link": {
+      "text": "Skip to main content",
+      "commit": "fb6e8269f2312471e2cadbead53542187432ffd7"
+    },
+    "warnings": {
+      "text": "Warnings:",
+      "commit": "fb6e8269f2312471e2cadbead53542187432ffd7"
+    },
+    "go_back_home": {
+      "text": "Go back home",
+      "commit": "fb6e8269f2312471e2cadbead53542187432ffd7"
+    },
+    "view_on_npm": {
+      "text": "view on npm",
+      "commit": "fb6e8269f2312471e2cadbead53542187432ffd7"
+    },
+    "per_week": {
+      "text": "/ week",
+      "commit": "fb6e8269f2312471e2cadbead53542187432ffd7"
+    },
+    "vanity_downloads_hint": {
+      "text": "Vanity number: no packages displayed | Vanity number: for the displayed package | Vanity number: Sum of {count} displayed packages",
+      "commit": "fb6e8269f2312471e2cadbead53542187432ffd7"
+    },
+    "sort": {
+      "name": {
+        "text": "name",
+        "commit": "fb6e8269f2312471e2cadbead53542187432ffd7"
+      },
+      "role": {
+        "text": "role",
+        "commit": "fb6e8269f2312471e2cadbead53542187432ffd7"
+      },
+      "members": {
+        "text": "members",
+        "commit": "fb6e8269f2312471e2cadbead53542187432ffd7"
+      }
+    },
+    "scroll_to_top": {
+      "text": "Scroll to top",
+      "commit": "fb6e8269f2312471e2cadbead53542187432ffd7"
+    },
+    "cancel": {
+      "text": "Cancel",
+      "commit": "fb6e8269f2312471e2cadbead53542187432ffd7"
+    },
+    "save": {
+      "text": "Save",
+      "commit": "fb6e8269f2312471e2cadbead53542187432ffd7"
+    },
+    "edit": {
+      "text": "Edit",
+      "commit": "fb6e8269f2312471e2cadbead53542187432ffd7"
+    },
+    "error": {
+      "text": "Error",
+      "commit": "fb6e8269f2312471e2cadbead53542187432ffd7"
+    }
+  },
+  "profile": {
+    "display_name": {
+      "text": "Display Name",
+      "commit": "fb6e8269f2312471e2cadbead53542187432ffd7"
+    },
+    "description": {
+      "text": "Description",
+      "commit": "fb6e8269f2312471e2cadbead53542187432ffd7"
+    },
+    "no_description": {
+      "text": "No description",
+      "commit": "fb6e8269f2312471e2cadbead53542187432ffd7"
+    },
+    "website": {
+      "text": "Website",
+      "commit": "fb6e8269f2312471e2cadbead53542187432ffd7"
+    },
+    "website_placeholder": {
+      "text": "https://example.com",
+      "commit": "fb6e8269f2312471e2cadbead53542187432ffd7"
+    },
+    "likes": {
+      "text": "Likes",
+      "commit": "fb6e8269f2312471e2cadbead53542187432ffd7"
+    },
+    "seo_title": {
+      "text": "{handle} - npmx",
+      "commit": "fb6e8269f2312471e2cadbead53542187432ffd7"
+    },
+    "seo_description": {
+      "text": "npmx profile by {handle}",
+      "commit": "fb6e8269f2312471e2cadbead53542187432ffd7"
+    },
+    "not_found": {
+      "text": "Profile Not Found",
+      "commit": "fb6e8269f2312471e2cadbead53542187432ffd7"
+    },
+    "not_found_message": {
+      "text": "The profile for {handle} could not be found.",
+      "commit": "fb6e8269f2312471e2cadbead53542187432ffd7"
+    },
+    "invite": {
+      "message": {
+        "text": "It doesn't look like they're using npmx yet. Want to tell them about it?",
+        "commit": "fb6e8269f2312471e2cadbead53542187432ffd7"
+      },
+      "share_button": {
+        "text": "Share on Bluesky",
+        "commit": "fb6e8269f2312471e2cadbead53542187432ffd7"
+      },
+      "compose_text": {
+        "text": "Hey {'@'}{handle}! Have you checked out npmx.dev yet? It's a browser for the npm registry that's fast, modern, and open-source.\nhttps://npmx.dev",
+        "commit": "fb6e8269f2312471e2cadbead53542187432ffd7"
+      }
+    }
+  },
+  "package": {
+    "not_found": {
+      "text": "Package Not Found",
+      "commit": "fb6e8269f2312471e2cadbead53542187432ffd7"
+    },
+    "not_found_message": {
+      "text": "The package could not be found.",
+      "commit": "fb6e8269f2312471e2cadbead53542187432ffd7"
+    },
+    "no_description": {
+      "text": "No description provided",
+      "commit": "fb6e8269f2312471e2cadbead53542187432ffd7"
+    },
+    "not_latest": {
+      "text": "(not latest)",
+      "commit": "fb6e8269f2312471e2cadbead53542187432ffd7"
+    },
+    "verified_provenance": {
+      "text": "Verified provenance",
+      "commit": "fb6e8269f2312471e2cadbead53542187432ffd7"
+    },
+    "view_permalink": {
+      "text": "View permalink for this version",
+      "commit": "fb6e8269f2312471e2cadbead53542187432ffd7"
+    },
+    "navigation": {
+      "text": "Package",
+      "commit": "fb6e8269f2312471e2cadbead53542187432ffd7"
+    },
+    "copy_name": {
+      "text": "Copy package name",
+      "commit": "fb6e8269f2312471e2cadbead53542187432ffd7"
+    },
+    "copy_version": {
+      "text": "Copy package version",
+      "commit": "fb6e8269f2312471e2cadbead53542187432ffd7"
+    },
+    "deprecation": {
+      "package": {
+        "text": "This package has been deprecated.",
+        "commit": "fb6e8269f2312471e2cadbead53542187432ffd7"
+      },
+      "version": {
+        "text": "This version has been deprecated.",
+        "commit": "fb6e8269f2312471e2cadbead53542187432ffd7"
+      },
+      "no_reason": {
+        "text": "No reason provided",
+        "commit": "fb6e8269f2312471e2cadbead53542187432ffd7"
+      }
+    },
+    "size_increase": {
+      "title_size": {
+        "text": "Significant size increase since v{version}",
+        "commit": "fb6e8269f2312471e2cadbead53542187432ffd7"
+      },
+      "title_deps": {
+        "text": "Significant dependency count increase since v{version}",
+        "commit": "fb6e8269f2312471e2cadbead53542187432ffd7"
+      },
+      "title_both": {
+        "text": "Significant size and dependency increase since v{version}",
+        "commit": "fb6e8269f2312471e2cadbead53542187432ffd7"
+      },
+      "size": {
+        "text": "Install size increased by {percent} ({size} larger)",
+        "commit": "fb6e8269f2312471e2cadbead53542187432ffd7"
+      },
+      "deps": {
+        "text": "{count} more dependencies",
+        "commit": "fb6e8269f2312471e2cadbead53542187432ffd7"
+      }
+    },
+    "replacement": {
+      "title": {
+        "text": "You might not need this dependency.",
+        "commit": "fb6e8269f2312471e2cadbead53542187432ffd7"
+      },
+      "native": {
+        "text": "This can be replaced with {replacement}, available since Node {nodeVersion}.",
+        "commit": "fb6e8269f2312471e2cadbead53542187432ffd7"
+      },
+      "simple": {
+        "text": "The {community} has flagged this package as redundant, with the advice: {replacement}.",
+        "commit": "fb6e8269f2312471e2cadbead53542187432ffd7"
+      },
+      "documented": {
+        "text": "The {community} has flagged this package as having more performant alternatives.",
+        "commit": "fb6e8269f2312471e2cadbead53542187432ffd7"
+      },
+      "none": {
+        "text": "This package has been flagged as no longer needed, and its functionality is likely available natively in all engines.",
+        "commit": "fb6e8269f2312471e2cadbead53542187432ffd7"
+      },
+      "learn_more": {
+        "text": "Learn more",
+        "commit": "fb6e8269f2312471e2cadbead53542187432ffd7"
+      },
+      "learn_more_above": {
+        "text": "Learn more above.",
+        "commit": "fb6e8269f2312471e2cadbead53542187432ffd7"
+      },
+      "mdn": {
+        "text": "MDN",
+        "commit": "fb6e8269f2312471e2cadbead53542187432ffd7"
+      },
+      "community": {
+        "text": "community",
+        "commit": "fb6e8269f2312471e2cadbead53542187432ffd7"
+      },
+      "consider_no_dep": {
+        "text": "+ Consider no dep?",
+        "commit": "fb6e8269f2312471e2cadbead53542187432ffd7"
+      }
+    },
+    "stats": {
+      "license": {
+        "text": "License",
+        "commit": "fb6e8269f2312471e2cadbead53542187432ffd7"
+      },
+      "deps": {
+        "text": "Deps",
+        "commit": "fb6e8269f2312471e2cadbead53542187432ffd7"
+      },
+      "install_size": {
+        "text": "Install Size",
+        "commit": "fb6e8269f2312471e2cadbead53542187432ffd7"
+      },
+      "vulns": {
+        "text": "Vulns",
+        "commit": "fb6e8269f2312471e2cadbead53542187432ffd7"
+      },
+      "published": {
+        "text": "Published",
+        "commit": "fb6e8269f2312471e2cadbead53542187432ffd7"
+      },
+      "published_tooltip": {
+        "text": "Date {package}{'@'}{version} was published",
+        "commit": "fb6e8269f2312471e2cadbead53542187432ffd7"
+      },
+      "view_dependency_graph": {
+        "text": "View dependency graph",
+        "commit": "fb6e8269f2312471e2cadbead53542187432ffd7"
+      },
+      "inspect_dependency_tree": {
+        "text": "Inspect dependency tree",
+        "commit": "fb6e8269f2312471e2cadbead53542187432ffd7"
+      },
+      "size_tooltip": {
+        "unpacked": {
+          "text": "{size} unpacked size (this package)",
+          "commit": "fb6e8269f2312471e2cadbead53542187432ffd7"
+        },
+        "total": {
+          "text": "{size} total unpacked size (including {count} dependency for linux-x64) | {size} total unpacked size (including all {count} dependencies for linux-x64)",
+          "commit": "fb6e8269f2312471e2cadbead53542187432ffd7"
+        }
+      }
+    },
+    "skills": {
+      "title": {
+        "text": "Agent Skills",
+        "commit": "fb6e8269f2312471e2cadbead53542187432ffd7"
+      },
+      "skills_available": {
+        "text": "{count} skill available | {count} skills available",
+        "commit": "fb6e8269f2312471e2cadbead53542187432ffd7"
+      },
+      "compatible_with": {
+        "text": "Compatible with {tool}",
+        "commit": "fb6e8269f2312471e2cadbead53542187432ffd7"
+      },
+      "install": {
+        "text": "Install",
+        "commit": "fb6e8269f2312471e2cadbead53542187432ffd7"
+      },
+      "installation_method": {
+        "text": "Installation method",
+        "commit": "fb6e8269f2312471e2cadbead53542187432ffd7"
+      },
+      "learn_more": {
+        "text": "Learn more",
+        "commit": "fb6e8269f2312471e2cadbead53542187432ffd7"
+      },
+      "available_skills": {
+        "text": "Available Skills",
+        "commit": "fb6e8269f2312471e2cadbead53542187432ffd7"
+      },
+      "click_to_expand": {
+        "text": "Click to expand",
+        "commit": "fb6e8269f2312471e2cadbead53542187432ffd7"
+      },
+      "no_description": {
+        "text": "No description",
+        "commit": "fb6e8269f2312471e2cadbead53542187432ffd7"
+      },
+      "file_counts": {
+        "scripts": {
+          "text": "{count} script | {count} scripts",
+          "commit": "fb6e8269f2312471e2cadbead53542187432ffd7"
+        },
+        "refs": {
+          "text": "{count} ref | {count} refs",
+          "commit": "fb6e8269f2312471e2cadbead53542187432ffd7"
+        },
+        "assets": {
+          "text": "{count} asset | {count} assets",
+          "commit": "fb6e8269f2312471e2cadbead53542187432ffd7"
+        }
+      },
+      "view_source": {
+        "text": "View source",
+        "commit": "fb6e8269f2312471e2cadbead53542187432ffd7"
+      }
+    },
+    "links": {
+      "repo": {
+        "text": "repo",
+        "commit": "fb6e8269f2312471e2cadbead53542187432ffd7"
+      },
+      "homepage": {
+        "text": "homepage",
+        "commit": "fb6e8269f2312471e2cadbead53542187432ffd7"
+      },
+      "issues": {
+        "text": "issues",
+        "commit": "fb6e8269f2312471e2cadbead53542187432ffd7"
+      },
+      "jsr": {
+        "text": "jsr",
+        "commit": "fb6e8269f2312471e2cadbead53542187432ffd7"
+      },
+      "code": {
+        "text": "code",
+        "commit": "fb6e8269f2312471e2cadbead53542187432ffd7"
+      },
+      "docs": {
+        "text": "docs",
+        "commit": "fb6e8269f2312471e2cadbead53542187432ffd7"
+      },
+      "fund": {
+        "text": "fund",
+        "commit": "fb6e8269f2312471e2cadbead53542187432ffd7"
+      },
+      "compare": {
+        "text": "compare",
+        "commit": "fb6e8269f2312471e2cadbead53542187432ffd7"
+      }
+    },
+    "likes": {
+      "like": {
+        "text": "Like this package",
+        "commit": "fb6e8269f2312471e2cadbead53542187432ffd7"
+      },
+      "unlike": {
+        "text": "Unlike this package",
+        "commit": "fb6e8269f2312471e2cadbead53542187432ffd7"
+      }
+    },
+    "docs": {
+      "not_available": {
+        "text": "Docs not available",
+        "commit": "fb6e8269f2312471e2cadbead53542187432ffd7"
+      },
+      "not_available_detail": {
+        "text": "We could not generate docs for this version.",
+        "commit": "fb6e8269f2312471e2cadbead53542187432ffd7"
+      }
+    },
+    "get_started": {
+      "title": {
+        "text": "Get started",
+        "commit": "fb6e8269f2312471e2cadbead53542187432ffd7"
+      },
+      "pm_label": {
+        "text": "Package manager",
+        "commit": "fb6e8269f2312471e2cadbead53542187432ffd7"
+      },
+      "copy_command": {
+        "text": "Copy install command",
+        "commit": "fb6e8269f2312471e2cadbead53542187432ffd7"
+      },
+      "copy_dev_command": {
+        "text": "Copy dev install command",
+        "commit": "fb6e8269f2312471e2cadbead53542187432ffd7"
+      },
+      "dev_dependency_hint": {
+        "text": "Usually installed as a dev dependency",
+        "commit": "fb6e8269f2312471e2cadbead53542187432ffd7"
+      },
+      "view_types": {
+        "text": "View {package}",
+        "commit": "fb6e8269f2312471e2cadbead53542187432ffd7"
+      }
+    },
+    "create": {
+      "title": {
+        "text": "Create new project",
+        "commit": "fb6e8269f2312471e2cadbead53542187432ffd7"
+      },
+      "copy_command": {
+        "text": "Copy create command",
+        "commit": "fb6e8269f2312471e2cadbead53542187432ffd7"
+      },
+      "view": {
+        "text": "{packageName} has the same maintainer. Click for more details.",
+        "commit": "fb6e8269f2312471e2cadbead53542187432ffd7"
+      }
+    },
+    "run": {
+      "title": {
+        "text": "Run",
+        "commit": "fb6e8269f2312471e2cadbead53542187432ffd7"
+      },
+      "locally": {
+        "text": "Run locally",
+        "commit": "fb6e8269f2312471e2cadbead53542187432ffd7"
+      }
+    },
+    "readme": {
+      "title": {
+        "text": "Readme",
+        "commit": "fb6e8269f2312471e2cadbead53542187432ffd7"
+      },
+      "no_readme": {
+        "text": "No README available.",
+        "commit": "fb6e8269f2312471e2cadbead53542187432ffd7"
+      },
+      "view_on_github": {
+        "text": "View on GitHub",
+        "commit": "fb6e8269f2312471e2cadbead53542187432ffd7"
+      },
+      "toc_title": {
+        "text": "Outline",
+        "commit": "fb6e8269f2312471e2cadbead53542187432ffd7"
+      },
+      "callout": {
+        "note": {
+          "text": "Note",
+          "commit": "fb6e8269f2312471e2cadbead53542187432ffd7"
+        },
+        "tip": {
+          "text": "Tip",
+          "commit": "fb6e8269f2312471e2cadbead53542187432ffd7"
+        },
+        "important": {
+          "text": "Important",
+          "commit": "fb6e8269f2312471e2cadbead53542187432ffd7"
+        },
+        "warning": {
+          "text": "Warning",
+          "commit": "fb6e8269f2312471e2cadbead53542187432ffd7"
+        },
+        "caution": {
+          "text": "Caution",
+          "commit": "fb6e8269f2312471e2cadbead53542187432ffd7"
+        }
+      },
+      "copy_as_markdown": {
+        "text": "Copy README as Markdown",
+        "commit": "fb6e8269f2312471e2cadbead53542187432ffd7"
+      }
+    },
+    "provenance_section": {
+      "title": {
+        "text": "Provenance",
+        "commit": "fb6e8269f2312471e2cadbead53542187432ffd7"
+      },
+      "built_and_signed_on": {
+        "text": "Built and signed on {provider}",
+        "commit": "fb6e8269f2312471e2cadbead53542187432ffd7"
+      },
+      "view_build_summary": {
+        "text": "View build summary",
+        "commit": "fb6e8269f2312471e2cadbead53542187432ffd7"
+      },
+      "source_commit": {
+        "text": "Source Commit",
+        "commit": "fb6e8269f2312471e2cadbead53542187432ffd7"
+      },
+      "build_file": {
+        "text": "Build File",
+        "commit": "fb6e8269f2312471e2cadbead53542187432ffd7"
+      },
+      "public_ledger": {
+        "text": "Public Ledger",
+        "commit": "fb6e8269f2312471e2cadbead53542187432ffd7"
+      },
+      "transparency_log_entry": {
+        "text": "Transparency log entry",
+        "commit": "fb6e8269f2312471e2cadbead53542187432ffd7"
+      },
+      "view_more_details": {
+        "text": "View more details",
+        "commit": "fb6e8269f2312471e2cadbead53542187432ffd7"
+      },
+      "error_loading": {
+        "text": "Failed to load provenance details",
+        "commit": "fb6e8269f2312471e2cadbead53542187432ffd7"
+      }
+    },
+    "security_downgrade": {
+      "title": {
+        "text": "Trust downgrade",
+        "commit": "fb6e8269f2312471e2cadbead53542187432ffd7"
+      },
+      "description_to_none_provenance": {
+        "text": "This version was published without {provenance}.",
+        "commit": "fb6e8269f2312471e2cadbead53542187432ffd7"
+      },
+      "description_to_none_trustedPublisher": {
+        "text": "This version was published without {trustedPublishing}.",
+        "commit": "fb6e8269f2312471e2cadbead53542187432ffd7"
+      },
+      "description_to_provenance_trustedPublisher": {
+        "text": "This version uses {provenance} but not {trustedPublishing}.",
+        "commit": "fb6e8269f2312471e2cadbead53542187432ffd7"
+      },
+      "fallback_install_provenance": {
+        "text": "Install commands are pinned to {version}, the last version with provenance.",
+        "commit": "fb6e8269f2312471e2cadbead53542187432ffd7"
+      },
+      "fallback_install_trustedPublisher": {
+        "text": "Install commands are pinned to {version}, the last version with trusted publishing.",
+        "commit": "fb6e8269f2312471e2cadbead53542187432ffd7"
+      },
+      "provenance_link_text": {
+        "text": "provenance",
+        "commit": "fb6e8269f2312471e2cadbead53542187432ffd7"
+      },
+      "trusted_publishing_link_text": {
+        "text": "trusted publishing",
+        "commit": "fb6e8269f2312471e2cadbead53542187432ffd7"
+      }
+    },
+    "keywords_title": {
+      "text": "Keywords",
+      "commit": "fb6e8269f2312471e2cadbead53542187432ffd7"
+    },
+    "compatibility": {
+      "text": "Compatibility",
+      "commit": "fb6e8269f2312471e2cadbead53542187432ffd7"
+    },
+    "card": {
+      "publisher": {
+        "text": "Publisher",
+        "commit": "fb6e8269f2312471e2cadbead53542187432ffd7"
+      },
+      "published": {
+        "text": "Published",
+        "commit": "fb6e8269f2312471e2cadbead53542187432ffd7"
+      },
+      "weekly_downloads": {
+        "text": "Weekly downloads",
+        "commit": "fb6e8269f2312471e2cadbead53542187432ffd7"
+      },
+      "keywords": {
+        "text": "Keywords",
+        "commit": "fb6e8269f2312471e2cadbead53542187432ffd7"
+      },
+      "license": {
+        "text": "License",
+        "commit": "fb6e8269f2312471e2cadbead53542187432ffd7"
+      }
+    },
+    "versions": {
+      "title": {
+        "text": "Versions",
+        "commit": "fb6e8269f2312471e2cadbead53542187432ffd7"
+      },
+      "collapse": {
+        "text": "Collapse {tag}",
+        "commit": "fb6e8269f2312471e2cadbead53542187432ffd7"
+      },
+      "expand": {
+        "text": "Expand {tag}",
+        "commit": "fb6e8269f2312471e2cadbead53542187432ffd7"
+      },
+      "collapse_other": {
+        "text": "Collapse other versions",
+        "commit": "fb6e8269f2312471e2cadbead53542187432ffd7"
+      },
+      "expand_other": {
+        "text": "Expand other versions",
+        "commit": "fb6e8269f2312471e2cadbead53542187432ffd7"
+      },
+      "collapse_major": {
+        "text": "Collapse major {major}",
+        "commit": "fb6e8269f2312471e2cadbead53542187432ffd7"
+      },
+      "expand_major": {
+        "text": "Expand major {major}",
+        "commit": "fb6e8269f2312471e2cadbead53542187432ffd7"
+      },
+      "other_versions": {
+        "text": "Other versions",
+        "commit": "fb6e8269f2312471e2cadbead53542187432ffd7"
+      },
+      "more_tagged": {
+        "text": "{count} more tagged",
+        "commit": "fb6e8269f2312471e2cadbead53542187432ffd7"
+      },
+      "all_covered": {
+        "text": "All versions are covered by tags above",
+        "commit": "fb6e8269f2312471e2cadbead53542187432ffd7"
+      },
+      "deprecated_title": {
+        "text": "{version} (deprecated)",
+        "commit": "fb6e8269f2312471e2cadbead53542187432ffd7"
+      },
+      "view_all": {
+        "text": "View {count} version | View all {count} versions",
+        "commit": "fb6e8269f2312471e2cadbead53542187432ffd7"
+      },
+      "distribution_title": {
+        "text": "Semver Group",
+        "commit": "fb6e8269f2312471e2cadbead53542187432ffd7"
+      },
+      "distribution_modal_title": {
+        "text": "Versions",
+        "commit": "fb6e8269f2312471e2cadbead53542187432ffd7"
+      },
+      "distribution_range_date_same_year": {
+        "text": "from {from} to {to}, {endYear}",
+        "commit": "fb6e8269f2312471e2cadbead53542187432ffd7"
+      },
+      "distribution_range_date_multiple_years": {
+        "text": "from {from}, {startYear} to {to}, {endYear}",
+        "commit": "fb6e8269f2312471e2cadbead53542187432ffd7"
+      },
+      "grouping_major": {
+        "text": "Major",
+        "commit": "fb6e8269f2312471e2cadbead53542187432ffd7"
+      },
+      "grouping_minor": {
+        "text": "Minor",
+        "commit": "fb6e8269f2312471e2cadbead53542187432ffd7"
+      },
+      "grouping_versions_title": {
+        "text": "Versions",
+        "commit": "fb6e8269f2312471e2cadbead53542187432ffd7"
+      },
+      "grouping_versions_all": {
+        "text": "All",
+        "commit": "fb6e8269f2312471e2cadbead53542187432ffd7"
+      },
+      "grouping_versions_only_recent": {
+        "text": "Only recent",
+        "commit": "fb6e8269f2312471e2cadbead53542187432ffd7"
+      },
+      "grouping_usage_title": {
+        "text": "Usage",
+        "commit": "fb6e8269f2312471e2cadbead53542187432ffd7"
+      },
+      "grouping_usage_all": {
+        "text": "All",
+        "commit": "fb6e8269f2312471e2cadbead53542187432ffd7"
+      },
+      "grouping_usage_low": {
+        "text": "Low",
+        "commit": "fb6e8269f2312471e2cadbead53542187432ffd7"
+      },
+      "recent_versions_only_tooltip": {
+        "text": "Show only versions published within the last year.",
+        "commit": "fb6e8269f2312471e2cadbead53542187432ffd7"
+      },
+      "show_low_usage_tooltip": {
+        "text": "Include version groups with less than 1% of total downloads.",
+        "commit": "fb6e8269f2312471e2cadbead53542187432ffd7"
+      },
+      "y_axis_label": {
+        "text": "Downloads",
+        "commit": "fb6e8269f2312471e2cadbead53542187432ffd7"
+      },
+      "filter_placeholder": {
+        "text": "Filter by semver (e.g. ^3.0.0)",
+        "commit": "fb6e8269f2312471e2cadbead53542187432ffd7"
+      },
+      "filter_invalid": {
+        "text": "Invalid semver range",
+        "commit": "fb6e8269f2312471e2cadbead53542187432ffd7"
+      },
+      "filter_help": {
+        "text": "Semver range filter help",
+        "commit": "fb6e8269f2312471e2cadbead53542187432ffd7"
+      },
+      "filter_tooltip": {
+        "text": "Filter versions using a {link}. For example, ^3.0.0 shows all 3.x versions.",
+        "commit": "fb6e8269f2312471e2cadbead53542187432ffd7"
+      },
+      "filter_tooltip_link": {
+        "text": "semver range",
+        "commit": "fb6e8269f2312471e2cadbead53542187432ffd7"
+      },
+      "no_matches": {
+        "text": "No versions match this range",
+        "commit": "fb6e8269f2312471e2cadbead53542187432ffd7"
+      },
+      "copy_alt": {
+        "per_version_analysis": {
+          "text": "{version} version was downloaded {downloads} times",
+          "commit": "fb6e8269f2312471e2cadbead53542187432ffd7"
+        },
+        "general_description": {
+          "text": "Bar chart showing per-version downloads for {versions_count} {semver_grouping_mode} versions of the {package_name} package, {date_range_label} from the {first_version} version to the {last_version} version. The most downloaded version is {max_downloaded_version} with {max_version_downloads} downloads. {per_version_analysis}. {watermark}.",
+          "commit": "fb6e8269f2312471e2cadbead53542187432ffd7"
+        }
+      }
+    },
+    "dependencies": {
+      "title": {
+        "text": "Dependency ({count}) | Dependencies ({count})",
+        "commit": "fb6e8269f2312471e2cadbead53542187432ffd7"
+      },
+      "list_label": {
+        "text": "Package dependencies",
+        "commit": "fb6e8269f2312471e2cadbead53542187432ffd7"
+      },
+      "show_all": {
+        "text": "show {count} dep | show all {count} deps",
+        "commit": "fb6e8269f2312471e2cadbead53542187432ffd7"
+      },
+      "optional": {
+        "text": "optional",
+        "commit": "fb6e8269f2312471e2cadbead53542187432ffd7"
+      },
+      "view_vulnerabilities": {
+        "text": "View vulnerabilities",
+        "commit": "fb6e8269f2312471e2cadbead53542187432ffd7"
+      },
+      "outdated_major": {
+        "text": "{count} major version behind (latest: {latest}) | {count} major versions behind (latest: {latest})",
+        "commit": "fb6e8269f2312471e2cadbead53542187432ffd7"
+      },
+      "outdated_minor": {
+        "text": "{count} minor version behind (latest: {latest}) | {count} minor versions behind (latest: {latest})",
+        "commit": "fb6e8269f2312471e2cadbead53542187432ffd7"
+      },
+      "outdated_patch": {
+        "text": "Patch update available (latest: {latest})",
+        "commit": "fb6e8269f2312471e2cadbead53542187432ffd7"
+      },
+      "has_replacement": {
+        "text": "This dependency has suggested replacements",
+        "commit": "fb6e8269f2312471e2cadbead53542187432ffd7"
+      }
+    },
+    "peer_dependencies": {
+      "title": {
+        "text": "Peer Dependency ({count}) | Peer Dependencies ({count})",
+        "commit": "fb6e8269f2312471e2cadbead53542187432ffd7"
+      },
+      "list_label": {
+        "text": "Package peer dependencies",
+        "commit": "fb6e8269f2312471e2cadbead53542187432ffd7"
+      },
+      "show_all": {
+        "text": "show {count} peer dep | show all {count} peer deps",
+        "commit": "fb6e8269f2312471e2cadbead53542187432ffd7"
+      }
+    },
+    "optional_dependencies": {
+      "title": {
+        "text": "Optional Dependency ({count}) | Optional Dependencies ({count})",
+        "commit": "fb6e8269f2312471e2cadbead53542187432ffd7"
+      },
+      "list_label": {
+        "text": "Package optional dependencies",
+        "commit": "fb6e8269f2312471e2cadbead53542187432ffd7"
+      },
+      "show_all": {
+        "text": "show {count} optional dep | show all {count} optional deps",
+        "commit": "fb6e8269f2312471e2cadbead53542187432ffd7"
+      }
+    },
+    "maintainers": {
+      "title": {
+        "text": "Maintainers",
+        "commit": "fb6e8269f2312471e2cadbead53542187432ffd7"
+      },
+      "list_label": {
+        "text": "Package maintainers",
+        "commit": "fb6e8269f2312471e2cadbead53542187432ffd7"
+      },
+      "you": {
+        "text": "(you)",
+        "commit": "fb6e8269f2312471e2cadbead53542187432ffd7"
+      },
+      "via": {
+        "text": "via {teams}",
+        "commit": "fb6e8269f2312471e2cadbead53542187432ffd7"
+      },
+      "remove_owner": {
+        "text": "Remove {name} as owner",
+        "commit": "fb6e8269f2312471e2cadbead53542187432ffd7"
+      },
+      "username_to_add": {
+        "text": "Username to add as owner",
+        "commit": "fb6e8269f2312471e2cadbead53542187432ffd7"
+      },
+      "username_placeholder": {
+        "text": "username...",
+        "commit": "fb6e8269f2312471e2cadbead53542187432ffd7"
+      },
+      "add_button": {
+        "text": "add",
+        "commit": "fb6e8269f2312471e2cadbead53542187432ffd7"
+      },
+      "cancel_add": {
+        "text": "Cancel adding owner",
+        "commit": "fb6e8269f2312471e2cadbead53542187432ffd7"
+      },
+      "add_owner": {
+        "text": "+ Add owner",
+        "commit": "fb6e8269f2312471e2cadbead53542187432ffd7"
+      },
+      "show_more": {
+        "text": "(show {count} more)",
+        "commit": "fb6e8269f2312471e2cadbead53542187432ffd7"
+      },
+      "show_less": {
+        "text": "(show fewer)",
+        "commit": "fb6e8269f2312471e2cadbead53542187432ffd7"
+      }
+    },
+    "trends": {
+      "granularity": {
+        "text": "Granularity",
+        "commit": "fb6e8269f2312471e2cadbead53542187432ffd7"
+      },
+      "granularity_daily": {
+        "text": "Daily",
+        "commit": "fb6e8269f2312471e2cadbead53542187432ffd7"
+      },
+      "granularity_weekly": {
+        "text": "Weekly",
+        "commit": "fb6e8269f2312471e2cadbead53542187432ffd7"
+      },
+      "granularity_monthly": {
+        "text": "Monthly",
+        "commit": "fb6e8269f2312471e2cadbead53542187432ffd7"
+      },
+      "granularity_yearly": {
+        "text": "Yearly",
+        "commit": "fb6e8269f2312471e2cadbead53542187432ffd7"
+      },
+      "start_date": {
+        "text": "Start",
+        "commit": "fb6e8269f2312471e2cadbead53542187432ffd7"
+      },
+      "end_date": {
+        "text": "End",
+        "commit": "fb6e8269f2312471e2cadbead53542187432ffd7"
+      },
+      "loading": {
+        "text": "Loading...",
+        "commit": "fb6e8269f2312471e2cadbead53542187432ffd7"
+      },
+      "date_range": {
+        "text": "{start} to {end}",
+        "commit": "fb6e8269f2312471e2cadbead53542187432ffd7"
+      },
+      "date_range_multiline": {
+        "text": "{start}\nto {end}",
+        "commit": "fb6e8269f2312471e2cadbead53542187432ffd7"
+      },
+      "download_file": {
+        "text": "Download {fileType}",
+        "commit": "fb6e8269f2312471e2cadbead53542187432ffd7"
+      },
+      "toggle_annotator": {
+        "text": "Toggle annotator",
+        "commit": "fb6e8269f2312471e2cadbead53542187432ffd7"
+      },
+      "toggle_stack_mode": {
+        "text": "Toggle stack mode",
+        "commit": "fb6e8269f2312471e2cadbead53542187432ffd7"
+      },
+      "legend_estimation": {
+        "text": "Estimation",
+        "commit": "fb6e8269f2312471e2cadbead53542187432ffd7"
+      },
+      "no_data": {
+        "text": "No data available",
+        "commit": "fb6e8269f2312471e2cadbead53542187432ffd7"
+      },
+      "y_axis_label": {
+        "text": "{granularity} {facet}",
+        "commit": "fb6e8269f2312471e2cadbead53542187432ffd7"
+      },
+      "facet": {
+        "text": "Facet",
+        "commit": "fb6e8269f2312471e2cadbead53542187432ffd7"
+      },
+      "title": {
+        "text": "Trends",
+        "commit": "fb6e8269f2312471e2cadbead53542187432ffd7"
+      },
+      "contributors_skip": {
+        "text": "Not shown in Contributors (no GitHub repo):",
+        "commit": "fb6e8269f2312471e2cadbead53542187432ffd7"
+      },
+      "items": {
+        "downloads": {
+          "text": "Downloads",
+          "commit": "fb6e8269f2312471e2cadbead53542187432ffd7"
+        },
+        "likes": {
+          "text": "Likes",
+          "commit": "fb6e8269f2312471e2cadbead53542187432ffd7"
+        },
+        "contributors": {
+          "text": "Contributors",
+          "commit": "fb6e8269f2312471e2cadbead53542187432ffd7"
+        }
+      },
+      "play_animation": {
+        "text": "Play animation",
+        "commit": "fb6e8269f2312471e2cadbead53542187432ffd7"
+      },
+      "pause_animation": {
+        "text": "Pause animation",
+        "commit": "fb6e8269f2312471e2cadbead53542187432ffd7"
+      },
+      "data_correction": {
+        "text": "Data correction",
+        "commit": "fb6e8269f2312471e2cadbead53542187432ffd7"
+      },
+      "average_window": {
+        "text": "Average window",
+        "commit": "fb6e8269f2312471e2cadbead53542187432ffd7"
+      },
+      "smoothing": {
+        "text": "Smoothing",
+        "commit": "fb6e8269f2312471e2cadbead53542187432ffd7"
+      },
+      "known_anomalies": {
+        "text": "Known anomalies",
+        "commit": "fb6e8269f2312471e2cadbead53542187432ffd7"
+      },
+      "known_anomalies_description": {
+        "text": "Interpolates over known download spikes caused by bots or CI issues.",
+        "commit": "fb6e8269f2312471e2cadbead53542187432ffd7"
+      },
+      "known_anomalies_ranges": {
+        "text": "Anomaly ranges",
+        "commit": "fb6e8269f2312471e2cadbead53542187432ffd7"
+      },
+      "known_anomalies_range": {
+        "text": "From {start} to {end}",
+        "commit": "fb6e8269f2312471e2cadbead53542187432ffd7"
+      },
+      "known_anomalies_range_named": {
+        "text": "{packageName}: from {start} to {end}",
+        "commit": "fb6e8269f2312471e2cadbead53542187432ffd7"
+      },
+      "known_anomalies_none": {
+        "text": "No known anomalies for this package. | No known anomalies for these packages.",
+        "commit": "fb6e8269f2312471e2cadbead53542187432ffd7"
+      },
+      "known_anomalies_contribute": {
+        "text": "Contribute anomaly data",
+        "commit": "fb6e8269f2312471e2cadbead53542187432ffd7"
+      },
+      "apply_correction": {
+        "text": "Apply correction",
+        "commit": "fb6e8269f2312471e2cadbead53542187432ffd7"
+      },
+      "copy_alt": {
+        "trend_none": {
+          "text": "mostly flat",
+          "commit": "fb6e8269f2312471e2cadbead53542187432ffd7"
+        },
+        "trend_strong": {
+          "text": "strong",
+          "commit": "fb6e8269f2312471e2cadbead53542187432ffd7"
+        },
+        "trend_weak": {
+          "text": "weak",
+          "commit": "fb6e8269f2312471e2cadbead53542187432ffd7"
+        },
+        "trend_undefined": {
+          "text": "undefined (insufficient data)",
+          "commit": "fb6e8269f2312471e2cadbead53542187432ffd7"
+        },
+        "button_label": {
+          "text": "Copy alt text",
+          "commit": "fb6e8269f2312471e2cadbead53542187432ffd7"
+        },
+        "watermark": {
+          "text": "At the bottom, a watermark reads \"./npmx a fast, modern browser for the npm registry\"",
+          "commit": "fb6e8269f2312471e2cadbead53542187432ffd7"
+        },
+        "analysis": {
+          "text": "{package_name} starts at {start_value} and ends at {end_value}, showing a {trend} trend with a slope of {downloads_slope} downloads per time interval",
+          "commit": "fb6e8269f2312471e2cadbead53542187432ffd7"
+        },
+        "estimation": {
+          "text": "The final value is an estimate based on partial data for the current period.",
+          "commit": "fb6e8269f2312471e2cadbead53542187432ffd7"
+        },
+        "estimations": {
+          "text": "The final values are estimates based on partial data for the current period.",
+          "commit": "fb6e8269f2312471e2cadbead53542187432ffd7"
+        },
+        "compare": {
+          "text": "Package download comparison line chart for: {packages}.",
+          "commit": "fb6e8269f2312471e2cadbead53542187432ffd7"
+        },
+        "single_package": {
+          "text": "Downloads line chart for the {package} package.",
+          "commit": "fb6e8269f2312471e2cadbead53542187432ffd7"
+        },
+        "general_description": {
+          "text": "The Y axis represents the number of downloads. The X axis represents the date range, from {start_date} to {end_date}, with a {granularity} time period.{estimation_notice} {packages_analysis}. {watermark}.",
+          "commit": "fb6e8269f2312471e2cadbead53542187432ffd7"
+        }
+      }
+    },
+    "downloads": {
+      "title": {
+        "text": "Weekly Downloads",
+        "commit": "fb6e8269f2312471e2cadbead53542187432ffd7"
+      },
+      "community_distribution": {
+        "text": "View community adoption distribution",
+        "commit": "fb6e8269f2312471e2cadbead53542187432ffd7"
+      },
+      "subtitle": {
+        "text": "Across all versions",
+        "commit": "fb6e8269f2312471e2cadbead53542187432ffd7"
+      }
+    },
+    "install_scripts": {
+      "title": {
+        "text": "Install Scripts",
+        "commit": "fb6e8269f2312471e2cadbead53542187432ffd7"
+      },
+      "script_label": {
+        "text": "(script)",
+        "commit": "fb6e8269f2312471e2cadbead53542187432ffd7"
+      },
+      "npx_packages": {
+        "text": "{count} npx package | {count} npx packages",
+        "commit": "fb6e8269f2312471e2cadbead53542187432ffd7"
+      },
+      "currently": {
+        "text": "currently {version}",
+        "commit": "fb6e8269f2312471e2cadbead53542187432ffd7"
+      }
+    },
+    "playgrounds": {
+      "title": {
+        "text": "Try it out",
+        "commit": "fb6e8269f2312471e2cadbead53542187432ffd7"
+      },
+      "choose": {
+        "text": "choose playground",
+        "commit": "fb6e8269f2312471e2cadbead53542187432ffd7"
+      }
+    },
+    "metrics": {
+      "esm": {
+        "text": "ES Modules supported",
+        "commit": "fb6e8269f2312471e2cadbead53542187432ffd7"
+      },
+      "cjs": {
+        "text": "CommonJS supported",
+        "commit": "fb6e8269f2312471e2cadbead53542187432ffd7"
+      },
+      "no_esm": {
+        "text": "No ES Modules support",
+        "commit": "fb6e8269f2312471e2cadbead53542187432ffd7"
+      },
+      "types_label": {
+        "text": "Types",
+        "commit": "fb6e8269f2312471e2cadbead53542187432ffd7"
+      },
+      "types_included": {
+        "text": "Types included",
+        "commit": "fb6e8269f2312471e2cadbead53542187432ffd7"
+      },
+      "types_available": {
+        "text": "Types available via {package}",
+        "commit": "fb6e8269f2312471e2cadbead53542187432ffd7"
+      },
+      "no_types": {
+        "text": "No TypeScript types",
+        "commit": "fb6e8269f2312471e2cadbead53542187432ffd7"
+      }
+    },
+    "license": {
+      "view_spdx": {
+        "text": "View license text on SPDX",
+        "commit": "fb6e8269f2312471e2cadbead53542187432ffd7"
+      },
+      "none": {
+        "text": "None",
+        "commit": "fb6e8269f2312471e2cadbead53542187432ffd7"
+      }
+    },
+    "vulnerabilities": {
+      "tree_found": {
+        "text": "{vulns} vulnerability in {packages}/{total} packages | {vulns} vulnerabilities in {packages}/{total} packages",
+        "commit": "fb6e8269f2312471e2cadbead53542187432ffd7"
+      },
+      "show_all_packages": {
+        "text": "show {count} affected package | show all {count} affected packages",
+        "commit": "fb6e8269f2312471e2cadbead53542187432ffd7"
+      },
+      "path": {
+        "text": "path",
+        "commit": "fb6e8269f2312471e2cadbead53542187432ffd7"
+      },
+      "more": {
+        "text": "+{count} more",
+        "commit": "fb6e8269f2312471e2cadbead53542187432ffd7"
+      },
+      "packages_failed": {
+        "text": "{count} package could not be checked | {count} packages could not be checked",
+        "commit": "fb6e8269f2312471e2cadbead53542187432ffd7"
+      },
+      "scan_failed": {
+        "text": "Could not scan for vulnerabilities",
+        "commit": "fb6e8269f2312471e2cadbead53542187432ffd7"
+      },
+      "severity": {
+        "critical": {
+          "text": "critical",
+          "commit": "fb6e8269f2312471e2cadbead53542187432ffd7"
+        },
+        "high": {
+          "text": "high",
+          "commit": "fb6e8269f2312471e2cadbead53542187432ffd7"
+        },
+        "moderate": {
+          "text": "moderate",
+          "commit": "fb6e8269f2312471e2cadbead53542187432ffd7"
+        },
+        "low": {
+          "text": "low",
+          "commit": "fb6e8269f2312471e2cadbead53542187432ffd7"
+        }
+      },
+      "fixed_in_title": {
+        "text": "Fixed in version {version}",
+        "commit": "fb6e8269f2312471e2cadbead53542187432ffd7"
+      }
+    },
+    "deprecated": {
+      "label": {
+        "text": "Deprecated",
+        "commit": "fb6e8269f2312471e2cadbead53542187432ffd7"
+      },
+      "tree_found": {
+        "text": "{count} deprecated dependency | {count} deprecated dependencies",
+        "commit": "fb6e8269f2312471e2cadbead53542187432ffd7"
+      },
+      "show_all": {
+        "text": "show {count} deprecated package | show all {count} deprecated packages",
+        "commit": "fb6e8269f2312471e2cadbead53542187432ffd7"
+      }
+    },
+    "access": {
+      "title": {
+        "text": "Team Access",
+        "commit": "fb6e8269f2312471e2cadbead53542187432ffd7"
+      },
+      "refresh": {
+        "text": "Refresh team access",
+        "commit": "fb6e8269f2312471e2cadbead53542187432ffd7"
+      },
+      "list_label": {
+        "text": "Team access list",
+        "commit": "fb6e8269f2312471e2cadbead53542187432ffd7"
+      },
+      "owner": {
+        "text": "owner",
+        "commit": "fb6e8269f2312471e2cadbead53542187432ffd7"
+      },
+      "rw": {
+        "text": "rw",
+        "commit": "fb6e8269f2312471e2cadbead53542187432ffd7"
+      },
+      "ro": {
+        "text": "ro",
+        "commit": "fb6e8269f2312471e2cadbead53542187432ffd7"
+      },
+      "revoke_access": {
+        "text": "Revoke {name} access",
+        "commit": "fb6e8269f2312471e2cadbead53542187432ffd7"
+      },
+      "no_access": {
+        "text": "No team access configured",
+        "commit": "fb6e8269f2312471e2cadbead53542187432ffd7"
+      },
+      "select_team_label": {
+        "text": "Select team",
+        "commit": "fb6e8269f2312471e2cadbead53542187432ffd7"
+      },
+      "loading_teams": {
+        "text": "Loading teams...",
+        "commit": "fb6e8269f2312471e2cadbead53542187432ffd7"
+      },
+      "select_team": {
+        "text": "Select team",
+        "commit": "fb6e8269f2312471e2cadbead53542187432ffd7"
+      },
+      "permission_label": {
+        "text": "Permission level",
+        "commit": "fb6e8269f2312471e2cadbead53542187432ffd7"
+      },
+      "permission": {
+        "read_only": {
+          "text": "read-only",
+          "commit": "fb6e8269f2312471e2cadbead53542187432ffd7"
+        },
+        "read_write": {
+          "text": "read-write",
+          "commit": "fb6e8269f2312471e2cadbead53542187432ffd7"
+        }
+      },
+      "grant_button": {
+        "text": "grant",
+        "commit": "fb6e8269f2312471e2cadbead53542187432ffd7"
+      },
+      "cancel_grant": {
+        "text": "Cancel granting access",
+        "commit": "fb6e8269f2312471e2cadbead53542187432ffd7"
+      },
+      "grant_access": {
+        "text": "+ Grant team access",
+        "commit": "fb6e8269f2312471e2cadbead53542187432ffd7"
+      }
+    },
+    "list": {
+      "filter_label": {
+        "text": "Filter packages",
+        "commit": "fb6e8269f2312471e2cadbead53542187432ffd7"
+      },
+      "filter_placeholder": {
+        "text": "Filter packages...",
+        "commit": "fb6e8269f2312471e2cadbead53542187432ffd7"
+      },
+      "sort_label": {
+        "text": "Sort packages",
+        "commit": "fb6e8269f2312471e2cadbead53542187432ffd7"
+      },
+      "showing_count": {
+        "text": "Showing {filtered} of {total} packages",
+        "commit": "fb6e8269f2312471e2cadbead53542187432ffd7"
+      }
+    },
+    "skeleton": {
+      "loading": {
+        "text": "Loading package details",
+        "commit": "fb6e8269f2312471e2cadbead53542187432ffd7"
+      },
+      "maintainers": {
+        "text": "Maintainers",
+        "commit": "fb6e8269f2312471e2cadbead53542187432ffd7"
+      },
+      "keywords": {
+        "text": "Keywords",
+        "commit": "fb6e8269f2312471e2cadbead53542187432ffd7"
+      },
+      "versions": {
+        "text": "Versions",
+        "commit": "fb6e8269f2312471e2cadbead53542187432ffd7"
+      },
+      "dependencies": {
+        "text": "Dependencies",
+        "commit": "fb6e8269f2312471e2cadbead53542187432ffd7"
+      }
+    },
+    "sort": {
+      "downloads": {
+        "text": "Most downloaded",
+        "commit": "fb6e8269f2312471e2cadbead53542187432ffd7"
+      },
+      "published": {
+        "text": "Recently published",
+        "commit": "fb6e8269f2312471e2cadbead53542187432ffd7"
+      },
+      "name_asc": {
+        "text": "Name (A-Z)",
+        "commit": "fb6e8269f2312471e2cadbead53542187432ffd7"
+      },
+      "name_desc": {
+        "text": "Name (Z-A)",
+        "commit": "fb6e8269f2312471e2cadbead53542187432ffd7"
+      }
+    },
+    "size": {
+      "b": {
+        "text": "{size} B",
+        "commit": "fb6e8269f2312471e2cadbead53542187432ffd7"
+      },
+      "kb": {
+        "text": "{size} kB",
+        "commit": "fb6e8269f2312471e2cadbead53542187432ffd7"
+      },
+      "mb": {
+        "text": "{size} MB",
+        "commit": "fb6e8269f2312471e2cadbead53542187432ffd7"
+      }
+    }
+  },
+  "connector": {
+    "modal": {
+      "title": {
+        "text": "Local Connector",
+        "commit": "fb6e8269f2312471e2cadbead53542187432ffd7"
+      },
+      "contributor_badge": {
+        "text": "Contributors only",
+        "commit": "fb6e8269f2312471e2cadbead53542187432ffd7"
+      },
+      "contributor_notice": {
+        "text": "The connector is not yet published to npm. See the {link} for how to run locally.",
+        "commit": "fb6e8269f2312471e2cadbead53542187432ffd7"
+      },
+      "contributor_link": {
+        "text": "contributing guide",
+        "commit": "fb6e8269f2312471e2cadbead53542187432ffd7"
+      },
+      "connected": {
+        "text": "Connected",
+        "commit": "fb6e8269f2312471e2cadbead53542187432ffd7"
+      },
+      "connected_as_user": {
+        "text": "Connected as ~{user}",
+        "commit": "fb6e8269f2312471e2cadbead53542187432ffd7"
+      },
+      "connected_hint": {
+        "text": "You can now manage packages and organizations from the web UI.",
+        "commit": "fb6e8269f2312471e2cadbead53542187432ffd7"
+      },
+      "disconnect": {
+        "text": "Disconnect",
+        "commit": "fb6e8269f2312471e2cadbead53542187432ffd7"
+      },
+      "run_hint": {
+        "text": "Run the connector on your machine to enable admin features.",
+        "commit": "fb6e8269f2312471e2cadbead53542187432ffd7"
+      },
+      "copy_command": {
+        "text": "Copy command",
+        "commit": "fb6e8269f2312471e2cadbead53542187432ffd7"
+      },
+      "copied": {
+        "text": "Copied",
+        "commit": "fb6e8269f2312471e2cadbead53542187432ffd7"
+      },
+      "paste_token": {
+        "text": "Then paste the token below to connect:",
+        "commit": "fb6e8269f2312471e2cadbead53542187432ffd7"
+      },
+      "token_label": {
+        "text": "Token",
+        "commit": "fb6e8269f2312471e2cadbead53542187432ffd7"
+      },
+      "token_placeholder": {
+        "text": "paste token here...",
+        "commit": "fb6e8269f2312471e2cadbead53542187432ffd7"
+      },
+      "advanced": {
+        "text": "Advanced options",
+        "commit": "fb6e8269f2312471e2cadbead53542187432ffd7"
+      },
+      "port_label": {
+        "text": "Port",
+        "commit": "fb6e8269f2312471e2cadbead53542187432ffd7"
+      },
+      "warning": {
+        "text": "WARNING",
+        "commit": "fb6e8269f2312471e2cadbead53542187432ffd7"
+      },
+      "warning_text": {
+        "text": "This allows npmx to access your npm CLI. Only connect to sites you trust.",
+        "commit": "fb6e8269f2312471e2cadbead53542187432ffd7"
+      },
+      "connect": {
+        "text": "Connect",
+        "commit": "fb6e8269f2312471e2cadbead53542187432ffd7"
+      },
+      "connecting": {
+        "text": "Connecting...",
+        "commit": "fb6e8269f2312471e2cadbead53542187432ffd7"
+      },
+      "auto_open_url": {
+        "text": "Automatically open auth page",
+        "commit": "fb6e8269f2312471e2cadbead53542187432ffd7"
+      }
+    }
+  },
+  "operations": {
+    "queue": {
+      "title": {
+        "text": "Operations Queue",
+        "commit": "fb6e8269f2312471e2cadbead53542187432ffd7"
+      },
+      "clear_all": {
+        "text": "clear all",
+        "commit": "fb6e8269f2312471e2cadbead53542187432ffd7"
+      },
+      "refresh": {
+        "text": "Refresh operations",
+        "commit": "fb6e8269f2312471e2cadbead53542187432ffd7"
+      },
+      "empty": {
+        "text": "No operations queued",
+        "commit": "fb6e8269f2312471e2cadbead53542187432ffd7"
+      },
+      "empty_hint": {
+        "text": "Add operations from package or org pages",
+        "commit": "fb6e8269f2312471e2cadbead53542187432ffd7"
+      },
+      "active_label": {
+        "text": "Active operations",
+        "commit": "fb6e8269f2312471e2cadbead53542187432ffd7"
+      },
+      "otp_required": {
+        "text": "OTP required",
+        "commit": "fb6e8269f2312471e2cadbead53542187432ffd7"
+      },
+      "otp_prompt": {
+        "text": "Enter OTP to continue",
+        "commit": "fb6e8269f2312471e2cadbead53542187432ffd7"
+      },
+      "otp_placeholder": {
+        "text": "Enter OTP code...",
+        "commit": "fb6e8269f2312471e2cadbead53542187432ffd7"
+      },
+      "otp_label": {
+        "text": "One-time password",
+        "commit": "fb6e8269f2312471e2cadbead53542187432ffd7"
+      },
+      "retry_otp": {
+        "text": "Retry with OTP",
+        "commit": "fb6e8269f2312471e2cadbead53542187432ffd7"
+      },
+      "retry_web_auth": {
+        "text": "Retry with web auth",
+        "commit": "fb6e8269f2312471e2cadbead53542187432ffd7"
+      },
+      "retrying": {
+        "text": "Retrying...",
+        "commit": "fb6e8269f2312471e2cadbead53542187432ffd7"
+      },
+      "open_web_auth": {
+        "text": "Open web auth link",
+        "commit": "fb6e8269f2312471e2cadbead53542187432ffd7"
+      },
+      "approve_operation": {
+        "text": "Approve operation",
+        "commit": "fb6e8269f2312471e2cadbead53542187432ffd7"
+      },
+      "remove_operation": {
+        "text": "Remove operation",
+        "commit": "fb6e8269f2312471e2cadbead53542187432ffd7"
+      },
+      "approve_all": {
+        "text": "Approve All",
+        "commit": "fb6e8269f2312471e2cadbead53542187432ffd7"
+      },
+      "execute": {
+        "text": "Execute",
+        "commit": "fb6e8269f2312471e2cadbead53542187432ffd7"
+      },
+      "executing": {
+        "text": "Executing...",
+        "commit": "fb6e8269f2312471e2cadbead53542187432ffd7"
+      },
+      "log": {
+        "text": "Log",
+        "commit": "fb6e8269f2312471e2cadbead53542187432ffd7"
+      },
+      "log_label": {
+        "text": "Completed operations log",
+        "commit": "fb6e8269f2312471e2cadbead53542187432ffd7"
+      },
+      "remove_from_log": {
+        "text": "Remove from log",
+        "commit": "fb6e8269f2312471e2cadbead53542187432ffd7"
+      }
+    }
+  },
+  "org": {
+    "teams": {
+      "title": {
+        "text": "Teams",
+        "commit": "fb6e8269f2312471e2cadbead53542187432ffd7"
+      },
+      "refresh": {
+        "text": "Refresh teams",
+        "commit": "fb6e8269f2312471e2cadbead53542187432ffd7"
+      },
+      "filter_label": {
+        "text": "Filter teams",
+        "commit": "fb6e8269f2312471e2cadbead53542187432ffd7"
+      },
+      "filter_placeholder": {
+        "text": "Filter teams...",
+        "commit": "fb6e8269f2312471e2cadbead53542187432ffd7"
+      },
+      "sort_by": {
+        "text": "Sort by",
+        "commit": "fb6e8269f2312471e2cadbead53542187432ffd7"
+      },
+      "loading": {
+        "text": "Loading teams...",
+        "commit": "fb6e8269f2312471e2cadbead53542187432ffd7"
+      },
+      "no_teams": {
+        "text": "No teams found",
+        "commit": "fb6e8269f2312471e2cadbead53542187432ffd7"
+      },
+      "list_label": {
+        "text": "Organization teams",
+        "commit": "fb6e8269f2312471e2cadbead53542187432ffd7"
+      },
+      "delete_team": {
+        "text": "Delete team {name}",
+        "commit": "fb6e8269f2312471e2cadbead53542187432ffd7"
+      },
+      "member_count": {
+        "text": "{count} member | {count} members",
+        "commit": "fb6e8269f2312471e2cadbead53542187432ffd7"
+      },
+      "members_of": {
+        "text": "Members of {team}",
+        "commit": "fb6e8269f2312471e2cadbead53542187432ffd7"
+      },
+      "no_members": {
+        "text": "No members",
+        "commit": "fb6e8269f2312471e2cadbead53542187432ffd7"
+      },
+      "remove_user": {
+        "text": "Remove {user} from team",
+        "commit": "fb6e8269f2312471e2cadbead53542187432ffd7"
+      },
+      "username_to_add": {
+        "text": "Username to add to {team}",
+        "commit": "fb6e8269f2312471e2cadbead53542187432ffd7"
+      },
+      "username_placeholder": {
+        "text": "username...",
+        "commit": "fb6e8269f2312471e2cadbead53542187432ffd7"
+      },
+      "add_button": {
+        "text": "add",
+        "commit": "fb6e8269f2312471e2cadbead53542187432ffd7"
+      },
+      "cancel_add_user": {
+        "text": "Cancel adding user",
+        "commit": "fb6e8269f2312471e2cadbead53542187432ffd7"
+      },
+      "add_member": {
+        "text": "+ Add member",
+        "commit": "fb6e8269f2312471e2cadbead53542187432ffd7"
+      },
+      "team_name_label": {
+        "text": "Team name",
+        "commit": "fb6e8269f2312471e2cadbead53542187432ffd7"
+      },
+      "team_name_placeholder": {
+        "text": "team-name...",
+        "commit": "fb6e8269f2312471e2cadbead53542187432ffd7"
+      },
+      "create_button": {
+        "text": "create",
+        "commit": "fb6e8269f2312471e2cadbead53542187432ffd7"
+      },
+      "no_match": {
+        "text": "No teams match \"{query}\"",
+        "commit": "fb6e8269f2312471e2cadbead53542187432ffd7"
+      },
+      "cancel_create": {
+        "text": "Cancel creating team",
+        "commit": "fb6e8269f2312471e2cadbead53542187432ffd7"
+      },
+      "create_team": {
+        "text": "+ Create team",
+        "commit": "fb6e8269f2312471e2cadbead53542187432ffd7"
+      }
+    },
+    "members": {
+      "title": {
+        "text": "Members",
+        "commit": "fb6e8269f2312471e2cadbead53542187432ffd7"
+      },
+      "refresh": {
+        "text": "Refresh members",
+        "commit": "fb6e8269f2312471e2cadbead53542187432ffd7"
+      },
+      "filter_label": {
+        "text": "Filter members",
+        "commit": "fb6e8269f2312471e2cadbead53542187432ffd7"
+      },
+      "filter_placeholder": {
+        "text": "Filter members...",
+        "commit": "fb6e8269f2312471e2cadbead53542187432ffd7"
+      },
+      "filter_by_role": {
+        "text": "Filter by role",
+        "commit": "fb6e8269f2312471e2cadbead53542187432ffd7"
+      },
+      "filter_by_team": {
+        "text": "Filter by team",
+        "commit": "fb6e8269f2312471e2cadbead53542187432ffd7"
+      },
+      "all_teams": {
+        "text": "all teams",
+        "commit": "fb6e8269f2312471e2cadbead53542187432ffd7"
+      },
+      "sort_by": {
+        "text": "Sort by",
+        "commit": "fb6e8269f2312471e2cadbead53542187432ffd7"
+      },
+      "loading": {
+        "text": "Loading members...",
+        "commit": "fb6e8269f2312471e2cadbead53542187432ffd7"
+      },
+      "no_members": {
+        "text": "No members found",
+        "commit": "fb6e8269f2312471e2cadbead53542187432ffd7"
+      },
+      "list_label": {
+        "text": "Organization members",
+        "commit": "fb6e8269f2312471e2cadbead53542187432ffd7"
+      },
+      "change_role_for": {
+        "text": "Change role for {name}",
+        "commit": "fb6e8269f2312471e2cadbead53542187432ffd7"
+      },
+      "remove_from_org": {
+        "text": "Remove {name} from org",
+        "commit": "fb6e8269f2312471e2cadbead53542187432ffd7"
+      },
+      "view_team": {
+        "text": "View {team} team",
+        "commit": "fb6e8269f2312471e2cadbead53542187432ffd7"
+      },
+      "no_match": {
+        "text": "No members match your filters",
+        "commit": "fb6e8269f2312471e2cadbead53542187432ffd7"
+      },
+      "username_label": {
+        "text": "Username",
+        "commit": "fb6e8269f2312471e2cadbead53542187432ffd7"
+      },
+      "username_placeholder": {
+        "text": "username...",
+        "commit": "fb6e8269f2312471e2cadbead53542187432ffd7"
+      },
+      "role_label": {
+        "text": "Role",
+        "commit": "fb6e8269f2312471e2cadbead53542187432ffd7"
+      },
+      "role": {
+        "all": {
+          "text": "all",
+          "commit": "fb6e8269f2312471e2cadbead53542187432ffd7"
+        },
+        "developer": {
+          "text": "developer",
+          "commit": "fb6e8269f2312471e2cadbead53542187432ffd7"
+        },
+        "admin": {
+          "text": "admin",
+          "commit": "fb6e8269f2312471e2cadbead53542187432ffd7"
+        },
+        "owner": {
+          "text": "owner",
+          "commit": "fb6e8269f2312471e2cadbead53542187432ffd7"
+        }
+      },
+      "team_label": {
+        "text": "Team",
+        "commit": "fb6e8269f2312471e2cadbead53542187432ffd7"
+      },
+      "no_team": {
+        "text": "no team",
+        "commit": "fb6e8269f2312471e2cadbead53542187432ffd7"
+      },
+      "add_button": {
+        "text": "add",
+        "commit": "fb6e8269f2312471e2cadbead53542187432ffd7"
+      },
+      "cancel_add": {
+        "text": "Cancel adding member",
+        "commit": "fb6e8269f2312471e2cadbead53542187432ffd7"
+      },
+      "add_member": {
+        "text": "+ Add member",
+        "commit": "fb6e8269f2312471e2cadbead53542187432ffd7"
+      }
+    },
+    "public_packages": {
+      "text": "{count} public package | {count} public packages",
+      "commit": "fb6e8269f2312471e2cadbead53542187432ffd7"
+    },
+    "page": {
+      "packages_title": {
+        "text": "Packages",
+        "commit": "fb6e8269f2312471e2cadbead53542187432ffd7"
+      },
+      "members_tab": {
+        "text": "Members",
+        "commit": "fb6e8269f2312471e2cadbead53542187432ffd7"
+      },
+      "teams_tab": {
+        "text": "Teams",
+        "commit": "fb6e8269f2312471e2cadbead53542187432ffd7"
+      },
+      "no_packages": {
+        "text": "No public packages found for",
+        "commit": "fb6e8269f2312471e2cadbead53542187432ffd7"
+      },
+      "no_packages_hint": {
+        "text": "This organization may not exist or has no public packages.",
+        "commit": "fb6e8269f2312471e2cadbead53542187432ffd7"
+      },
+      "failed_to_load": {
+        "text": "Failed to load organization packages",
+        "commit": "fb6e8269f2312471e2cadbead53542187432ffd7"
+      },
+      "no_match": {
+        "text": "No packages match \"{query}\"",
+        "commit": "fb6e8269f2312471e2cadbead53542187432ffd7"
+      },
+      "not_found": {
+        "text": "Organization not found",
+        "commit": "fb6e8269f2312471e2cadbead53542187432ffd7"
+      },
+      "not_found_message": {
+        "text": "The organization \"{'@'}{name}\" does not exist on npm",
+        "commit": "fb6e8269f2312471e2cadbead53542187432ffd7"
+      }
+    }
+  },
+  "user": {
+    "combobox": {
+      "add_to_org_hint": {
+        "text": "(will also add to org)",
+        "commit": "fb6e8269f2312471e2cadbead53542187432ffd7"
+      },
+      "press_enter_to_add": {
+        "text": "Press Enter to add {'@'}{username}",
+        "commit": "fb6e8269f2312471e2cadbead53542187432ffd7"
+      },
+      "default_placeholder": {
+        "text": "username...",
+        "commit": "fb6e8269f2312471e2cadbead53542187432ffd7"
+      },
+      "suggestions_label": {
+        "text": "User suggestions",
+        "commit": "fb6e8269f2312471e2cadbead53542187432ffd7"
+      }
+    },
+    "page": {
+      "packages_title": {
+        "text": "Packages",
+        "commit": "fb6e8269f2312471e2cadbead53542187432ffd7"
+      },
+      "no_packages": {
+        "text": "No public packages found for",
+        "commit": "fb6e8269f2312471e2cadbead53542187432ffd7"
+      },
+      "no_packages_hint": {
+        "text": "This user may not exist or has no public packages.",
+        "commit": "fb6e8269f2312471e2cadbead53542187432ffd7"
+      },
+      "failed_to_load": {
+        "text": "Failed to load user packages",
+        "commit": "fb6e8269f2312471e2cadbead53542187432ffd7"
+      },
+      "no_match": {
+        "text": "No packages match \"{query}\"",
+        "commit": "fb6e8269f2312471e2cadbead53542187432ffd7"
+      },
+      "filter_placeholder": {
+        "text": "Filter {count} package... | Filter {count} packages...",
+        "commit": "fb6e8269f2312471e2cadbead53542187432ffd7"
+      }
+    },
+    "orgs_page": {
+      "title": {
+        "text": "Organizations",
+        "commit": "fb6e8269f2312471e2cadbead53542187432ffd7"
+      },
+      "back_to_profile": {
+        "text": "Back to profile",
+        "commit": "fb6e8269f2312471e2cadbead53542187432ffd7"
+      },
+      "connect_required": {
+        "text": "Connect the local CLI to view your organizations.",
+        "commit": "fb6e8269f2312471e2cadbead53542187432ffd7"
+      },
+      "connect_hint_prefix": {
+        "text": "Run",
+        "commit": "fb6e8269f2312471e2cadbead53542187432ffd7"
+      },
+      "connect_hint_suffix": {
+        "text": "to get started.",
+        "commit": "fb6e8269f2312471e2cadbead53542187432ffd7"
+      },
+      "own_orgs_only": {
+        "text": "You can only view your own organizations.",
+        "commit": "fb6e8269f2312471e2cadbead53542187432ffd7"
+      },
+      "view_your_orgs": {
+        "text": "View your organizations",
+        "commit": "fb6e8269f2312471e2cadbead53542187432ffd7"
+      },
+      "loading": {
+        "text": "Loading organizations...",
+        "commit": "fb6e8269f2312471e2cadbead53542187432ffd7"
+      },
+      "empty": {
+        "text": "No organizations found.",
+        "commit": "fb6e8269f2312471e2cadbead53542187432ffd7"
+      },
+      "empty_hint": {
+        "text": "Organizations are detected from your scoped packages.",
+        "commit": "fb6e8269f2312471e2cadbead53542187432ffd7"
+      },
+      "count": {
+        "text": "{count} Organization | {count} Organizations",
+        "commit": "fb6e8269f2312471e2cadbead53542187432ffd7"
+      },
+      "packages_count": {
+        "text": "{count} package | {count} packages",
+        "commit": "fb6e8269f2312471e2cadbead53542187432ffd7"
+      }
+    }
+  },
+  "claim": {
+    "modal": {
+      "title": {
+        "text": "Claim Package Name",
+        "commit": "fb6e8269f2312471e2cadbead53542187432ffd7"
+      },
+      "success": {
+        "text": "Package claimed!",
+        "commit": "fb6e8269f2312471e2cadbead53542187432ffd7"
+      },
+      "success_detail": {
+        "text": "{name}{'@'}0.0.0 has been published to npm.",
+        "commit": "fb6e8269f2312471e2cadbead53542187432ffd7"
+      },
+      "success_hint": {
+        "text": "You can now publish new versions to this package using npm publish.",
+        "commit": "fb6e8269f2312471e2cadbead53542187432ffd7"
+      },
+      "view_package": {
+        "text": "View Package",
+        "commit": "fb6e8269f2312471e2cadbead53542187432ffd7"
+      },
+      "invalid_name": {
+        "text": "Invalid package name:",
+        "commit": "fb6e8269f2312471e2cadbead53542187432ffd7"
+      },
+      "available": {
+        "text": "This name is available!",
+        "commit": "fb6e8269f2312471e2cadbead53542187432ffd7"
+      },
+      "taken": {
+        "text": "This name is already taken.",
+        "commit": "fb6e8269f2312471e2cadbead53542187432ffd7"
+      },
+      "missing_permission": {
+        "text": "You do not have permission to add a package to scope {'@'}{scope}.",
+        "commit": "fb6e8269f2312471e2cadbead53542187432ffd7"
+      },
+      "similar_warning": {
+        "text": "Similar packages exist - npm may reject this name:",
+        "commit": "fb6e8269f2312471e2cadbead53542187432ffd7"
+      },
+      "related": {
+        "text": "Related packages:",
+        "commit": "fb6e8269f2312471e2cadbead53542187432ffd7"
+      },
+      "scope_warning_title": {
+        "text": "Consider using a scoped package instead",
+        "commit": "fb6e8269f2312471e2cadbead53542187432ffd7"
+      },
+      "scope_warning_text": {
+        "text": "Unscoped package names are a shared resource. Only claim a name if you intend to publish and maintain a package. For personal or organizational projects, use a scoped name like {'@'}{username}/{name}.",
+        "commit": "fb6e8269f2312471e2cadbead53542187432ffd7"
+      },
+      "connect_required": {
+        "text": "Connect to the local connector to claim this package name.",
+        "commit": "fb6e8269f2312471e2cadbead53542187432ffd7"
+      },
+      "connect_button": {
+        "text": "Connect to Connector",
+        "commit": "fb6e8269f2312471e2cadbead53542187432ffd7"
+      },
+      "publish_hint": {
+        "text": "This will publish a minimal placeholder package.",
+        "commit": "fb6e8269f2312471e2cadbead53542187432ffd7"
+      },
+      "preview_json": {
+        "text": "Preview package.json",
+        "commit": "fb6e8269f2312471e2cadbead53542187432ffd7"
+      },
+      "claim_button": {
+        "text": "Claim Package Name",
+        "commit": "fb6e8269f2312471e2cadbead53542187432ffd7"
+      },
+      "publishing": {
+        "text": "Publishing...",
+        "commit": "fb6e8269f2312471e2cadbead53542187432ffd7"
+      },
+      "checking": {
+        "text": "Checking availability...",
+        "commit": "fb6e8269f2312471e2cadbead53542187432ffd7"
+      },
+      "failed_to_check": {
+        "text": "Failed to check name availability",
+        "commit": "fb6e8269f2312471e2cadbead53542187432ffd7"
+      },
+      "failed_to_claim": {
+        "text": "Failed to claim package",
+        "commit": "fb6e8269f2312471e2cadbead53542187432ffd7"
+      }
+    }
+  },
+  "code": {
+    "files_label": {
+      "text": "Files",
+      "commit": "fb6e8269f2312471e2cadbead53542187432ffd7"
+    },
+    "no_files": {
+      "text": "No files in this directory",
+      "commit": "fb6e8269f2312471e2cadbead53542187432ffd7"
+    },
+    "root": {
+      "text": "root",
+      "commit": "fb6e8269f2312471e2cadbead53542187432ffd7"
+    },
+    "lines": {
+      "text": "{count} line | {count} lines",
+      "commit": "fb6e8269f2312471e2cadbead53542187432ffd7"
+    },
+    "toggle_tree": {
+      "text": "Toggle file tree",
+      "commit": "fb6e8269f2312471e2cadbead53542187432ffd7"
+    },
+    "close_tree": {
+      "text": "Close file tree",
+      "commit": "fb6e8269f2312471e2cadbead53542187432ffd7"
+    },
+    "copy_link": {
+      "text": "Copy link",
+      "commit": "fb6e8269f2312471e2cadbead53542187432ffd7"
+    },
+    "raw": {
+      "text": "Raw",
+      "commit": "fb6e8269f2312471e2cadbead53542187432ffd7"
+    },
+    "view_raw": {
+      "text": "View raw file",
+      "commit": "fb6e8269f2312471e2cadbead53542187432ffd7"
+    },
+    "file_too_large": {
+      "text": "File too large to preview",
+      "commit": "fb6e8269f2312471e2cadbead53542187432ffd7"
+    },
+    "file_size_warning": {
+      "text": "{size} exceeds the 500KB limit for syntax highlighting",
+      "commit": "fb6e8269f2312471e2cadbead53542187432ffd7"
+    },
+    "failed_to_load": {
+      "text": "Failed to load file",
+      "commit": "fb6e8269f2312471e2cadbead53542187432ffd7"
+    },
+    "unavailable_hint": {
+      "text": "The file may be too large or unavailable",
+      "commit": "fb6e8269f2312471e2cadbead53542187432ffd7"
+    },
+    "version_required": {
+      "text": "Version is required to browse code",
+      "commit": "fb6e8269f2312471e2cadbead53542187432ffd7"
+    },
+    "go_to_package": {
+      "text": "Go to package",
+      "commit": "fb6e8269f2312471e2cadbead53542187432ffd7"
+    },
+    "loading_tree": {
+      "text": "Loading file tree...",
+      "commit": "fb6e8269f2312471e2cadbead53542187432ffd7"
+    },
+    "failed_to_load_tree": {
+      "text": "Failed to load files for this package version",
+      "commit": "fb6e8269f2312471e2cadbead53542187432ffd7"
+    },
+    "back_to_package": {
+      "text": "Back to package",
+      "commit": "fb6e8269f2312471e2cadbead53542187432ffd7"
+    },
+    "table": {
+      "name": {
+        "text": "Name",
+        "commit": "fb6e8269f2312471e2cadbead53542187432ffd7"
+      },
+      "size": {
+        "text": "Size",
+        "commit": "fb6e8269f2312471e2cadbead53542187432ffd7"
+      }
+    },
+    "markdown_view_mode": {
+      "preview": {
+        "text": "preview",
+        "commit": "fb6e8269f2312471e2cadbead53542187432ffd7"
+      },
+      "code": {
+        "text": "code",
+        "commit": "fb6e8269f2312471e2cadbead53542187432ffd7"
+      }
+    },
+    "file_path": {
+      "text": "File path",
+      "commit": "fb6e8269f2312471e2cadbead53542187432ffd7"
+    },
+    "scroll_to_top": {
+      "text": "Scroll to top",
+      "commit": "fb6e8269f2312471e2cadbead53542187432ffd7"
+    }
+  },
+  "badges": {
+    "provenance": {
+      "verified": {
+        "text": "verified",
+        "commit": "fb6e8269f2312471e2cadbead53542187432ffd7"
+      },
+      "verified_title": {
+        "text": "Verified provenance",
+        "commit": "fb6e8269f2312471e2cadbead53542187432ffd7"
+      },
+      "verified_via": {
+        "text": "Verified: published via {provider}",
+        "commit": "fb6e8269f2312471e2cadbead53542187432ffd7"
+      }
+    },
+    "jsr": {
+      "title": {
+        "text": "also available on JSR",
+        "commit": "fb6e8269f2312471e2cadbead53542187432ffd7"
+      }
+    }
+  },
+  "filters": {
+    "title": {
+      "text": "Filters",
+      "commit": "fb6e8269f2312471e2cadbead53542187432ffd7"
+    },
+    "search": {
+      "text": "Search",
+      "commit": "fb6e8269f2312471e2cadbead53542187432ffd7"
+    },
+    "search_scope": {
+      "text": "Search scope",
+      "commit": "fb6e8269f2312471e2cadbead53542187432ffd7"
+    },
+    "search_placeholder_name": {
+      "text": "Filter by package name...",
+      "commit": "fb6e8269f2312471e2cadbead53542187432ffd7"
+    },
+    "search_placeholder_description": {
+      "text": "Filter by description...",
+      "commit": "fb6e8269f2312471e2cadbead53542187432ffd7"
+    },
+    "search_placeholder_keywords": {
+      "text": "Filter by keywords...",
+      "commit": "fb6e8269f2312471e2cadbead53542187432ffd7"
+    },
+    "search_placeholder_all": {
+      "text": "Search all or use name: desc: kw:",
+      "commit": "fb6e8269f2312471e2cadbead53542187432ffd7"
+    },
+    "scope_name": {
+      "text": "Name",
+      "commit": "fb6e8269f2312471e2cadbead53542187432ffd7"
+    },
+    "scope_name_description": {
+      "text": "Search package names only",
+      "commit": "fb6e8269f2312471e2cadbead53542187432ffd7"
+    },
+    "scope_description": {
+      "text": "Description",
+      "commit": "fb6e8269f2312471e2cadbead53542187432ffd7"
+    },
+    "scope_description_description": {
+      "text": "Search descriptions only",
+      "commit": "fb6e8269f2312471e2cadbead53542187432ffd7"
+    },
+    "scope_keywords": {
+      "text": "Keywords",
+      "commit": "fb6e8269f2312471e2cadbead53542187432ffd7"
+    },
+    "scope_keywords_description": {
+      "text": "Search keywords only",
+      "commit": "fb6e8269f2312471e2cadbead53542187432ffd7"
+    },
+    "scope_all": {
+      "text": "All",
+      "commit": "fb6e8269f2312471e2cadbead53542187432ffd7"
+    },
+    "scope_all_description": {
+      "text": "Search all fields, supports name: desc: kw: operators",
+      "commit": "fb6e8269f2312471e2cadbead53542187432ffd7"
+    },
+    "weekly_downloads": {
+      "text": "Weekly downloads",
+      "commit": "fb6e8269f2312471e2cadbead53542187432ffd7"
+    },
+    "updated_within": {
+      "text": "Updated within",
+      "commit": "fb6e8269f2312471e2cadbead53542187432ffd7"
+    },
+    "security": {
+      "text": "Security",
+      "commit": "fb6e8269f2312471e2cadbead53542187432ffd7"
+    },
+    "keywords": {
+      "text": "Keywords",
+      "commit": "fb6e8269f2312471e2cadbead53542187432ffd7"
+    },
+    "more_keywords": {
+      "text": "+{count} more",
+      "commit": "fb6e8269f2312471e2cadbead53542187432ffd7"
+    },
+    "clear_all": {
+      "text": "Clear all",
+      "commit": "fb6e8269f2312471e2cadbead53542187432ffd7"
+    },
+    "remove_filter": {
+      "text": "Remove {label} filter",
+      "commit": "fb6e8269f2312471e2cadbead53542187432ffd7"
+    },
+    "chips": {
+      "search": {
+        "text": "Search",
+        "commit": "fb6e8269f2312471e2cadbead53542187432ffd7"
+      },
+      "downloads": {
+        "text": "Downloads",
+        "commit": "fb6e8269f2312471e2cadbead53542187432ffd7"
+      },
+      "keyword": {
+        "text": "Keyword",
+        "commit": "fb6e8269f2312471e2cadbead53542187432ffd7"
+      },
+      "security": {
+        "text": "Security",
+        "commit": "fb6e8269f2312471e2cadbead53542187432ffd7"
+      },
+      "updated": {
+        "text": "Updated",
+        "commit": "fb6e8269f2312471e2cadbead53542187432ffd7"
+      }
+    },
+    "download_range": {
+      "any": {
+        "text": "Any",
+        "commit": "fb6e8269f2312471e2cadbead53542187432ffd7"
+      },
+      "lt100": {
+        "text": "< 100",
+        "commit": "fb6e8269f2312471e2cadbead53542187432ffd7"
+      },
+      "100_1k": {
+        "text": "100 - 1K",
+        "commit": "fb6e8269f2312471e2cadbead53542187432ffd7"
+      },
+      "1k_10k": {
+        "text": "1K - 10K",
+        "commit": "fb6e8269f2312471e2cadbead53542187432ffd7"
+      },
+      "10k_100k": {
+        "text": "10K - 100K",
+        "commit": "fb6e8269f2312471e2cadbead53542187432ffd7"
+      },
+      "gt100k": {
+        "text": "> 100K",
+        "commit": "fb6e8269f2312471e2cadbead53542187432ffd7"
+      }
+    },
+    "updated": {
+      "any": {
+        "text": "Any time",
+        "commit": "fb6e8269f2312471e2cadbead53542187432ffd7"
+      },
+      "week": {
+        "text": "Past week",
+        "commit": "fb6e8269f2312471e2cadbead53542187432ffd7"
+      },
+      "month": {
+        "text": "Past month",
+        "commit": "fb6e8269f2312471e2cadbead53542187432ffd7"
+      },
+      "quarter": {
+        "text": "Past 3 months",
+        "commit": "fb6e8269f2312471e2cadbead53542187432ffd7"
+      },
+      "year": {
+        "text": "Past year",
+        "commit": "fb6e8269f2312471e2cadbead53542187432ffd7"
+      }
+    },
+    "security_options": {
+      "all": {
+        "text": "All packages",
+        "commit": "fb6e8269f2312471e2cadbead53542187432ffd7"
+      },
+      "secure": {
+        "text": "Without warnings",
+        "commit": "fb6e8269f2312471e2cadbead53542187432ffd7"
+      },
+      "insecure": {
+        "text": "With warnings",
+        "commit": "fb6e8269f2312471e2cadbead53542187432ffd7"
+      }
+    },
+    "sort": {
+      "label": {
+        "text": "Sort packages",
+        "commit": "fb6e8269f2312471e2cadbead53542187432ffd7"
+      },
+      "toggle_direction": {
+        "text": "Toggle sort direction",
+        "commit": "fb6e8269f2312471e2cadbead53542187432ffd7"
+      },
+      "ascending": {
+        "text": "Ascending",
+        "commit": "fb6e8269f2312471e2cadbead53542187432ffd7"
+      },
+      "descending": {
+        "text": "Descending",
+        "commit": "fb6e8269f2312471e2cadbead53542187432ffd7"
+      },
+      "relevance": {
+        "text": "Relevance",
+        "commit": "fb6e8269f2312471e2cadbead53542187432ffd7"
+      },
+      "downloads_week": {
+        "text": "Downloads/wk",
+        "commit": "fb6e8269f2312471e2cadbead53542187432ffd7"
+      },
+      "downloads_day": {
+        "text": "Downloads/day",
+        "commit": "fb6e8269f2312471e2cadbead53542187432ffd7"
+      },
+      "downloads_month": {
+        "text": "Downloads/mo",
+        "commit": "fb6e8269f2312471e2cadbead53542187432ffd7"
+      },
+      "downloads_year": {
+        "text": "Downloads/yr",
+        "commit": "fb6e8269f2312471e2cadbead53542187432ffd7"
+      },
+      "published": {
+        "text": "Last Published",
+        "commit": "fb6e8269f2312471e2cadbead53542187432ffd7"
+      },
+      "name": {
+        "text": "Name",
+        "commit": "fb6e8269f2312471e2cadbead53542187432ffd7"
+      },
+      "quality": {
+        "text": "Quality",
+        "commit": "fb6e8269f2312471e2cadbead53542187432ffd7"
+      },
+      "popularity": {
+        "text": "Popularity",
+        "commit": "fb6e8269f2312471e2cadbead53542187432ffd7"
+      },
+      "maintenance": {
+        "text": "Maintenance",
+        "commit": "fb6e8269f2312471e2cadbead53542187432ffd7"
+      },
+      "score": {
+        "text": "Score",
+        "commit": "fb6e8269f2312471e2cadbead53542187432ffd7"
+      }
+    },
+    "columns": {
+      "title": {
+        "text": "Columns",
+        "commit": "fb6e8269f2312471e2cadbead53542187432ffd7"
+      },
+      "show": {
+        "text": "Show columns",
+        "commit": "fb6e8269f2312471e2cadbead53542187432ffd7"
+      },
+      "reset": {
+        "text": "Reset to defaults",
+        "commit": "fb6e8269f2312471e2cadbead53542187432ffd7"
+      },
+      "coming_soon": {
+        "text": "Coming soon",
+        "commit": "fb6e8269f2312471e2cadbead53542187432ffd7"
+      },
+      "name": {
+        "text": "Name",
+        "commit": "fb6e8269f2312471e2cadbead53542187432ffd7"
+      },
+      "version": {
+        "text": "Version",
+        "commit": "fb6e8269f2312471e2cadbead53542187432ffd7"
+      },
+      "description": {
+        "text": "Description",
+        "commit": "fb6e8269f2312471e2cadbead53542187432ffd7"
+      },
+      "downloads": {
+        "text": "Downloads/wk",
+        "commit": "fb6e8269f2312471e2cadbead53542187432ffd7"
+      },
+      "published": {
+        "text": "Last Published",
+        "commit": "fb6e8269f2312471e2cadbead53542187432ffd7"
+      },
+      "maintainers": {
+        "text": "Maintainers",
+        "commit": "fb6e8269f2312471e2cadbead53542187432ffd7"
+      },
+      "keywords": {
+        "text": "Keywords",
+        "commit": "fb6e8269f2312471e2cadbead53542187432ffd7"
+      },
+      "quality_score": {
+        "text": "Quality score",
+        "commit": "fb6e8269f2312471e2cadbead53542187432ffd7"
+      },
+      "popularity_score": {
+        "text": "Popularity score",
+        "commit": "fb6e8269f2312471e2cadbead53542187432ffd7"
+      },
+      "maintenance_score": {
+        "text": "Maintenance score",
+        "commit": "fb6e8269f2312471e2cadbead53542187432ffd7"
+      },
+      "combined_score": {
+        "text": "Combined score",
+        "commit": "fb6e8269f2312471e2cadbead53542187432ffd7"
+      },
+      "security": {
+        "text": "Security",
+        "commit": "fb6e8269f2312471e2cadbead53542187432ffd7"
+      }
+    },
+    "view_mode": {
+      "label": {
+        "text": "View mode",
+        "commit": "fb6e8269f2312471e2cadbead53542187432ffd7"
+      },
+      "cards": {
+        "text": "Card view",
+        "commit": "fb6e8269f2312471e2cadbead53542187432ffd7"
+      },
+      "table": {
+        "text": "Table view",
+        "commit": "fb6e8269f2312471e2cadbead53542187432ffd7"
+      }
+    },
+    "pagination": {
+      "mode_label": {
+        "text": "Pagination mode",
+        "commit": "fb6e8269f2312471e2cadbead53542187432ffd7"
+      },
+      "infinite": {
+        "text": "Infinite",
+        "commit": "fb6e8269f2312471e2cadbead53542187432ffd7"
+      },
+      "paginated": {
+        "text": "Paginated",
+        "commit": "fb6e8269f2312471e2cadbead53542187432ffd7"
+      },
+      "items_per_page": {
+        "text": "Items per page",
+        "commit": "fb6e8269f2312471e2cadbead53542187432ffd7"
+      },
+      "per_page": {
+        "text": "{count} / page",
+        "commit": "fb6e8269f2312471e2cadbead53542187432ffd7"
+      },
+      "all_yolo": {
+        "text": "All (YOLO)",
+        "commit": "fb6e8269f2312471e2cadbead53542187432ffd7"
+      },
+      "showing": {
+        "text": "{start}-{end} of {total}",
+        "commit": "fb6e8269f2312471e2cadbead53542187432ffd7"
+      },
+      "previous": {
+        "text": "Previous page",
+        "commit": "fb6e8269f2312471e2cadbead53542187432ffd7"
+      },
+      "next": {
+        "text": "Next page",
+        "commit": "fb6e8269f2312471e2cadbead53542187432ffd7"
+      },
+      "nav_label": {
+        "text": "Pagination",
+        "commit": "fb6e8269f2312471e2cadbead53542187432ffd7"
+      }
+    },
+    "count": {
+      "showing_filtered": {
+        "text": "{filtered} of {count} package | {filtered} of {count} packages",
+        "commit": "fb6e8269f2312471e2cadbead53542187432ffd7"
+      },
+      "showing_all": {
+        "text": "{count} package | {count} packages",
+        "commit": "fb6e8269f2312471e2cadbead53542187432ffd7"
+      },
+      "showing_paginated": {
+        "text": "{pageSize} of {count} package | {pageSize} of {count} packages",
+        "commit": "fb6e8269f2312471e2cadbead53542187432ffd7"
+      }
+    },
+    "table": {
+      "security_warning": {
+        "text": "Security warning",
+        "commit": "fb6e8269f2312471e2cadbead53542187432ffd7"
+      },
+      "secure": {
+        "text": "Secure",
+        "commit": "fb6e8269f2312471e2cadbead53542187432ffd7"
+      },
+      "no_packages": {
+        "text": "No packages found",
+        "commit": "fb6e8269f2312471e2cadbead53542187432ffd7"
+      }
+    }
+  },
+  "about": {
+    "title": {
+      "text": "About",
+      "commit": "fb6e8269f2312471e2cadbead53542187432ffd7"
+    },
+    "heading": {
+      "text": "about",
+      "commit": "fb6e8269f2312471e2cadbead53542187432ffd7"
+    },
+    "meta_description": {
+      "text": "npmx is a fast, modern browser for the npm registry. A better UX/DX for exploring npm packages.",
+      "commit": "fb6e8269f2312471e2cadbead53542187432ffd7"
+    },
+    "what_we_are": {
+      "title": {
+        "text": "What we are",
+        "commit": "fb6e8269f2312471e2cadbead53542187432ffd7"
+      },
+      "better_ux_dx": {
+        "text": "better UX/DX",
+        "commit": "fb6e8269f2312471e2cadbead53542187432ffd7"
+      },
+      "admin_ui": {
+        "text": "admin UI",
+        "commit": "fb6e8269f2312471e2cadbead53542187432ffd7"
+      },
+      "description": {
+        "text": "npmx is a {betterUxDx} for the npm package registry and tooling. We provide a fast, modern interface for exploring packages, with features like dark mode, keyboard navigation, code browsing, and connections to alternative registries like {jsr}.",
+        "commit": "fb6e8269f2312471e2cadbead53542187432ffd7"
+      },
+      "admin_description": {
+        "text": "We also aim to provide a better {adminUi} for managing your packages, teams, and organizations — all from the browser, powered by your local npm CLI.",
+        "commit": "fb6e8269f2312471e2cadbead53542187432ffd7"
+      }
+    },
+    "what_we_are_not": {
+      "title": {
+        "text": "What we're not",
+        "commit": "fb6e8269f2312471e2cadbead53542187432ffd7"
+      },
+      "not_package_manager": {
+        "text": "Not a package manager.",
+        "commit": "fb6e8269f2312471e2cadbead53542187432ffd7"
+      },
+      "not_registry": {
+        "text": "Not a registry.",
+        "commit": "fb6e8269f2312471e2cadbead53542187432ffd7"
+      },
+      "registry_description": {
+        "text": "We don't host packages. We're just a better way to browse them.",
+        "commit": "fb6e8269f2312471e2cadbead53542187432ffd7"
+      },
+      "package_managers_exist": {
+        "text": "{already} {people} {building} {really} {cool} {package} {managers}.",
+        "commit": "fb6e8269f2312471e2cadbead53542187432ffd7"
+      },
+      "words": {
+        "already": {
+          "text": "There are",
+          "commit": "fb6e8269f2312471e2cadbead53542187432ffd7"
+        },
+        "people": {
+          "text": "already",
+          "commit": "fb6e8269f2312471e2cadbead53542187432ffd7"
+        },
+        "building": {
+          "text": "people",
+          "commit": "fb6e8269f2312471e2cadbead53542187432ffd7"
+        },
+        "really": {
+          "text": "building",
+          "commit": "fb6e8269f2312471e2cadbead53542187432ffd7"
+        },
+        "cool": {
+          "text": "really",
+          "commit": "fb6e8269f2312471e2cadbead53542187432ffd7"
+        },
+        "package": {
+          "text": "cool",
+          "commit": "fb6e8269f2312471e2cadbead53542187432ffd7"
+        },
+        "managers": {
+          "text": "package managers",
+          "commit": "fb6e8269f2312471e2cadbead53542187432ffd7"
+        }
+      }
+    },
+    "sponsors": {
+      "title": {
+        "text": "Sponsors",
+        "commit": "fb6e8269f2312471e2cadbead53542187432ffd7"
+      }
+    },
+    "oss_partners": {
+      "title": {
+        "text": "OSS Partners",
+        "commit": "fb6e8269f2312471e2cadbead53542187432ffd7"
+      }
+    },
+    "team": {
+      "title": {
+        "text": "Team",
+        "commit": "fb6e8269f2312471e2cadbead53542187432ffd7"
+      },
+      "governance": {
+        "text": "Governance",
+        "commit": "fb6e8269f2312471e2cadbead53542187432ffd7"
+      },
+      "role_steward": {
+        "text": "steward",
+        "commit": "fb6e8269f2312471e2cadbead53542187432ffd7"
+      },
+      "role_maintainer": {
+        "text": "maintainer",
+        "commit": "fb6e8269f2312471e2cadbead53542187432ffd7"
+      },
+      "sponsor": {
+        "text": "sponsor",
+        "commit": "fb6e8269f2312471e2cadbead53542187432ffd7"
+      },
+      "sponsor_aria": {
+        "text": "Sponsor {name} on GitHub",
+        "commit": "fb6e8269f2312471e2cadbead53542187432ffd7"
+      }
+    },
+    "contributors": {
+      "title": {
+        "text": "... and {count} more contributor | ... and {count} more contributors",
+        "commit": "fb6e8269f2312471e2cadbead53542187432ffd7"
+      },
+      "description": {
+        "text": "npmx is fully open source, built by an amazing community of contributors. Join us and let's build the npm browsing experience we always wanted, together.",
+        "commit": "fb6e8269f2312471e2cadbead53542187432ffd7"
+      },
+      "loading": {
+        "text": "Loading contributors...",
+        "commit": "fb6e8269f2312471e2cadbead53542187432ffd7"
+      },
+      "error": {
+        "text": "Failed to load contributors",
+        "commit": "fb6e8269f2312471e2cadbead53542187432ffd7"
+      },
+      "view_profile": {
+        "text": "View {name}'s GitHub profile",
+        "commit": "fb6e8269f2312471e2cadbead53542187432ffd7"
+      }
+    },
+    "get_involved": {
+      "title": {
+        "text": "Get involved",
+        "commit": "fb6e8269f2312471e2cadbead53542187432ffd7"
+      },
+      "contribute": {
+        "title": {
+          "text": "Contribute",
+          "commit": "fb6e8269f2312471e2cadbead53542187432ffd7"
+        },
+        "description": {
+          "text": "Help us build a better npm experience.",
+          "commit": "fb6e8269f2312471e2cadbead53542187432ffd7"
+        },
+        "cta": {
+          "text": "View on GitHub",
+          "commit": "fb6e8269f2312471e2cadbead53542187432ffd7"
+        }
+      },
+      "community": {
+        "title": {
+          "text": "Join the community",
+          "commit": "fb6e8269f2312471e2cadbead53542187432ffd7"
+        },
+        "description": {
+          "text": "Chat, ask questions, and share ideas.",
+          "commit": "fb6e8269f2312471e2cadbead53542187432ffd7"
+        },
+        "cta": {
+          "text": "Join Discord",
+          "commit": "fb6e8269f2312471e2cadbead53542187432ffd7"
+        }
+      },
+      "follow": {
+        "title": {
+          "text": "Stay updated",
+          "commit": "fb6e8269f2312471e2cadbead53542187432ffd7"
+        },
+        "description": {
+          "text": "Find out the latest on npmx.",
+          "commit": "fb6e8269f2312471e2cadbead53542187432ffd7"
+        },
+        "cta": {
+          "text": "Follow on Bluesky",
+          "commit": "fb6e8269f2312471e2cadbead53542187432ffd7"
+        }
+      }
+    }
+  },
+  "account_menu": {
+    "connect": {
+      "text": "connect",
+      "commit": "fb6e8269f2312471e2cadbead53542187432ffd7"
+    },
+    "account": {
+      "text": "Account",
+      "commit": "fb6e8269f2312471e2cadbead53542187432ffd7"
+    },
+    "npm_cli": {
+      "text": "npm CLI",
+      "commit": "fb6e8269f2312471e2cadbead53542187432ffd7"
+    },
+    "atmosphere": {
+      "text": "Atmosphere",
+      "commit": "fb6e8269f2312471e2cadbead53542187432ffd7"
+    },
+    "npm_cli_desc": {
+      "text": "Manage packages & orgs",
+      "commit": "fb6e8269f2312471e2cadbead53542187432ffd7"
+    },
+    "atmosphere_desc": {
+      "text": "Social features & identity",
+      "commit": "fb6e8269f2312471e2cadbead53542187432ffd7"
+    },
+    "connect_npm_cli": {
+      "text": "Connect to npm CLI",
+      "commit": "fb6e8269f2312471e2cadbead53542187432ffd7"
+    },
+    "connect_atmosphere": {
+      "text": "Connect to Atmosphere",
+      "commit": "fb6e8269f2312471e2cadbead53542187432ffd7"
+    },
+    "connecting": {
+      "text": "Connecting...",
+      "commit": "fb6e8269f2312471e2cadbead53542187432ffd7"
+    },
+    "ops": {
+      "text": "{count} op | {count} ops",
+      "commit": "fb6e8269f2312471e2cadbead53542187432ffd7"
+    }
+  },
+  "auth": {
+    "modal": {
+      "title": {
+        "text": "Atmosphere",
+        "commit": "fb6e8269f2312471e2cadbead53542187432ffd7"
+      },
+      "connected_as": {
+        "text": "Connected as {'@'}{handle}",
+        "commit": "fb6e8269f2312471e2cadbead53542187432ffd7"
+      },
+      "disconnect": {
+        "text": "Disconnect",
+        "commit": "fb6e8269f2312471e2cadbead53542187432ffd7"
+      },
+      "connect_prompt": {
+        "text": "Connect with your Atmosphere account",
+        "commit": "fb6e8269f2312471e2cadbead53542187432ffd7"
+      },
+      "handle_label": {
+        "text": "Handle",
+        "commit": "fb6e8269f2312471e2cadbead53542187432ffd7"
+      },
+      "handle_placeholder": {
+        "text": "alice.npmx.social",
+        "commit": "fb6e8269f2312471e2cadbead53542187432ffd7"
+      },
+      "connect": {
+        "text": "Connect",
+        "commit": "fb6e8269f2312471e2cadbead53542187432ffd7"
+      },
+      "create_account": {
+        "text": "Create a new account",
+        "commit": "fb6e8269f2312471e2cadbead53542187432ffd7"
+      },
+      "connect_bluesky": {
+        "text": "Connect with Bluesky",
+        "commit": "fb6e8269f2312471e2cadbead53542187432ffd7"
+      },
+      "what_is_atmosphere": {
+        "text": "What is an Atmosphere account?",
+        "commit": "fb6e8269f2312471e2cadbead53542187432ffd7"
+      },
+      "atmosphere_explanation": {
+        "text": "{npmx} uses the {atproto} to power many of its social features, allowing users to own their data and use one account for all compatible applications. Once you create an account, you can use other apps like {bluesky} and {tangled} with the same account.",
+        "commit": "fb6e8269f2312471e2cadbead53542187432ffd7"
+      },
+      "default_input_error": {
+        "text": "Please enter a valid handle, DID, or a full PDS URL",
+        "commit": "fb6e8269f2312471e2cadbead53542187432ffd7"
+      },
+      "profile": {
+        "text": "Profile",
+        "commit": "fb6e8269f2312471e2cadbead53542187432ffd7"
+      }
+    }
+  },
+  "header": {
+    "home": {
+      "text": "npmx home",
+      "commit": "fb6e8269f2312471e2cadbead53542187432ffd7"
+    },
+    "packages": {
+      "text": "packages",
+      "commit": "fb6e8269f2312471e2cadbead53542187432ffd7"
+    },
+    "packages_dropdown": {
+      "title": {
+        "text": "Your Packages",
+        "commit": "fb6e8269f2312471e2cadbead53542187432ffd7"
+      },
+      "loading": {
+        "text": "Loading...",
+        "commit": "fb6e8269f2312471e2cadbead53542187432ffd7"
+      },
+      "error": {
+        "text": "Failed to load packages",
+        "commit": "fb6e8269f2312471e2cadbead53542187432ffd7"
+      },
+      "empty": {
+        "text": "No packages found",
+        "commit": "fb6e8269f2312471e2cadbead53542187432ffd7"
+      },
+      "view_all": {
+        "text": "View all",
+        "commit": "fb6e8269f2312471e2cadbead53542187432ffd7"
+      }
+    },
+    "orgs": {
+      "text": "orgs",
+      "commit": "fb6e8269f2312471e2cadbead53542187432ffd7"
+    },
+    "orgs_dropdown": {
+      "title": {
+        "text": "Your Organizations",
+        "commit": "fb6e8269f2312471e2cadbead53542187432ffd7"
+      },
+      "loading": {
+        "text": "Loading...",
+        "commit": "fb6e8269f2312471e2cadbead53542187432ffd7"
+      },
+      "error": {
+        "text": "Failed to load organizations",
+        "commit": "fb6e8269f2312471e2cadbead53542187432ffd7"
+      },
+      "empty": {
+        "text": "No organizations found",
+        "commit": "fb6e8269f2312471e2cadbead53542187432ffd7"
+      },
+      "view_all": {
+        "text": "View all",
+        "commit": "fb6e8269f2312471e2cadbead53542187432ffd7"
+      }
+    }
+  },
+  "compare": {
+    "packages": {
+      "title": {
+        "text": "compare packages",
+        "commit": "fb6e8269f2312471e2cadbead53542187432ffd7"
+      },
+      "tagline": {
+        "text": "compare npm packages side-by-side to help you choose the right one.",
+        "commit": "fb6e8269f2312471e2cadbead53542187432ffd7"
+      },
+      "meta_title": {
+        "text": "Compare {packages} - npmx",
+        "commit": "fb6e8269f2312471e2cadbead53542187432ffd7"
+      },
+      "meta_title_empty": {
+        "text": "Compare Packages - npmx",
+        "commit": "fb6e8269f2312471e2cadbead53542187432ffd7"
+      },
+      "meta_description": {
+        "text": "Side-by-side comparison of {packages}",
+        "commit": "fb6e8269f2312471e2cadbead53542187432ffd7"
+      },
+      "meta_description_empty": {
+        "text": "Compare npm packages side-by-side",
+        "commit": "fb6e8269f2312471e2cadbead53542187432ffd7"
+      },
+      "section_packages": {
+        "text": "Packages",
+        "commit": "fb6e8269f2312471e2cadbead53542187432ffd7"
+      },
+      "section_facets": {
+        "text": "Facets",
+        "commit": "fb6e8269f2312471e2cadbead53542187432ffd7"
+      },
+      "section_comparison": {
+        "text": "Comparison",
+        "commit": "fb6e8269f2312471e2cadbead53542187432ffd7"
+      },
+      "copy_as_markdown": {
+        "text": "Copy table",
+        "commit": "fb6e8269f2312471e2cadbead53542187432ffd7"
+      },
+      "loading": {
+        "text": "Loading package data...",
+        "commit": "fb6e8269f2312471e2cadbead53542187432ffd7"
+      },
+      "error": {
+        "text": "Failed to load package data. Please try again.",
+        "commit": "fb6e8269f2312471e2cadbead53542187432ffd7"
+      },
+      "empty_title": {
+        "text": "Select packages to compare",
+        "commit": "fb6e8269f2312471e2cadbead53542187432ffd7"
+      },
+      "empty_description": {
+        "text": "Search and add at least 2 packages above to see a side-by-side comparison of their metrics.",
+        "commit": "fb6e8269f2312471e2cadbead53542187432ffd7"
+      }
+    },
+    "selector": {
+      "search_label": {
+        "text": "Search for packages",
+        "commit": "fb6e8269f2312471e2cadbead53542187432ffd7"
+      },
+      "search_first": {
+        "text": "Search for a package...",
+        "commit": "fb6e8269f2312471e2cadbead53542187432ffd7"
+      },
+      "search_add": {
+        "text": "Add another package...",
+        "commit": "fb6e8269f2312471e2cadbead53542187432ffd7"
+      },
+      "searching": {
+        "text": "Searching...",
+        "commit": "fb6e8269f2312471e2cadbead53542187432ffd7"
+      },
+      "remove_package": {
+        "text": "Remove {package}",
+        "commit": "fb6e8269f2312471e2cadbead53542187432ffd7"
+      },
+      "packages_selected": {
+        "text": "{count}/{max} packages selected.",
+        "commit": "fb6e8269f2312471e2cadbead53542187432ffd7"
+      },
+      "add_hint": {
+        "text": "Add at least 2 packages to compare.",
+        "commit": "fb6e8269f2312471e2cadbead53542187432ffd7"
+      }
+    },
+    "no_dependency": {
+      "label": {
+        "text": "(No dependency)",
+        "commit": "fb6e8269f2312471e2cadbead53542187432ffd7"
+      },
+      "typeahead_title": {
+        "text": "What Would James Do?",
+        "commit": "fb6e8269f2312471e2cadbead53542187432ffd7"
+      },
+      "typeahead_description": {
+        "text": "Compare against not using a dependency! e18e approved.",
+        "commit": "fb6e8269f2312471e2cadbead53542187432ffd7"
+      },
+      "tooltip_title": {
+        "text": "You might not need a dependency",
+        "commit": "fb6e8269f2312471e2cadbead53542187432ffd7"
+      },
+      "tooltip_description": {
+        "text": "Compare against not using a dependency! The {link} maintains a list of packages that can be replaced with native APIs or simpler alternatives.",
+        "commit": "fb6e8269f2312471e2cadbead53542187432ffd7"
+      },
+      "e18e_community": {
+        "text": "e18e community",
+        "commit": "fb6e8269f2312471e2cadbead53542187432ffd7"
+      },
+      "add_column": {
+        "text": "Add no dependency column to comparison",
+        "commit": "fb6e8269f2312471e2cadbead53542187432ffd7"
+      }
+    },
+    "facets": {
+      "group_label": {
+        "text": "Comparison facets",
+        "commit": "fb6e8269f2312471e2cadbead53542187432ffd7"
+      },
+      "all": {
+        "text": "all",
+        "commit": "fb6e8269f2312471e2cadbead53542187432ffd7"
+      },
+      "none": {
+        "text": "none",
+        "commit": "fb6e8269f2312471e2cadbead53542187432ffd7"
+      },
+      "coming_soon": {
+        "text": "Coming soon",
+        "commit": "fb6e8269f2312471e2cadbead53542187432ffd7"
+      },
+      "select_all": {
+        "text": "Select all facets",
+        "commit": "fb6e8269f2312471e2cadbead53542187432ffd7"
+      },
+      "deselect_all": {
+        "text": "Deselect all facets",
+        "commit": "fb6e8269f2312471e2cadbead53542187432ffd7"
+      },
+      "select_category": {
+        "text": "Select all {category} facets",
+        "commit": "fb6e8269f2312471e2cadbead53542187432ffd7"
+      },
+      "deselect_category": {
+        "text": "Deselect all {category} facets",
+        "commit": "fb6e8269f2312471e2cadbead53542187432ffd7"
+      },
+      "binary_only_tooltip": {
+        "text": "This package exposes binaries and no exports",
+        "commit": "fb6e8269f2312471e2cadbead53542187432ffd7"
+      },
+      "categories": {
+        "performance": {
+          "text": "Performance",
+          "commit": "fb6e8269f2312471e2cadbead53542187432ffd7"
+        },
+        "health": {
+          "text": "Health",
+          "commit": "fb6e8269f2312471e2cadbead53542187432ffd7"
+        },
+        "compatibility": {
+          "text": "Compatibility",
+          "commit": "fb6e8269f2312471e2cadbead53542187432ffd7"
+        },
+        "security": {
+          "text": "Security & Compliance",
+          "commit": "fb6e8269f2312471e2cadbead53542187432ffd7"
+        }
+      },
+      "items": {
+        "packageSize": {
+          "label": {
+            "text": "Package Size",
+            "commit": "fb6e8269f2312471e2cadbead53542187432ffd7"
+          },
+          "description": {
+            "text": "Size of the package itself (unpacked)",
+            "commit": "fb6e8269f2312471e2cadbead53542187432ffd7"
+          }
+        },
+        "installSize": {
+          "label": {
+            "text": "Install Size",
+            "commit": "fb6e8269f2312471e2cadbead53542187432ffd7"
+          },
+          "description": {
+            "text": "Total install size including all dependencies",
+            "commit": "fb6e8269f2312471e2cadbead53542187432ffd7"
+          }
+        },
+        "dependencies": {
+          "label": {
+            "text": "Direct Deps",
+            "commit": "fb6e8269f2312471e2cadbead53542187432ffd7"
+          },
+          "description": {
+            "text": "Number of direct dependencies",
+            "commit": "fb6e8269f2312471e2cadbead53542187432ffd7"
+          }
+        },
+        "totalDependencies": {
+          "label": {
+            "text": "Total Deps",
+            "commit": "fb6e8269f2312471e2cadbead53542187432ffd7"
+          },
+          "description": {
+            "text": "Total number of dependencies including transitive",
+            "commit": "fb6e8269f2312471e2cadbead53542187432ffd7"
+          }
+        },
+        "downloads": {
+          "label": {
+            "text": "Downloads/wk",
+            "commit": "fb6e8269f2312471e2cadbead53542187432ffd7"
+          },
+          "description": {
+            "text": "Weekly download count",
+            "commit": "fb6e8269f2312471e2cadbead53542187432ffd7"
+          }
+        },
+        "totalLikes": {
+          "label": {
+            "text": "Likes",
+            "commit": "fb6e8269f2312471e2cadbead53542187432ffd7"
+          },
+          "description": {
+            "text": "Number of likes",
+            "commit": "fb6e8269f2312471e2cadbead53542187432ffd7"
+          }
+        },
+        "lastUpdated": {
+          "label": {
+            "text": "Published",
+            "commit": "fb6e8269f2312471e2cadbead53542187432ffd7"
+          },
+          "description": {
+            "text": "When this version was published",
+            "commit": "fb6e8269f2312471e2cadbead53542187432ffd7"
+          }
+        },
+        "deprecated": {
+          "label": {
+            "text": "Deprecated?",
+            "commit": "fb6e8269f2312471e2cadbead53542187432ffd7"
+          },
+          "description": {
+            "text": "Whether the package is deprecated",
+            "commit": "fb6e8269f2312471e2cadbead53542187432ffd7"
+          }
+        },
+        "engines": {
+          "label": {
+            "text": "Engines",
+            "commit": "fb6e8269f2312471e2cadbead53542187432ffd7"
+          },
+          "description": {
+            "text": "Node.js version requirements",
+            "commit": "fb6e8269f2312471e2cadbead53542187432ffd7"
+          }
+        },
+        "types": {
+          "label": {
+            "text": "Types",
+            "commit": "fb6e8269f2312471e2cadbead53542187432ffd7"
+          },
+          "description": {
+            "text": "TypeScript type definitions",
+            "commit": "fb6e8269f2312471e2cadbead53542187432ffd7"
+          }
+        },
+        "moduleFormat": {
+          "label": {
+            "text": "Module Format",
+            "commit": "fb6e8269f2312471e2cadbead53542187432ffd7"
+          },
+          "description": {
+            "text": "ESM/CJS support",
+            "commit": "fb6e8269f2312471e2cadbead53542187432ffd7"
+          }
+        },
+        "license": {
+          "label": {
+            "text": "License",
+            "commit": "fb6e8269f2312471e2cadbead53542187432ffd7"
+          },
+          "description": {
+            "text": "Package license",
+            "commit": "fb6e8269f2312471e2cadbead53542187432ffd7"
+          }
+        },
+        "vulnerabilities": {
+          "label": {
+            "text": "Vulnerabilities",
+            "commit": "fb6e8269f2312471e2cadbead53542187432ffd7"
+          },
+          "description": {
+            "text": "Known security vulnerabilities",
+            "commit": "fb6e8269f2312471e2cadbead53542187432ffd7"
+          }
+        }
+      },
+      "values": {
+        "any": {
+          "text": "Any",
+          "commit": "fb6e8269f2312471e2cadbead53542187432ffd7"
+        },
+        "none": {
+          "text": "None",
+          "commit": "fb6e8269f2312471e2cadbead53542187432ffd7"
+        },
+        "unknown": {
+          "text": "Unknown",
+          "commit": "fb6e8269f2312471e2cadbead53542187432ffd7"
+        },
+        "deprecated": {
+          "text": "Deprecated",
+          "commit": "fb6e8269f2312471e2cadbead53542187432ffd7"
+        },
+        "not_deprecated": {
+          "text": "No",
+          "commit": "fb6e8269f2312471e2cadbead53542187432ffd7"
+        },
+        "types_included": {
+          "text": "Included",
+          "commit": "fb6e8269f2312471e2cadbead53542187432ffd7"
+        },
+        "types_none": {
+          "text": "None",
+          "commit": "fb6e8269f2312471e2cadbead53542187432ffd7"
+        },
+        "vulnerabilities_summary": {
+          "text": "{count} ({critical}C/{high}H)",
+          "commit": "fb6e8269f2312471e2cadbead53542187432ffd7"
+        },
+        "up_to_you": {
+          "text": "Up to you!",
+          "commit": "fb6e8269f2312471e2cadbead53542187432ffd7"
+        }
+      },
+      "trends": {
+        "title": {
+          "text": "Compare Trends",
+          "commit": "fb6e8269f2312471e2cadbead53542187432ffd7"
+        }
+      }
+    },
+    "file_changes": {
+      "text": "File Changes",
+      "commit": "fb6e8269f2312471e2cadbead53542187432ffd7"
+    },
+    "files_count": {
+      "text": "{count} files",
+      "commit": "fb6e8269f2312471e2cadbead53542187432ffd7"
+    },
+    "lines_hidden": {
+      "text": "{count} lines hidden",
+      "commit": "fb6e8269f2312471e2cadbead53542187432ffd7"
+    },
+    "file_too_large": {
+      "text": "File too large to compare",
+      "commit": "fb6e8269f2312471e2cadbead53542187432ffd7"
+    },
+    "file_size_warning": {
+      "text": "{size} exceeds the 250KB limit for comparison",
+      "commit": "fb6e8269f2312471e2cadbead53542187432ffd7"
+    },
+    "compare_versions": {
+      "text": "diff",
+      "commit": "fb6e8269f2312471e2cadbead53542187432ffd7"
+    },
+    "summary": {
+      "text": "Summary",
+      "commit": "fb6e8269f2312471e2cadbead53542187432ffd7"
+    },
+    "deps_count": {
+      "text": "{count} deps",
+      "commit": "fb6e8269f2312471e2cadbead53542187432ffd7"
+    },
+    "dependencies": {
+      "text": "Dependencies",
+      "commit": "fb6e8269f2312471e2cadbead53542187432ffd7"
+    },
+    "dev_dependencies": {
+      "text": "Dev Dependencies",
+      "commit": "fb6e8269f2312471e2cadbead53542187432ffd7"
+    },
+    "peer_dependencies": {
+      "text": "Peer Dependencies",
+      "commit": "fb6e8269f2312471e2cadbead53542187432ffd7"
+    },
+    "optional_dependencies": {
+      "text": "Optional Dependencies",
+      "commit": "fb6e8269f2312471e2cadbead53542187432ffd7"
+    },
+    "no_dependency_changes": {
+      "text": "No dependency changes",
+      "commit": "fb6e8269f2312471e2cadbead53542187432ffd7"
+    },
+    "file_filter_option": {
+      "all": {
+        "text": "All ({count})",
+        "commit": "fb6e8269f2312471e2cadbead53542187432ffd7"
+      },
+      "added": {
+        "text": "Added ({count})",
+        "commit": "fb6e8269f2312471e2cadbead53542187432ffd7"
+      },
+      "removed": {
+        "text": "Removed ({count})",
+        "commit": "fb6e8269f2312471e2cadbead53542187432ffd7"
+      },
+      "modified": {
+        "text": "Modified ({count})",
+        "commit": "fb6e8269f2312471e2cadbead53542187432ffd7"
+      }
+    },
+    "search_files_placeholder": {
+      "text": "Search files...",
+      "commit": "fb6e8269f2312471e2cadbead53542187432ffd7"
+    },
+    "no_files_all": {
+      "text": "No files",
+      "commit": "fb6e8269f2312471e2cadbead53542187432ffd7"
+    },
+    "no_files_search": {
+      "text": "No files matching \"{query}\"",
+      "commit": "fb6e8269f2312471e2cadbead53542187432ffd7"
+    },
+    "no_files_filtered": {
+      "text": "No {filter} files",
+      "commit": "fb6e8269f2312471e2cadbead53542187432ffd7"
+    },
+    "filter": {
+      "added": {
+        "text": "added",
+        "commit": "fb6e8269f2312471e2cadbead53542187432ffd7"
+      },
+      "removed": {
+        "text": "removed",
+        "commit": "fb6e8269f2312471e2cadbead53542187432ffd7"
+      },
+      "modified": {
+        "text": "modified",
+        "commit": "fb6e8269f2312471e2cadbead53542187432ffd7"
+      }
+    },
+    "files_button": {
+      "text": "Files",
+      "commit": "fb6e8269f2312471e2cadbead53542187432ffd7"
+    },
+    "select_file_prompt": {
+      "text": "Select a file from the sidebar to view its diff",
+      "commit": "fb6e8269f2312471e2cadbead53542187432ffd7"
+    },
+    "close_files_panel": {
+      "text": "Close files panel",
+      "commit": "fb6e8269f2312471e2cadbead53542187432ffd7"
+    },
+    "filter_files_label": {
+      "text": "Filter files by change type",
+      "commit": "fb6e8269f2312471e2cadbead53542187432ffd7"
+    }
+  },
+  "privacy_policy": {
+    "title": {
+      "text": "privacy policy",
+      "commit": "fb6e8269f2312471e2cadbead53542187432ffd7"
+    },
+    "last_updated": {
+      "text": "Last updated: {date}",
+      "commit": "fb6e8269f2312471e2cadbead53542187432ffd7"
+    },
+    "welcome": {
+      "text": "Welcome to {app}. We are committed to protecting your privacy. This policy explains what data we collect, how we use it, and your rights regarding your information.",
+      "commit": "fb6e8269f2312471e2cadbead53542187432ffd7"
+    },
+    "cookies": {
+      "what_are": {
+        "title": {
+          "text": "What are cookies?",
+          "commit": "fb6e8269f2312471e2cadbead53542187432ffd7"
+        },
+        "p1": {
+          "text": "Cookies are small text files stored on your device when you visit a website. Their purpose is to enhance your browsing experience by remembering certain preferences and settings.",
+          "commit": "fb6e8269f2312471e2cadbead53542187432ffd7"
+        }
+      },
+      "types": {
+        "title": {
+          "text": "What cookies do we use?",
+          "commit": "fb6e8269f2312471e2cadbead53542187432ffd7"
+        },
+        "p1": {
+          "text": "We only use {bold} for purposes strictly necessary for the site's functionality. We do not use third-party or advertising cookies.",
+          "commit": "fb6e8269f2312471e2cadbead53542187432ffd7"
+        },
+        "bold": {
+          "text": "essential technical cookies",
+          "commit": "fb6e8269f2312471e2cadbead53542187432ffd7"
+        },
+        "li1": {
+          "text": "{li11}{separator} {li12}",
+          "commit": "fb6e8269f2312471e2cadbead53542187432ffd7"
+        },
+        "li2": {
+          "text": "{li21}{separator} {li22}",
+          "commit": "fb6e8269f2312471e2cadbead53542187432ffd7"
+        },
+        "separator": {
+          "text": ":",
+          "commit": "fb6e8269f2312471e2cadbead53542187432ffd7"
+        },
+        "cookie_vdpl": {
+          "text": "__vdpl",
+          "commit": "fb6e8269f2312471e2cadbead53542187432ffd7"
+        },
+        "cookie_vdpl_desc": {
+          "text": "This cookie is used by our hosting provider (Vercel) for skew protection. It ensures you fetch assets from the correct deployment version if a new update is released while you are browsing. It does not track you.",
+          "commit": "fb6e8269f2312471e2cadbead53542187432ffd7"
+        },
+        "cookie_h3": {
+          "text": "h3",
+          "commit": "fb6e8269f2312471e2cadbead53542187432ffd7"
+        },
+        "cookie_h3_desc": {
+          "text": "This is our secure session cookie. It stores the OAuth access token when you connect your Atmosphere account. It is essential for maintaining your authenticated session.",
+          "commit": "fb6e8269f2312471e2cadbead53542187432ffd7"
+        }
+      },
+      "local_storage": {
+        "title": {
+          "text": "Local storage",
+          "commit": "fb6e8269f2312471e2cadbead53542187432ffd7"
+        },
+        "p1": {
+          "text": "In addition to session cookies, we use your browser's {bold} to save your display preferences. This allows us to remember the theme (light/dark) and some other {settings} you have selected, so you don't have to reconfigure them on each visit.",
+          "commit": "fb6e8269f2312471e2cadbead53542187432ffd7"
+        },
+        "bold": {
+          "text": "Local Storage",
+          "commit": "fb6e8269f2312471e2cadbead53542187432ffd7"
+        },
+        "p2": {
+          "text": "This information is purely functional, stored only on your device, and {bold2}. We use it exclusively to improve your experience on our website.",
+          "commit": "fb6e8269f2312471e2cadbead53542187432ffd7"
+        },
+        "bold2": {
+          "text": "contains no personal data nor is it used to track you",
+          "commit": "fb6e8269f2312471e2cadbead53542187432ffd7"
+        },
+        "settings": {
+          "text": "settings",
+          "commit": "fb6e8269f2312471e2cadbead53542187432ffd7"
+        }
+      },
+      "management": {
+        "title": {
+          "text": "Managing cookies",
+          "commit": "fb6e8269f2312471e2cadbead53542187432ffd7"
+        },
+        "p1": {
+          "text": "You can configure your browser to accept, reject, or delete cookies according to your preferences. However, please note that {bold}.",
+          "commit": "fb6e8269f2312471e2cadbead53542187432ffd7"
+        },
+        "bold": {
+          "text": "rejecting essential cookies may prevent full access to the application",
+          "commit": "fb6e8269f2312471e2cadbead53542187432ffd7"
+        },
+        "p2": {
+          "text": "Below are links with instructions for cookie management in the most commonly used browsers:",
+          "commit": "fb6e8269f2312471e2cadbead53542187432ffd7"
+        },
+        "chrome": {
+          "text": "Google Chrome (opens in a new window)",
+          "commit": "fb6e8269f2312471e2cadbead53542187432ffd7"
+        },
+        "firefox": {
+          "text": "Mozilla Firefox (opens in a new window)",
+          "commit": "fb6e8269f2312471e2cadbead53542187432ffd7"
+        },
+        "edge": {
+          "text": "Microsoft Edge (opens in a new window)",
+          "commit": "fb6e8269f2312471e2cadbead53542187432ffd7"
+        }
+      }
+    },
+    "analytics": {
+      "title": {
+        "text": "Analytics",
+        "commit": "fb6e8269f2312471e2cadbead53542187432ffd7"
+      },
+      "p1": {
+        "text": "We use {bold} to understand how visitors use our website. This helps us improve the user experience and identify issues.",
+        "commit": "fb6e8269f2312471e2cadbead53542187432ffd7"
+      },
+      "bold": {
+        "text": "Vercel Web Analytics",
+        "commit": "fb6e8269f2312471e2cadbead53542187432ffd7"
+      },
+      "p2": {
+        "text": "Vercel Analytics is designed with privacy in mind:",
+        "commit": "fb6e8269f2312471e2cadbead53542187432ffd7"
+      },
+      "li1": {
+        "text": "It does not use cookies",
+        "commit": "fb6e8269f2312471e2cadbead53542187432ffd7"
+      },
+      "li2": {
+        "text": "It does not collect personal identifiers",
+        "commit": "fb6e8269f2312471e2cadbead53542187432ffd7"
+      },
+      "li3": {
+        "text": "It does not track users across websites",
+        "commit": "fb6e8269f2312471e2cadbead53542187432ffd7"
+      },
+      "li4": {
+        "text": "All data is aggregated and anonymised",
+        "commit": "fb6e8269f2312471e2cadbead53542187432ffd7"
+      },
+      "p3": {
+        "text": "The only information collected includes: page URLs, referrer, country/region, device type, browser, and operating system. This data cannot be used to identify individual users.",
+        "commit": "fb6e8269f2312471e2cadbead53542187432ffd7"
+      }
+    },
+    "authenticated": {
+      "title": {
+        "text": "Authenticated users",
+        "commit": "fb6e8269f2312471e2cadbead53542187432ffd7"
+      },
+      "p1": {
+        "text": "When you connect your {bold} account to npmx, we store your OAuth access token in a secure, HTTP-only session cookie. This token is used solely to authenticate requests on your behalf.",
+        "commit": "fb6e8269f2312471e2cadbead53542187432ffd7"
+      },
+      "bold": {
+        "text": "Atmosphere",
+        "commit": "fb6e8269f2312471e2cadbead53542187432ffd7"
+      },
+      "p2": {
+        "text": "We do not store your credentials, and we do not access any data beyond what is necessary to provide the features you use. You can disconnect your account at any time from the {settings} page.",
+        "commit": "fb6e8269f2312471e2cadbead53542187432ffd7"
+      },
+      "settings": {
+        "text": "settings",
+        "commit": "fb6e8269f2312471e2cadbead53542187432ffd7"
+      }
+    },
+    "data_retention": {
+      "title": {
+        "text": "Data retention",
+        "commit": "fb6e8269f2312471e2cadbead53542187432ffd7"
+      },
+      "p1": {
+        "text": "Session cookies are automatically deleted when you close your browser or after a period of inactivity. Local storage preferences remain on your device until you clear your browser data. Analytics data is retained in aggregate form and cannot be linked to individual users.",
+        "commit": "fb6e8269f2312471e2cadbead53542187432ffd7"
+      }
+    },
+    "your_rights": {
+      "title": {
+        "text": "Your rights",
+        "commit": "fb6e8269f2312471e2cadbead53542187432ffd7"
+      },
+      "p1": {
+        "text": "You have the right to:",
+        "commit": "fb6e8269f2312471e2cadbead53542187432ffd7"
+      },
+      "li1": {
+        "text": "Access information about what data we collect",
+        "commit": "fb6e8269f2312471e2cadbead53542187432ffd7"
+      },
+      "li2": {
+        "text": "Clear your local storage and cookies at any time",
+        "commit": "fb6e8269f2312471e2cadbead53542187432ffd7"
+      },
+      "li3": {
+        "text": "Disconnect your authenticated session",
+        "commit": "fb6e8269f2312471e2cadbead53542187432ffd7"
+      },
+      "li4": {
+        "text": "Request information about our data practices",
+        "commit": "fb6e8269f2312471e2cadbead53542187432ffd7"
+      },
+      "p2": {
+        "text": "Since we do not collect personal data, there is typically no personal information to delete or export.",
+        "commit": "fb6e8269f2312471e2cadbead53542187432ffd7"
+      }
+    },
+    "contact": {
+      "title": {
+        "text": "Contact us",
+        "commit": "fb6e8269f2312471e2cadbead53542187432ffd7"
+      },
+      "p1": {
+        "text": "For any questions or concerns about this privacy policy, you can contact us by opening an issue on our {link}.",
+        "commit": "fb6e8269f2312471e2cadbead53542187432ffd7"
+      },
+      "link": {
+        "text": "GitHub repository",
+        "commit": "fb6e8269f2312471e2cadbead53542187432ffd7"
+      }
+    },
+    "changes": {
+      "title": {
+        "text": "Changes to this policy",
+        "commit": "fb6e8269f2312471e2cadbead53542187432ffd7"
+      },
+      "p1": {
+        "text": "We may update this privacy policy from time to time. Any changes will be published on this page with an updated revision date.",
+        "commit": "fb6e8269f2312471e2cadbead53542187432ffd7"
+      }
+    }
+  },
+  "a11y": {
+    "title": {
+      "text": "accessibility",
+      "commit": "fb6e8269f2312471e2cadbead53542187432ffd7"
+    },
+    "footer_title": {
+      "text": "a11y",
+      "commit": "fb6e8269f2312471e2cadbead53542187432ffd7"
+    },
+    "welcome": {
+      "text": "We want {app} to be usable by as many people as possible.",
+      "commit": "fb6e8269f2312471e2cadbead53542187432ffd7"
+    },
+    "approach": {
+      "title": {
+        "text": "Our approach",
+        "commit": "fb6e8269f2312471e2cadbead53542187432ffd7"
+      },
+      "p1": {
+        "text": "We try to follow the Web Content Accessibility Guidelines (WCAG) 2.2 and use them as a reference when building features. We don't claim full conformance with any level of WCAG — accessibility is a continual process and there is always more work to do.",
+        "commit": "fb6e8269f2312471e2cadbead53542187432ffd7"
+      },
+      "p2": {
+        "text": "This site is an {about}. Accessibility improvements are made incrementally as part of our regular development.",
+        "commit": "fb6e8269f2312471e2cadbead53542187432ffd7"
+      },
+      "about_link": {
+        "text": "open-source, community-driven project",
+        "commit": "fb6e8269f2312471e2cadbead53542187432ffd7"
+      }
+    },
+    "measures": {
+      "title": {
+        "text": "What we do",
+        "commit": "fb6e8269f2312471e2cadbead53542187432ffd7"
+      },
+      "p1": {
+        "text": "Some of the things we aim to do across the site:",
+        "commit": "fb6e8269f2312471e2cadbead53542187432ffd7"
+      },
+      "li1": {
+        "text": "Use semantic HTML and ARIA attributes where appropriate.",
+        "commit": "fb6e8269f2312471e2cadbead53542187432ffd7"
+      },
+      "li2": {
+        "text": "Use relative text sizes so you can adjust them in your browser.",
+        "commit": "fb6e8269f2312471e2cadbead53542187432ffd7"
+      },
+      "li3": {
+        "text": "Support keyboard navigation throughout the interface.",
+        "commit": "fb6e8269f2312471e2cadbead53542187432ffd7"
+      },
+      "li4": {
+        "text": "Respect the prefers-reduced-motion and prefers-color-scheme media queries.",
+        "commit": "fb6e8269f2312471e2cadbead53542187432ffd7"
+      },
+      "li5": {
+        "text": "Design with sufficient color contrast in mind.",
+        "commit": "fb6e8269f2312471e2cadbead53542187432ffd7"
+      },
+      "li6": {
+        "text": "Ensure essential content is available without JavaScript, though some interactive features require it.",
+        "commit": "fb6e8269f2312471e2cadbead53542187432ffd7"
+      }
+    },
+    "limitations": {
+      "title": {
+        "text": "Known limitations",
+        "commit": "fb6e8269f2312471e2cadbead53542187432ffd7"
+      },
+      "p1": {
+        "text": "Some parts of the site — particularly third-party content like package READMEs — may not meet accessibility standards. We are working to improve these areas over time.",
+        "commit": "fb6e8269f2312471e2cadbead53542187432ffd7"
+      }
+    },
+    "contact": {
+      "title": {
+        "text": "Feedback",
+        "commit": "fb6e8269f2312471e2cadbead53542187432ffd7"
+      },
+      "p1": {
+        "text": "If you encounter an accessibility barrier on {app}, please let us know by opening an issue on our {link}. We take these reports seriously and will do our best to address them.",
+        "commit": "fb6e8269f2312471e2cadbead53542187432ffd7"
+      },
+      "link": {
+        "text": "GitHub repository",
+        "commit": "fb6e8269f2312471e2cadbead53542187432ffd7"
+      }
+    }
+  },
+  "vacations": {
+    "title": {
+      "text": "on vacation",
+      "commit": "fb6e8269f2312471e2cadbead53542187432ffd7"
+    },
+    "meta_description": {
+      "text": "The npmx team was recharging. Discord reopened after a week.",
+      "commit": "fb6e8269f2312471e2cadbead53542187432ffd7"
+    },
+    "heading": {
+      "text": "recharging",
+      "commit": "fb6e8269f2312471e2cadbead53542187432ffd7"
+    },
+    "subtitle": {
+      "text": "we were building npmx at a pace that was costing {some} of us sleep. we didn't want that to be the norm! so we took a week off. together.",
+      "commit": "fb6e8269f2312471e2cadbead53542187432ffd7"
+    },
+    "illustration_alt": {
+      "text": "a single row of cosy icons",
+      "commit": "fb6e8269f2312471e2cadbead53542187432ffd7"
+    },
+    "poke_log": {
+      "text": "Poke the campfire",
+      "commit": "fb6e8269f2312471e2cadbead53542187432ffd7"
+    },
+    "what": {
+      "title": {
+        "text": "what happened",
+        "commit": "fb6e8269f2312471e2cadbead53542187432ffd7"
+      },
+      "p1": {
+        "text": "discord was closed {dates}.",
+        "commit": "fb6e8269f2312471e2cadbead53542187432ffd7"
+      },
+      "dates": {
+        "text": "February 14 – 21",
+        "commit": "fb6e8269f2312471e2cadbead53542187432ffd7"
+      },
+      "p2": {
+        "text": "all invite links were gone and channels were locked – except {garden}, which stayed open for folks who wanted to keep hanging out.",
+        "commit": "fb6e8269f2312471e2cadbead53542187432ffd7"
+      },
+      "garden": {
+        "text": "#garden",
+        "commit": "fb6e8269f2312471e2cadbead53542187432ffd7"
+      }
+    },
+    "meantime": {
+      "title": {
+        "text": "in the meantime",
+        "commit": "fb6e8269f2312471e2cadbead53542187432ffd7"
+      },
+      "p1": {
+        "text": "{site} and {repo} stayed open – people still dug in, filed some issues, opened a few PRs, but mainly everyone spent time somewhere near a cosy fireplace.",
+        "commit": "fb6e8269f2312471e2cadbead53542187432ffd7"
+      },
+      "repo_link": {
+        "text": "the repo",
+        "commit": "fb6e8269f2312471e2cadbead53542187432ffd7"
+      }
+    },
+    "return": {
+      "title": {
+        "text": "we came back!",
+        "commit": "fb6e8269f2312471e2cadbead53542187432ffd7"
+      },
+      "p1": {
+        "text": "we came back recharged and ready for the final push to March 3rd. {social} for updates.",
+        "commit": "fb6e8269f2312471e2cadbead53542187432ffd7"
+      },
+      "social_link": {
+        "text": "follow us on Bluesky",
+        "commit": "fb6e8269f2312471e2cadbead53542187432ffd7"
+      }
+    },
+    "stats": {
+      "contributors": {
+        "text": "Contributors",
+        "commit": "fb6e8269f2312471e2cadbead53542187432ffd7"
+      },
+      "commits": {
+        "text": "Commits",
+        "commit": "fb6e8269f2312471e2cadbead53542187432ffd7"
+      },
+      "pr": {
+        "text": "PRs Merged",
+        "commit": "fb6e8269f2312471e2cadbead53542187432ffd7"
+      },
+      "subtitle": {
+        "some": {
+          "text": "some",
+          "commit": "fb6e8269f2312471e2cadbead53542187432ffd7"
+        },
+        "all": {
+          "text": "all",
+          "commit": "fb6e8269f2312471e2cadbead53542187432ffd7"
+        }
+      }
+    }
+  }
+}
