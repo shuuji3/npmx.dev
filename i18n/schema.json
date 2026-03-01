@@ -10,10 +10,10 @@
         "home": {
           "type": "object",
           "properties": {
-            "title": {
+            "description": {
               "type": "string"
             },
-            "description": {
+            "new": {
               "type": "string"
             }
           },

@@ -1,7 +1,7 @@
 {
   "$meta": {
-    "last_updated_commit": "fb6e8269f2312471e2cadbead53542187432ffd7",
-    "updated_at": "2026-03-01T09:36:08.287Z"
+    "last_updated_commit": "f8ac7fc58a564649793b12df090f67a0f5f08dfa",
+    "updated_at": "2026-03-01T09:40:24.936Z"
   },
   "$schema": {
     "text": "../schema.json",
@@ -16,8 +16,8 @@
     "commit": "fb6e8269f2312471e2cadbead53542187432ffd7"
   },
   "tagline": {
-    "text": "a better browser for the npm registry",
-    "commit": "fb6e8269f2312471e2cadbead53542187432ffd7"
+    "text": "a fast, modern browser for the npm registry",
+    "commit": "f8ac7fc58a564649793b12df090f67a0f5f08dfa"
   },
   "non_affiliation_disclaimer": {
     "text": "not affiliated with npm, Inc.",
@@ -29,13 +29,13 @@
   },
   "seo": {
     "home": {
-      "title": {
-        "text": "npmx - Package Browser for the npm Registry",
-        "commit": "fb6e8269f2312471e2cadbead53542187432ffd7"
-      },
       "description": {
-        "text": "a better browser for the npm registry. Search, browse, and explore packages with a modern interface.",
-        "commit": "fb6e8269f2312471e2cadbead53542187432ffd7"
+        "text": "a fast, modern browser for the npm registry. Search, browse, and explore packages with a modern interface.",
+        "commit": "f8ac7fc58a564649793b12df090f67a0f5f08dfa"
+      },
+      "new": {
+        "text": "text!",
+        "commit": "f8ac7fc58a564649793b12df090f67a0f5f08dfa"
       }
     }
   },
