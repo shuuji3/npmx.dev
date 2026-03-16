@@ -18,6 +18,7 @@
     "source": "source",
     "social": "social",
     "chat": "chat",
+    "builders_chat": "builders",
     "keyboard_shortcuts": "keyboard shortcuts"
   },
   "shortcuts": {
@@ -64,7 +65,13 @@
       "org": "org",
       "view_user_packages": "View packages by this user",
       "view_org_packages": "View packages by this organization"
-    }
+    },
+    "instant_search": "Instant search",
+    "instant_search_on": "on",
+    "instant_search_off": "off",
+    "instant_search_turn_on": "turn on",
+    "instant_search_turn_off": "turn off",
+    "instant_search_advisory": "{label} {state} — {action}"
   },
   "nav": {
     "main_navigation": "Main",
@@ -85,6 +92,8 @@
     "author": {
       "view_profile": "View {name}'s profile on Bluesky"
     },
+    "draft_badge": "Draft",
+    "draft_banner": "This is an unpublished draft. It may be incomplete or contain inaccuracies.",
     "atproto": {
       "view_on_bluesky": "View on Bluesky",
       "reply_on_bluesky": "Reply on Bluesky",
@@ -108,7 +117,7 @@
     "sections": {
       "appearance": "Appearance",
       "display": "Display",
-      "search": "Data source",
+      "search": "Search features",
       "language": "Language",
       "keyboard_shortcuts": "Keyboard shortcuts"
     },
@@ -120,6 +129,8 @@
       "algolia": "Algolia",
       "algolia_description": "Uses Algolia for faster search, org and user pages."
     },
+    "instant_search": "Instant search",
+    "instant_search_description": "Navigates to the search page and updates the results as you type.",
     "relative_dates": "Relative dates",
     "include_types": "Include {'@'}types in install",
     "include_types_description": "Add {'@'}types package to install commands for untyped packages",
@@ -167,7 +178,6 @@
     "skip_link": "Skip to main content",
     "warnings": "Warnings:",
     "go_back_home": "Go back home",
-    "view_on_npm": "view on npm",
     "per_week": "/ week",
     "vanity_downloads_hint": "Vanity number: no packages displayed | Vanity number: for the displayed package | Vanity number: Sum of {count} displayed packages",
     "sort": {
@@ -179,7 +189,21 @@
     "cancel": "Cancel",
     "save": "Save",
     "edit": "Edit",
-    "error": "Error"
+    "error": "Error",
+    "view_on": {
+      "npm": "view on npm",
+      "github": "View on GitHub",
+      "gitlab": "View on GitLab",
+      "bitbucket": "View on Bitbucket",
+      "codeberg": "View on Codeberg",
+      "git_repo": "View on Git repository",
+      "forgejo": "View on Forgejo",
+      "gitea": "View on Gitea",
+      "gitee": "View on Gitee",
+      "radicle": "View on Radicle",
+      "sourcehut": "View on SourceHut",
+      "tangled": "View on Tangled"
+    }
   },
   "profile": {
     "display_name": "Display Name",
@@ -301,7 +325,6 @@
     "readme": {
       "title": "Readme",
       "no_readme": "No README available.",
-      "view_on_github": "View on GitHub",
       "toc_title": "Outline",
       "callout": {
         "note": "Note",
@@ -366,7 +389,7 @@
       "grouping_versions_only_recent": "Only recent",
       "grouping_usage_title": "Usage",
       "grouping_usage_all": "All",
-      "grouping_usage_low": "Low",
+      "grouping_usage_most_used": "Most used",
       "recent_versions_only_tooltip": "Show only versions published within the last year.",
       "show_low_usage_tooltip": "Include version groups with less than 1% of total downloads.",
       "y_axis_label": "Downloads",
@@ -443,11 +466,10 @@
         "likes": "Likes",
         "contributors": "Contributors"
       },
-      "play_animation": "Play animation",
-      "pause_animation": "Pause animation",
       "data_correction": "Data correction",
       "average_window": "Average window",
       "smoothing": "Smoothing",
+      "prediction": "Prediction",
       "known_anomalies": "Known anomalies",
       "known_anomalies_description": "Interpolates over known download spikes caused by bots or CI issues.",
       "known_anomalies_ranges": "Anomaly ranges",
@@ -468,7 +490,9 @@
         "estimations": "The final values are estimates based on partial data for the current period.",
         "compare": "Package download comparison line chart for: {packages}.",
         "single_package": "Downloads line chart for the {package} package.",
-        "general_description": "The Y axis represents the number of downloads. The X axis represents the date range, from {start_date} to {end_date}, with a {granularity} time period.{estimation_notice} {packages_analysis}. {watermark}."
+        "general_description": "The Y axis represents the number of downloads. The X axis represents the date range, from {start_date} to {end_date}, with a {granularity} time period.{estimation_notice} {packages_analysis}. {watermark}.",
+        "facet_bar_general_description": "Horizontal bar chart for: {packages}, comparing {facet} ({description}). {facet_analysis} {watermark}.",
+        "facet_bar_analysis": "{package_name} has a value of {value}."
       }
     },
     "downloads": {
@@ -568,9 +592,6 @@
   "connector": {
     "modal": {
       "title": "Local Connector",
-      "contributor_badge": "Contributors only",
-      "contributor_notice": "The connector is not yet published to npm. See the {link} for how to run locally.",
-      "contributor_link": "contributing guide",
       "connected": "Connected",
       "connected_as_user": "Connected as ~{user}",
       "connected_hint": "You can now manage packages and organizations from the web UI.",
@@ -879,7 +900,6 @@
       "paginated": "Paginated",
       "items_per_page": "Items per page",
       "per_page": "{count} / page",
-      "all_yolo": "All (YOLO)",
       "showing": "{start}-{end} of {total}",
       "previous": "Previous page",
       "next": "Next page",
@@ -956,6 +976,11 @@
         "description": "Chat, ask questions, and share ideas.",
         "cta": "Join Discord"
       },
+      "builders": {
+        "title": "Help build npmx",
+        "description": "Join the builders shaping the future of npmx.",
+        "cta": "Join Builders Discord"
+      },
       "follow": {
         "title": "Stay updated",
         "description": "Find out the latest on npmx.",
@@ -1026,7 +1051,9 @@
       "loading": "Loading package data...",
       "error": "Failed to load package data. Please try again.",
       "empty_title": "Select packages to compare",
-      "empty_description": "Search and add at least 2 packages above to see a side-by-side comparison of their metrics."
+      "empty_description": "Search and add at least 2 packages above to see a side-by-side comparison of their metrics.",
+      "table_view": "Table",
+      "charts_view": "Charts"
     },
     "selector": {
       "search_label": "Search for packages",
@@ -1164,6 +1191,34 @@
     "select_file_prompt": "Select a file from the sidebar to view its diff",
     "close_files_panel": "Close files panel",
     "filter_files_label": "Filter files by change type"
+  },
+  "pds": {
+    "title": "npmx.social",
+    "meta_description": "The official AT Protocol Personal Data Server (PDS) for the npmx community.",
+    "join": {
+      "title": "Join the Community",
+      "description": "Whether you are creating your first account on the atmosphere or migrating an existing one, you belong here. You can migrate your current account without losing your handle, your posts, or your followers.",
+      "migrate": "Migrate with PDS MOOver"
+    },
+    "server": {
+      "title": "Server Details",
+      "location_label": "Location:",
+      "location_value": "Nuremberg, Germany",
+      "infrastructure_label": "Infrastructure:",
+      "infrastructure_value": "Hosted on Hetzner",
+      "privacy_label": "Privacy:",
+      "privacy_value": "Subject to strict EU Data Protection laws",
+      "learn_more": "Learn how npmx uses the Atmosphere"
+    },
+    "community": {
+      "title": "Who is here",
+      "description": "Some of the {count} accounts that are already calling npmx.social home:",
+      "loading": "Loading PDS community...",
+      "error": "Failed to load PDS community.",
+      "empty": "No community members to display.",
+      "view_profile": "View {handle}'s profile",
+      "new_accounts": "...plus {count} more that are new to the atmosphere"
+    }
   },
   "privacy_policy": {
     "title": "privacy policy",

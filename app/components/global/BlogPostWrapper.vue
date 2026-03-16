@@ -1,9 +1,13 @@
 <script setup lang="ts">
-import type { BlogPostFrontmatter } from '#shared/schemas/blog'
+import type { RawBlogPostFrontmatter } from '#shared/schemas/blog'
+import { generateBlogTID } from '#shared/utils/atproto'
+import { posts } from '#blog/posts'
 
 const props = defineProps<{
-  frontmatter: BlogPostFrontmatter
+  frontmatter: RawBlogPostFrontmatter
 }>()
+
+const post = computed(() => posts.find(p => p.slug === props.frontmatter.slug))
 
 useSeoMeta({
   title: props.frontmatter.title,
@@ -11,11 +15,21 @@ useSeoMeta({
   ogTitle: props.frontmatter.title,
   ogDescription: props.frontmatter.description || props.frontmatter.excerpt,
   ogType: 'article',
+  ...(props.frontmatter.draft ? { robots: 'noindex, nofollow' } : {}),
+})
+
+useHead({
+  link: [
+    {
+      rel: 'site.standard.document',
+      href: `at://${NPMX_DEV_DID}/site.standard.document/${generateBlogTID(props.frontmatter.date, props.frontmatter.slug)}`,
+    },
+  ],
 })
 
 defineOgImageComponent('BlogPost', {
   title: props.frontmatter.title,
-  authors: props.frontmatter.authors,
+  authors: post.value?.authors ?? [],
   date: props.frontmatter.date,
 })
 
@@ -28,9 +42,20 @@ const blueskyPostUri = computed(() => blueskyLink.value?.postUri ?? null)
 
 <template>
   <main class="container w-full py-8">
-    <div v-if="frontmatter.authors" class="mb-12 max-w-prose mx-auto">
+    <div
+      v-if="frontmatter.draft"
+      class="max-w-prose mx-auto mb-8 px-4 py-3 rounded-md border border-badge-orange/30 bg-badge-orange/5"
+    >
+      <div class="flex items-center gap-2 text-badge-orange">
+        <span class="i-lucide:file-edit w-4 h-4 shrink-0" aria-hidden="true" />
+        <span class="text-sm font-medium">
+          {{ $t('blog.draft_banner') }}
+        </span>
+      </div>
+    </div>
+    <div v-if="post?.authors" class="mb-12 max-w-prose mx-auto">
       <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
-        <AuthorList :authors="frontmatter.authors" variant="expanded" />
+        <AuthorList :authors="post.authors" variant="expanded" />
       </div>
     </div>
     <article class="max-w-prose mx-auto p-2 prose dark:prose-invert">

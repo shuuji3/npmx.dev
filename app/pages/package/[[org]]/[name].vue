@@ -21,6 +21,7 @@ import { useModal } from '~/composables/useModal'
 import { useAtproto } from '~/composables/atproto/useAtproto'
 import { togglePackageLike } from '~/utils/atproto/likes'
 import { useInstallSizeDiff } from '~/composables/useInstallSizeDiff'
+import { useViewOnGitProvider } from '~/composables/useViewOnGitProvider'
 import type { RouteLocationRaw } from 'vue-router'
 
 defineOgImageComponent('Package', {
@@ -33,18 +34,27 @@ const router = useRouter()
 
 const header = useTemplateRef('header')
 const isHeaderPinned = shallowRef(false)
+const readmeHeader = useTemplateRef('readmeHeader')
+const isReadmeHeaderPinned = shallowRef(false)
 const navExtraOffset = shallowRef(0)
 const isMobile = useMediaQuery('(max-width: 639.9px)')
 
-function checkHeaderPosition() {
-  const el = header.value
-  if (!el) return
+const headerBounds = useElementBounding(header)
+const readmeStickyTop = computed(() => `${56 + headerBounds.height.value}px`)
+
+function isStickyPinned(el: HTMLElement | null): boolean {
+  if (!el) return false
 
   const style = getComputedStyle(el)
   const top = parseFloat(style.top) || 0
   const rect = el.getBoundingClientRect()
 
-  isHeaderPinned.value = Math.abs(rect.top - top) < 1
+  return Math.abs(rect.top - top) < 1
+}
+
+function checkHeaderPosition() {
+  isHeaderPinned.value = isStickyPinned(header.value)
+  isReadmeHeaderPinned.value = isStickyPinned(readmeHeader.value)
 }
 
 useEventListener('scroll', checkHeaderPosition, { passive: true })
@@ -97,6 +107,11 @@ const navExtraOffsetStyle = computed(() => ({
 
 const { packageName, requestedVersion, orgName } = usePackageRoute()
 
+const { data: resolvedVersion, status: resolvedStatus } = await useResolvedVersion(
+  packageName,
+  requestedVersion,
+)
+
 if (import.meta.server) {
   assertValidPackageName(packageName.value)
 }
@@ -105,7 +120,7 @@ if (import.meta.server) {
 const { data: readmeData } = useLazyFetch<ReadmeResponse>(
   () => {
     const base = `/api/registry/readme/${packageName.value}`
-    const version = requestedVersion.value
+    const version = resolvedVersion.value
     return version ? `${base}/v/${version}` : base
   },
   {
@@ -141,7 +156,7 @@ const {
 } = useLazyFetch<ReadmeMarkdownResponse>(
   () => {
     const base = `/api/registry/readme/markdown/${packageName.value}`
-    const version = requestedVersion.value
+    const version = resolvedVersion.value
     return version ? `${base}/v/${version}` : base
   },
   {
@@ -191,7 +206,7 @@ const {
 } = useLazyFetch<InstallSizeResult | null>(
   () => {
     const base = `/api/registry/install-size/${packageName.value}`
-    const version = requestedVersion.value
+    const version = resolvedVersion.value
     return version ? `${base}/v/${version}` : base
   },
   {
@@ -204,7 +219,7 @@ onMounted(() => fetchInstallSize())
 const { data: skillsData } = useLazyFetch<SkillsListResponse>(
   () => {
     const base = `/skills/${packageName.value}`
-    const version = requestedVersion.value
+    const version = resolvedVersion.value
     return version ? `${base}/v/${version}` : base
   },
   { default: () => ({ package: '', version: '', skills: [] }) },
@@ -212,11 +227,6 @@ const { data: skillsData } = useLazyFetch<SkillsListResponse>(
 
 const { data: packageAnalysis } = usePackageAnalysis(packageName, requestedVersion)
 const { data: moduleReplacement } = useModuleReplacement(packageName)
-
-const { data: resolvedVersion, status: resolvedStatus } = await useResolvedVersion(
-  packageName,
-  requestedVersion,
-)
 
 if (
   import.meta.server &&
@@ -493,6 +503,8 @@ const repoProviderIcon = computed((): IconClass => {
   if (!provider) return 'i-simple-icons:github'
   return PROVIDER_ICONS[provider] ?? 'i-lucide:code'
 })
+
+const viewOnGitProvider = useViewOnGitProvider(() => repoRef.value?.provider)
 
 const homepageUrl = computed(() => {
   const homepage = displayVersion.value?.homepage
@@ -854,7 +866,6 @@ const showSkeleton = shallowRef(false)
               :to="docsLink"
               aria-keyshortcuts="d"
               classicon="i-lucide:file-text"
-              :title="$t('package.links.docs')"
             >
               <span class="max-sm:sr-only">{{ $t('package.links.docs') }}</span>
             </LinkBase>
@@ -864,7 +875,6 @@ const showSkeleton = shallowRef(false)
               :to="codeLink"
               aria-keyshortcuts="."
               classicon="i-lucide:code"
-              :title="$t('package.links.code')"
             >
               <span class="max-sm:sr-only">{{ $t('package.links.code') }}</span>
             </LinkBase>
@@ -873,7 +883,6 @@ const showSkeleton = shallowRef(false)
               :to="{ name: 'compare', query: { packages: pkg.name } }"
               aria-keyshortcuts="c"
               classicon="i-lucide:git-compare"
-              :title="$t('package.links.compare')"
             >
               <span class="max-sm:sr-only">{{ $t('package.links.compare') }}</span>
             </LinkBase>
@@ -891,10 +900,10 @@ const showSkeleton = shallowRef(false)
             <ButtonBase
               v-if="showScrollToTop"
               variant="secondary"
-              :title="$t('common.scroll_to_top')"
               :aria-label="$t('common.scroll_to_top')"
               @click="scrollToTop"
               classicon="i-lucide:arrow-up"
+              class="sm:p-2.75"
             />
           </ButtonGroup>
 
@@ -997,7 +1006,7 @@ const showSkeleton = shallowRef(false)
             <li>
               <LinkBase
                 :to="`https://www.npmjs.com/package/${pkg.name}`"
-                :title="$t('common.view_on_npm')"
+                :title="$t('common.view_on.npm')"
                 classicon="i-simple-icons:npm"
               >
                 npm
@@ -1123,7 +1132,7 @@ const showSkeleton = shallowRef(false)
                 <LinkBase
                   variant="button-secondary"
                   size="small"
-                  :to="`https://npmgraph.js.org/?q=${pkg.name}`"
+                  :to="`https://npmgraph.js.org/?q=${pkg.name}${resolvedVersion ? `@${resolvedVersion}` : ''}`"
                   :title="$t('package.stats.view_dependency_graph')"
                   classicon="i-lucide:network -rotate-90"
                 >
@@ -1146,7 +1155,7 @@ const showSkeleton = shallowRef(false)
           <div class="space-y-1 sm:col-span-3">
             <dt class="text-xs text-fg-subtle uppercase tracking-wider flex items-center gap-1">
               {{ $t('package.stats.install_size') }}
-              <TooltipApp v-if="sizeTooltip" :text="sizeTooltip">
+              <TooltipApp v-if="sizeTooltip" :text="sizeTooltip" interactive>
                 <span
                   tabindex="0"
                   class="inline-flex items-center justify-center min-w-6 min-h-6 -m-1 p-1 text-fg-subtle cursor-help focus-visible:outline-2 focus-visible:outline-accent/70 rounded"
@@ -1359,7 +1368,7 @@ const showSkeleton = shallowRef(false)
           </div>
           <TerminalInstall
             :package-name="pkg.name"
-            :requested-version="requestedVersion"
+            :requested-version="resolvedVersion"
             :install-version-override="installVersionOverride"
             :jsr-info="jsrInfo"
             :dev-dependency-suggestion="packageAnalysis?.devDependencySuggestion"
@@ -1393,7 +1402,12 @@ const showSkeleton = shallowRef(false)
 
       <!-- README -->
       <section id="readme" class="min-w-0 scroll-mt-20" :class="$style.areaReadme">
-        <div class="flex flex-wrap items-center justify-between mb-3 px-1">
+        <div
+          ref="readmeHeader"
+          class="flex sticky z-10 flex-wrap items-center justify-between mb-3 py-2 -mx-1 px-2 transition-shadow duration-200"
+          :class="{ 'bg-bg border-border border-b': isReadmeHeaderPinned }"
+          :style="{ top: readmeStickyTop }"
+        >
           <h2 id="readme-heading" class="group text-xs text-fg-subtle uppercase tracking-wider">
             <LinkBase to="#readme">
               {{ $t('package.readme.title') }}
@@ -1437,7 +1451,8 @@ const showSkeleton = shallowRef(false)
             target="_blank"
             rel="noopener noreferrer"
             class="link text-fg underline underline-offset-4 decoration-fg-subtle hover:(decoration-fg text-fg) transition-colors duration-200"
-            >{{ $t('package.readme.view_on_github') }}</a
+          >
+            {{ viewOnGitProvider }}</a
           >
         </p>
 

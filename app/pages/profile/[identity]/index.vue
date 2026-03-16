@@ -23,7 +23,7 @@ if (!profile.value || profileError.value?.statusCode === 404) {
   })
 }
 
-const { user } = useAtproto()
+const { user, pending: userPending } = useAtproto()
 const isEditing = ref(false)
 const displayNameInput = ref()
 const descriptionInput = ref()
@@ -84,6 +84,7 @@ const showInviteSection = computed(() => {
     profile.value.recordExists === false &&
     status.value === 'success' &&
     !likes.value?.records?.length &&
+    !userPending.value &&
     user.value?.handle !== profile.value.handle
   )
 })
@@ -112,7 +113,7 @@ defineOgImageComponent('Default', {
     <!-- Header -->
     <header class="mb-8 pb-8 border-b border-border">
       <!-- Editing Profile -->
-      <div v-if="isEditing" class="flex flex-col flex-wrap gap-4">
+      <form v-if="isEditing" class="flex flex-col flex-wrap gap-4" @submit.prevent="updateProfile">
         <label for="displayName" class="text-sm flex flex-col gap-2">
           {{ $t('profile.display_name') }}
           <input
@@ -145,18 +146,14 @@ defineOgImageComponent('Default', {
         </label>
         <div class="flex gap-4 items-center font-mono text-sm">
           <h2>@{{ profile?.handle }}</h2>
-          <ButtonBase @click="isEditing = false">
+          <ButtonBase @click="isEditing = false" type="button">
             {{ $t('common.cancel') }}
           </ButtonBase>
-          <ButtonBase
-            @click="updateProfile"
-            variant="primary"
-            :disabled="isUpdateProfileActionPending"
-          >
+          <ButtonBase variant="primary" :disabled="isUpdateProfileActionPending" type="submit">
             {{ $t('common.save') }}
           </ButtonBase>
         </div>
-      </div>
+      </form>
 
       <!-- Display Profile -->
       <div v-else class="flex flex-col flex-wrap gap-4">

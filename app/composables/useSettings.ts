@@ -29,6 +29,8 @@ export interface AppSettings {
   selectedLocale: LocaleObject['code'] | null
   /** Search provider for package search */
   searchProvider: SearchProvider
+  /** Show search results as you type */
+  instantSearch: boolean
   /** Enable/disable keyboard shortcuts */
   keyboardShortcuts: boolean
   /** Connector preferences */
@@ -38,12 +40,12 @@ export interface AppSettings {
   }
   sidebar: {
     collapsed: string[]
-    animateSparkline: boolean
   }
   chartFilter: {
     averageWindow: number
     smoothingTau: number
     anomaliesFixed: boolean
+    predictionPoints: number
   }
 }
 
@@ -55,18 +57,19 @@ const DEFAULT_SETTINGS: AppSettings = {
   selectedLocale: null,
   preferredBackgroundTheme: null,
   searchProvider: import.meta.test ? 'npm' : 'algolia',
+  instantSearch: true,
   keyboardShortcuts: true,
   connector: {
     autoOpenURL: false,
   },
   sidebar: {
     collapsed: [],
-    animateSparkline: true,
   },
   chartFilter: {
     averageWindow: 0,
     smoothingTau: 1,
     anomaliesFixed: true,
+    predictionPoints: 4,
   },
 }
 
