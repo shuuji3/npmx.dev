@@ -3,6 +3,8 @@ import { useAtproto } from '~/composables/atproto/useAtproto'
 import { authRedirect } from '~/utils/atproto/helpers'
 import { isAtIdentifierString } from '@atproto/lex'
 
+const authModal = useModal('auth-modal')
+
 const handleInput = shallowRef('')
 const errorMessage = shallowRef('')
 const route = useRoute()
@@ -50,6 +52,14 @@ watch(handleInput, newHandleInput => {
     handleInput.value = normalized
   }
 })
+
+watch(user, async newUser => {
+  if (newUser?.relogin) {
+    await authRedirect(newUser.did, {
+      redirectTo: route.fullPath,
+    })
+  }
+})
 </script>
 
 <template>
@@ -64,9 +74,22 @@ watch(handleInput, newHandleInput => {
           </p>
         </div>
       </div>
-      <ButtonBase class="w-full" @click="logout">
-        {{ $t('auth.modal.disconnect') }}
-      </ButtonBase>
+
+      <div class="flex flex-col space-y-4">
+        <LinkBase
+          variant="button-secondary"
+          :to="{ name: 'profile-identity', params: { identity: user.handle } }"
+          prefetch-on="interaction"
+          class="w-full"
+          @click="authModal.close()"
+        >
+          {{ $t('auth.modal.profile') }}
+        </LinkBase>
+
+        <ButtonBase class="w-full" @click="logout">
+          {{ $t('auth.modal.disconnect') }}
+        </ButtonBase>
+      </div>
     </div>
 
     <!-- Disconnected state -->
@@ -89,7 +112,6 @@ watch(handleInput, newHandleInput => {
             :placeholder="$t('auth.modal.handle_placeholder')"
             no-correct
             class="w-full"
-            size="medium"
           />
           <p v-if="errorMessage" class="text-red-500 text-xs mt-1" role="alert">
             {{ errorMessage }}

@@ -47,6 +47,9 @@ export type PublishTrustLevel = 'none' | 'trustedPublisher' | 'provenance'
 export type SlimVersion = Pick<SlimPackumentVersion, 'version' | 'deprecated' | 'tags'> & {
   hasProvenance?: boolean
   trustLevel?: PublishTrustLevel
+  license?: string
+  /** Package type field — "module" indicates ESM */
+  type?: string
 }
 
 /**
@@ -83,6 +86,7 @@ export interface SlimPackument {
   'keywords'?: string[]
   'repository'?: { type?: string; url?: string; directory?: string }
   'bugs'?: { url?: string; email?: string }
+  'storybook'?: { url: string }
   /** current version */
   'requestedVersion': SlimPackumentVersion | null
   /** Only includes dist-tag versions (with installScripts info added per version) */
@@ -127,8 +131,7 @@ export interface NpmSearchResponse {
 
 export interface NpmSearchResult {
   package: NpmSearchPackage
-  score: NpmSearchScore
-  searchScore: number
+  searchScore?: number
   /** Download counts (weekly/monthly) */
   downloads?: {
     weekly?: number
@@ -186,15 +189,8 @@ export interface NpmSearchPackage {
   publisher?: NpmSearchPublisher
   maintainers?: NpmPerson[]
   license?: string
-}
-
-export interface NpmSearchScore {
-  final: number
-  detail: {
-    quality: number
-    popularity: number
-    maintenance: number
-  }
+  /** Algolia-only: package is an npm-owned security-holder takedown */
+  isSecurityHeld?: boolean
 }
 
 /**
@@ -233,7 +229,6 @@ export interface NpmVersionDist {
 /**
  * Parsed provenance details for display (from attestation bundle SLSA predicate).
  * Used by the provenance API and PackageProvenanceSection.
- * @public
  */
 export interface ProvenanceDetails {
   /** Provider ID (e.g. "github", "gitlab") */
@@ -355,7 +350,9 @@ export interface PackageFileTree {
   path: string
   /** Node type */
   type: 'file' | 'directory'
-  /** File size in bytes (only for files) */
+  /** File hash (only for files) */
+  hash?: string
+  /** Node size in bytes (file size or recursive directory total) */
   size?: number
   /** Child nodes (only for directories) */
   children?: PackageFileTree[]
@@ -379,6 +376,7 @@ export interface PackageFileContentResponse {
   version: string
   path: string
   language: string
+  contentType: string | null
   content: string
   html: string
   lines: number

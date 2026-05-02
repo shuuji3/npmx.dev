@@ -1,10 +1,6 @@
 import { describe, expect, it, vi } from 'vitest'
-import type { JsDelivrFileNode, PackageFileTree } from '../../../../shared/types'
-import {
-  convertToFileTree,
-  fetchFileTree,
-  getPackageFileTree,
-} from '../../../../server/utils/file-tree'
+import type { JsDelivrFileNode, PackageFileTree } from '#shared/types'
+import { convertToFileTree, fetchFileTree, getPackageFileTree } from '#server/utils/file-tree'
 
 const getChildren = (node?: PackageFileTree): PackageFileTree[] => node?.children ?? []
 
@@ -48,7 +44,7 @@ describe('convertToFileTree', () => {
       {
         type: 'directory',
         name: 'assets',
-        files: [{ type: 'file', name: 'logo.svg', size: 42 }],
+        files: [{ type: 'file', name: 'logo-icon.svg', size: 42 }],
       },
     ]
 
@@ -93,6 +89,8 @@ describe('convertToFileTree', () => {
     const formatFile = getChildren(utilsDir).find(child => child.name === 'format.ts')
     expect(formatFile?.path).toBe('src/utils/format.ts')
     expect(formatFile?.size).toBe(22)
+    expect(utilsDir?.size).toBe(22)
+    expect(src?.size).toBe(122)
   })
 
   it('returns an empty tree for empty input', () => {
@@ -112,6 +110,7 @@ describe('convertToFileTree', () => {
     const tree = convertToFileTree(input)
 
     expect(tree[0]?.type).toBe('directory')
+    expect(tree[0]?.size).toBe(0)
     expect(tree[0]?.children).toEqual([])
   })
 })

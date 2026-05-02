@@ -196,95 +196,6 @@ describe('useMarkdown', () => {
     })
   })
 
-  describe('packageName prop', () => {
-    it('strips package name from the beginning of plain text', () => {
-      const processed = useMarkdown({
-        text: 'my-package - A great library',
-        packageName: 'my-package',
-      })
-      expect(processed.value).toBe('A great library')
-    })
-
-    it('strips package name with colon separator', () => {
-      const processed = useMarkdown({
-        text: 'my-package: A great library',
-        packageName: 'my-package',
-      })
-      expect(processed.value).toBe('A great library')
-    })
-
-    it('strips package name with em dash separator', () => {
-      const processed = useMarkdown({
-        text: 'my-package — A great library',
-        packageName: 'my-package',
-      })
-      expect(processed.value).toBe('A great library')
-    })
-
-    it('strips package name without separator', () => {
-      const processed = useMarkdown({
-        text: 'my-package A great library',
-        packageName: 'my-package',
-      })
-      expect(processed.value).toBe('A great library')
-    })
-
-    it('is case-insensitive', () => {
-      const processed = useMarkdown({
-        text: 'MY-PACKAGE - A great library',
-        packageName: 'my-package',
-      })
-      expect(processed.value).toBe('A great library')
-    })
-
-    it('does not strip package name from middle of text', () => {
-      const processed = useMarkdown({
-        text: 'A great my-package library',
-        packageName: 'my-package',
-      })
-      expect(processed.value).toBe('A great my-package library')
-    })
-
-    it('handles scoped package names', () => {
-      const processed = useMarkdown({
-        text: '@org/my-package - A great library',
-        packageName: '@org/my-package',
-      })
-      expect(processed.value).toBe('A great library')
-    })
-
-    it('handles package names with special regex characters', () => {
-      const processed = useMarkdown({
-        text: 'pkg.name+test - A great library',
-        packageName: 'pkg.name+test',
-      })
-      expect(processed.value).toBe('A great library')
-    })
-
-    it('strips package name from HTML-containing descriptions', () => {
-      const processed = useMarkdown({
-        text: '<b>my-package</b> - A great library',
-        packageName: 'my-package',
-      })
-      expect(processed.value).toBe('A great library')
-    })
-
-    it('strips package name from descriptions with markdown images', () => {
-      const processed = useMarkdown({
-        text: '![badge](https://badge.svg) my-package - A great library',
-        packageName: 'my-package',
-      })
-      expect(processed.value).toBe('A great library')
-    })
-
-    it('does nothing when packageName is not provided', () => {
-      const processed = useMarkdown({
-        text: 'my-package - A great library',
-      })
-      expect(processed.value).toBe('my-package - A great library')
-    })
-  })
-
   describe('HTML tag stripping', () => {
     it('strips simple HTML tags but keeps content', () => {
       const processed = useMarkdown({ text: '<b>bold text</b> here' })
@@ -348,6 +259,52 @@ describe('useMarkdown', () => {
     it('strips unclosed HTML comments (truncated)', () => {
       const processed = useMarkdown({ text: 'A library <!-- automd:badges color=yel' })
       expect(processed.value).toBe('A library ')
+    })
+  })
+
+  describe('HTML tags inside backtick spans (regression #1478)', () => {
+    it('preserves HTML tags inside backtick code spans', () => {
+      const processed = useMarkdown({ text: 'Use `<div>` for layout' })
+      expect(processed.value).toBe('Use <code>&lt;div&gt;</code> for layout')
+    })
+
+    it('preserves multiple HTML tags inside one backtick span', () => {
+      const processed = useMarkdown({ text: 'Use `<div><span>test</span></div>` element' })
+      expect(processed.value).toBe(
+        'Use <code>&lt;div&gt;&lt;span&gt;test&lt;/span&gt;&lt;/div&gt;</code> element',
+      )
+    })
+
+    it('preserves backtick spans while stripping bare HTML tags', () => {
+      const processed = useMarkdown({ text: '`<a>` some <b>bold</b> text `<c>`' })
+      expect(processed.value).toBe('<code>&lt;a&gt;</code> some bold text <code>&lt;c&gt;</code>')
+    })
+
+    it('strips HTML tags outside backticks but keeps backtick content', () => {
+      const processed = useMarkdown({ text: '<b>hello</b> and `<input type="text">` world' })
+      expect(processed.value).toBe(
+        'hello and <code>&lt;input type=&quot;text&quot;&gt;</code> world',
+      )
+    })
+
+    it('handles backtick span with self-closing tag', () => {
+      const processed = useMarkdown({ text: 'Use `<br/>` for line breaks' })
+      expect(processed.value).toBe('Use <code>&lt;br/&gt;</code> for line breaks')
+    })
+
+    it('handles backtick spans without HTML inside', () => {
+      const processed = useMarkdown({ text: '`code` and <b>stripped</b>' })
+      expect(processed.value).toBe('<code>code</code> and stripped')
+    })
+
+    it('preserves HTML comments inside backtick spans', () => {
+      const processed = useMarkdown({ text: 'Use `<!-- comment -->` syntax' })
+      expect(processed.value).toBe('Use <code>&lt;!-- comment --&gt;</code> syntax')
+    })
+
+    it('strips HTML comments outside backtick spans', () => {
+      const processed = useMarkdown({ text: '`<div>` <!-- badge --> is an element' })
+      expect(processed.value).toBe('<code>&lt;div&gt;</code>  is an element')
     })
   })
 })

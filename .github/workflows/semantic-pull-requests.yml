@@ -7,6 +7,10 @@ on:
       - edited
       - synchronize
 
+concurrency:
+  group: ${{ github.workflow }}-${{ github.event.pull_request.number || github.ref }}
+  cancel-in-progress: true
+
 permissions: {}
 
 jobs:
@@ -24,6 +28,7 @@ jobs:
         with:
           scopes: |
             a11y
+            blog
             deps
             docs
             cli
@@ -34,5 +39,10 @@ jobs:
             The subject "{subject}" found in the pull request title "{title}"
             didn't match the configured pattern. Please ensure that the subject
             doesn't start with an uppercase character.
+
+            Examples:
+              ✅ chore(ui): fix button spacing
+              ✅ docs: update README
+              ❌ chore(ui): Fix button spacing
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

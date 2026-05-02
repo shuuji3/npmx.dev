@@ -1,14 +1,11 @@
-import { decodeHtmlEntities } from '~/utils/formatters'
+import { decodeHtmlEntities } from '#shared/utils/html'
 
 interface UseMarkdownOptions {
   text: string
   /** When true, renders link text without the anchor tag (useful when inside another link) */
   plain?: boolean
-  /** Package name to strip from the beginning of the description (if present) */
-  packageName?: string
 }
 
-/** @public */
 export function useMarkdown(options: MaybeRefOrGetter<UseMarkdownOptions>) {
   return computed(() => parseMarkdown(toValue(options)))
 }
@@ -26,31 +23,25 @@ function stripMarkdownImages(text: string): string {
 }
 
 // Strip HTML tags and escape remaining HTML to prevent XSS
-function stripAndEscapeHtml(text: string, packageName?: string): string {
+function stripAndEscapeHtml(text: string): string {
   // First decode any HTML entities in the input
   let stripped = decodeHtmlEntities(text)
 
   // Then strip markdown image badges
   stripped = stripMarkdownImages(stripped)
 
-  // Then strip actual HTML tags (keep their text content)
-  // Only match tags that start with a letter or / (to avoid matching things like "a < b > c")
-  stripped = stripped.replace(/<\/?[a-z][^>]*>/gi, '')
+  // Strip actual HTML tags (keep their text content), but leave tags inside backtick spans
+  // The alternation matches a backtick span first — if that branch wins the match is kept as-is
+  stripped = stripped.replace(
+    /(`[^`]*`)|<\/?[a-z][^>]*>/gi,
+    (match, codeSpan: string | undefined) => codeSpan ?? '',
+  )
 
   // Strip HTML comments: <!-- ... --> (including unclosed comments from truncation)
-  stripped = stripped.replace(/<!--[\s\S]*?(-->|$)/g, '')
-
-  if (packageName) {
-    // Trim first to handle leading/trailing whitespace from stripped HTML
-    stripped = stripped.trim()
-    // Collapse multiple whitespace into single space
-    stripped = stripped.replace(/\s+/g, ' ')
-    // Escape special regex characters in package name
-    const escapedName = packageName.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')
-    // Match package name at the start, optionally followed by: space, dash, colon, hyphen, or just space
-    const namePattern = new RegExp(`^${escapedName}\\s*[-:—]?\\s*`, 'i')
-    stripped = stripped.replace(namePattern, '').trim()
-  }
+  stripped = stripped.replace(
+    /(`[^`]*`)|<!--[\s\S]*?(-->|$)/g,
+    (match, codeSpan: string | undefined) => codeSpan ?? '',
+  )
 
   // Then escape any remaining HTML entities
   return stripped
@@ -62,11 +53,11 @@ function stripAndEscapeHtml(text: string, packageName?: string): string {
 }
 
 // Parse simple inline markdown to HTML
-function parseMarkdown({ text, packageName, plain }: UseMarkdownOptions): string {
+function parseMarkdown({ text, plain }: UseMarkdownOptions): string {
   if (!text) return ''
 
   // First strip HTML tags and escape remaining HTML
-  let html = stripAndEscapeHtml(text, packageName)
+  let html = stripAndEscapeHtml(text)
 
   // Bold: **text** or __text__
   html = html.replace(/\*\*(.+?)\*\*/g, '<strong>$1</strong>')
@@ -83,20 +74,20 @@ function parseMarkdown({ text, packageName, plain }: UseMarkdownOptions): string
   html = html.replace(/~~(.+?)~~/g, '<del>$1</del>')
 
   // Links: [text](url) - only allow https, mailto
-  html = html.replace(/\[([^\]]+)\]\(([^)]+)\)/g, (_match, text, url) => {
+  html = html.replace(/\[([^\]]+)\]\(([^)]+)\)/g, (_match, textGroup, url) => {
     // In plain mode, just render the link text without the anchor
     if (plain) {
-      return text
+      return textGroup
     }
     const decodedUrl = url.replace(/&amp;/g, '&')
     try {
       const { protocol, href } = new URL(decodedUrl)
       if (['https:', 'mailto:'].includes(protocol)) {
         const safeUrl = href.replace(/"/g, '&quot;')
-        return `<a href="${safeUrl}" rel="nofollow noreferrer noopener" target="_blank">${text}</a>`
+        return `<a href="${safeUrl}" rel="nofollow noreferrer noopener" target="_blank">${textGroup}</a>`
       }
     } catch {}
-    return `${text} (${url})`
+    return `${textGroup} (${url})`
   })
 
   return html

@@ -1,22 +1,22 @@
 import type { OAuthSession } from '@atproto/oauth-client-node'
-import { NodeOAuthClient, OAuthCallbackError } from '@atproto/oauth-client-node'
+import { OAuthCallbackError } from '@atproto/oauth-client-node'
 import { createError, getQuery, sendRedirect, setCookie, getCookie, deleteCookie } from 'h3'
 import type { H3Event } from 'h3'
-import { getOAuthLock } from '#server/utils/atproto/lock'
-import { useOAuthStorage } from '#server/utils/atproto/storage'
 import { SLINGSHOT_HOST } from '#shared/utils/constants'
 import { useServerSession } from '#server/utils/server-session'
-import { handleResolver } from '#server/utils/atproto/oauth'
 import { handleApiError } from '#server/utils/error-handler'
 import type { DidString } from '@atproto/lex'
-import { Client } from '@atproto/lex'
-import * as com from '#shared/types/lexicons/com'
+import { Client, isAtUriString } from '@atproto/lex'
 import * as app from '#shared/types/lexicons/app'
+import * as blue from '#shared/types/lexicons/blue'
 import { isAtIdentifierString } from '@atproto/lex'
-import { scope, getOauthClientMetadata } from '#server/utils/atproto/oauth'
+import { scope } from '#server/utils/atproto/oauth'
 import { UNSET_NUXT_SESSION_PASSWORD } from '#shared/utils/constants'
 // @ts-expect-error virtual file from oauth module
 import { clientUri } from '#oauth/config'
+
+const OAUTH_REQUEST_COOKIE_PREFIX = 'atproto_oauth_req'
+const slingshotClient = new Client({ service: `https://${SLINGSHOT_HOST}` })
 
 export default defineEventHandler(async event => {
   const config = useRuntimeConfig(event)
@@ -28,17 +28,7 @@ export default defineEventHandler(async event => {
   }
 
   const query = getQuery(event)
-  const clientMetadata = getOauthClientMetadata()
   const session = await useServerSession(event)
-  const { stateStore, sessionStore } = useOAuthStorage(session)
-
-  const atclient = new NodeOAuthClient({
-    stateStore,
-    sessionStore,
-    clientMetadata,
-    requestLock: getOAuthLock(),
-    handleResolver,
-  })
 
   if (query.handle) {
     // Initiate auth flow
@@ -66,10 +56,13 @@ export default defineEventHandler(async event => {
     }
 
     try {
-      const redirectUrl = await atclient.authorize(query.handle, {
+      const redirectUrl = await event.context.oauthClient.authorize(query.handle, {
         scope,
         prompt: query.create ? 'create' : undefined,
-        ui_locales: query.locale?.toString(),
+        // TODO: I do not believe this is working as expected on
+        // an unsupported locale on the PDS. Gives Invalid at body.ui_locales
+        // Commenting out for now
+        // ui_locales: query.locale?.toString(),
         state: encodeOAuthState(event, { redirectPath }),
       })
 
@@ -87,12 +80,16 @@ export default defineEventHandler(async event => {
     // Handle callback
     try {
       const params = new URLSearchParams(query as Record<string, string>)
-      const result = await atclient.callback(params)
+      const result = await event.context.oauthClient.callback(params)
       try {
         const state = decodeOAuthState(event, result.state)
         const profile = await getMiniProfile(result.session)
+        const npmxProfile = await getNpmxProfile(profile.handle, result.session)
 
-        await session.update({ public: profile })
+        await session.update({
+          public: profile,
+          profile: npmxProfile,
+        })
         return sendRedirect(event, state.redirectPath)
       } catch (error) {
         // If we are unable to cleanly handle the callback, meaning that the
@@ -127,8 +124,6 @@ export default defineEventHandler(async event => {
 type OAuthStateData = {
   redirectPath: string
 }
-
-const OAUTH_REQUEST_COOKIE_PREFIX = 'atproto_oauth_req'
 
 /**
  * This function encodes the OAuth state by generating a random SID, storing it
@@ -230,8 +225,7 @@ function decodeOAuthState(event: H3Event, state: string | null): OAuthStateData 
  * @returns An object containing the user's DID, handle, PDS, and avatar URL (if available)
  */
 async function getMiniProfile(authSession: OAuthSession) {
-  const client = new Client({ service: `https://${SLINGSHOT_HOST}` })
-  const response = await client.xrpcSafe(com['bad-example'].identity.resolveMiniDoc, {
+  const response = await slingshotClient.xrpcSafe(blue.microcosm.identity.resolveMiniDoc, {
     headers: { 'User-Agent': 'npmx' },
     params: { identifier: authSession.did },
   })
@@ -288,4 +282,37 @@ async function getAvatar(did: DidString, pds: string) {
     // Avatar fetch failed, continue without it
   }
   return avatar
+}
+
+async function getNpmxProfile(handle: string, authSession: OAuthSession) {
+  const client = new Client(authSession)
+
+  // get existing npmx profile OR create a new one
+  const profileUri = `at://${client.did}/dev.npmx.actor.profile/self`
+  if (!isAtUriString(profileUri)) {
+    throw new Error(`Invalid at-uri: ${profileUri}`)
+  }
+
+  const profileResult = await slingshotClient.xrpcSafe(blue.microcosm.repo.getRecordByUri, {
+    headers: { 'User-Agent': 'npmx' },
+    params: { at_uri: profileUri },
+  })
+
+  if (profileResult.success) {
+    return profileResult.body.value
+  } else {
+    const profile = {
+      displayName: handle,
+    }
+
+    await client.createRecord(
+      {
+        $type: 'dev.npmx.actor.profile',
+        ...profile,
+      },
+      'self',
+    )
+
+    return profile
+  }
 }

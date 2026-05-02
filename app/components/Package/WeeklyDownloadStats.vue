@@ -1,9 +1,18 @@
 <script setup lang="ts">
-import { VueUiSparkline } from 'vue-data-ui/vue-ui-sparkline'
+import {
+  VueUiSparkline,
+  type VueUiSparklineConfig,
+  type VueUiSparklineDatasetItem,
+} from 'vue-data-ui/vue-ui-sparkline'
 import { useCssVariables } from '~/composables/useColors'
 import type { WeeklyDataPoint } from '~/types/chart'
+import { applyDataCorrection } from '~/utils/chart-data-correction'
 import { OKLCH_NEUTRAL_FALLBACK, lightenOklch } from '~/utils/colors'
+import { applyBlocklistCorrection } from '~/utils/download-anomalies'
 import type { RepoRef } from '#shared/utils/git-providers'
+import { onKeyDown } from '@vueuse/core'
+
+import('vue-data-ui/style.css')
 
 const props = defineProps<{
   packageName: string
@@ -13,6 +22,7 @@ const props = defineProps<{
 
 const router = useRouter()
 const route = useRoute()
+const { settings } = useSettings()
 
 const chartModal = useModal('chart-modal')
 const hasChartModalTransitioned = shallowRef(false)
@@ -22,6 +32,12 @@ const modalTitle = computed(() => {
   if (facet === 'likes') return $t('package.trends.items.likes')
   if (facet === 'contributors') return $t('package.trends.items.contributors')
   return $t('package.trends.items.downloads')
+})
+
+const modalSubtitle = computed(() => {
+  const facet = route.query.facet as string | undefined
+  if (facet === 'likes' || facet === 'contributors') return undefined
+  return $t('package.downloads.subtitle')
 })
 
 const isChartModalOpen = shallowRef<boolean>(false)
@@ -47,6 +63,7 @@ function handleModalTransitioned() {
 }
 
 const { fetchPackageDownloadEvolution } = useCharts()
+const numberFormatter = useNumberFormatter()
 
 const { accentColors, selectedAccentColor } = useAccentColor()
 
@@ -169,8 +186,22 @@ watch(
   () => loadWeeklyDownloads(),
 )
 
-const dataset = computed(() =>
-  weeklyDownloads.value.map(d => ({
+const correctedDownloads = computed<WeeklyDataPoint[]>(() => {
+  let data = weeklyDownloads.value as WeeklyDataPoint[]
+  if (!data.length) return data
+  if (settings.value.chartFilter.anomaliesFixed) {
+    data = applyBlocklistCorrection({
+      data,
+      packageName: props.packageName,
+      granularity: 'weekly',
+    }) as WeeklyDataPoint[]
+  }
+  data = applyDataCorrection(data, settings.value.chartFilter) as WeeklyDataPoint[]
+  return data
+})
+
+const dataset = computed<VueUiSparklineDatasetItem[]>(() =>
+  correctedDownloads.value.map(d => ({
     value: d?.value ?? 0,
     period: $t('package.trends.date_range', {
       start: d.weekStart ?? '-',
@@ -181,8 +212,120 @@ const dataset = computed(() =>
 
 const lastDatapoint = computed(() => dataset.value.at(-1)?.period ?? '')
 
-const config = computed(() => {
+const showPulse = shallowRef(true)
+const keyboardShortcuts = useKeyboardShortcuts()
+
+const cheatCode = [
+  'arrowup',
+  'arrowright',
+  'arrowleft',
+  'arrowup',
+  'arrowleft',
+  'arrowright',
+] as const
+
+type CheatKey = (typeof cheatCode)[number]
+
+const easterEgg = shallowRef<CheatKey[]>([])
+let resetTimeout: ReturnType<typeof setTimeout> | undefined
+const easterEggResetDelay = 1500
+
+function resetEasterEgg() {
+  easterEgg.value = []
+  clearTimeout(resetTimeout)
+  resetTimeout = undefined
+}
+
+function pushEasterEggKey(key: CheatKey) {
+  clearTimeout(resetTimeout)
+  resetTimeout = setTimeout(resetEasterEgg, easterEggResetDelay)
+
+  const nextIndex = easterEgg.value.length
+  const expectedKey = cheatCode[nextIndex]
+  // Reset if the position is wrong
+  if (!expectedKey || expectedKey !== key) {
+    resetEasterEgg()
+    return
+  }
+
+  easterEgg.value.push(key)
+
+  // Match! reset & trigger
+  if (easterEgg.value.length === cheatCode.length) {
+    resetEasterEgg()
+    layEgg()
+  }
+}
+
+onKeyDown(
+  'ArrowUp',
+  e => {
+    if (!keyboardShortcuts.value) return
+    pushEasterEggKey('arrowup')
+  },
+  { dedupe: true },
+)
+
+onKeyDown(
+  'ArrowRight',
+  e => {
+    if (!keyboardShortcuts.value) return
+    pushEasterEggKey('arrowright')
+  },
+  { dedupe: true },
+)
+
+onKeyDown(
+  'ArrowLeft',
+  e => {
+    if (!keyboardShortcuts.value) return
+    pushEasterEggKey('arrowleft')
+  },
+  { dedupe: true },
+)
+
+onBeforeUnmount(() => {
+  resetEasterEgg()
+  clearTimeout(eggPulseTimeout)
+  eggPulseTimeout = undefined
+})
+
+const eggPulse = ref(false)
+
+let eggPulseTimeout: ReturnType<typeof setTimeout> | undefined
+
+function playEggPulse() {
+  eggPulse.value = false
+  void document.documentElement.offsetHeight
+  eggPulse.value = true
+
+  clearTimeout(eggPulseTimeout)
+
+  eggPulseTimeout = setTimeout(() => {
+    eggPulse.value = false
+  }, 900)
+}
+
+function layEgg() {
+  showPulse.value = false
+  nextTick(() => {
+    showPulse.value = true
+    settings.value.enableGraphPulseLooping = !settings.value.enableGraphPulseLooping
+    playEggPulse()
+  })
+}
+
+const config = computed<VueUiSparklineConfig>(() => {
   return {
+    a11y: {
+      translations: {
+        keyboardNavigation: $t(
+          'package.trends.chart_assistive_text.keyboard_navigation_horizontal',
+        ),
+        tableAvailable: $t('package.trends.chart_assistive_text.table_available'),
+        tableCaption: $t('package.trends.chart_assistive_text.table_caption'),
+      },
+    },
     theme: 'dark',
     /**
      * The built-in skeleton loader kicks in when the component is mounted but the data is not yet ready.
@@ -216,22 +359,25 @@ const config = computed(() => {
         opacity: 10,
       },
       dataLabel: {
-        offsetX: -10,
+        offsetX: -12,
         fontSize: 28,
         bold: false,
         color: colors.value.fg,
+        formatter: ({ value }) => {
+          return numberFormatter.value.format(value)
+        },
       },
       line: {
         color: colors.value.borderHover,
         pulse: {
-          show: true, // the pulse will not show if prefers-reduced-motion (enforced by vue-data-ui)
-          loop: true, // runs only once if false
+          show: showPulse.value, // the pulse will not show if prefers-reduced-motion (enforced by vue-data-ui)
+          loop: settings.value.enableGraphPulseLooping,
           radius: 1.5,
-          color: pulseColor.value,
+          color: pulseColor.value!,
           easing: 'ease-in-out',
           trail: {
             show: true,
-            length: 20,
+            length: 30,
             opacity: 0.75,
           },
         },
@@ -241,7 +387,7 @@ const config = computed(() => {
         stroke: isDarkMode.value ? 'oklch(0.985 0 0)' : 'oklch(0.145 0 0)',
       },
       title: {
-        text: lastDatapoint.value,
+        text: String(lastDatapoint.value),
         fontSize: 12,
         color: colors.value.fgSubtle,
         bold: false,
@@ -250,6 +396,12 @@ const config = computed(() => {
         strokeDasharray: 0,
         color: isDarkMode.value ? 'oklch(0.985 0 0)' : colors.value.fgSubtle,
       },
+      padding: {
+        left: 0,
+        right: 0,
+        top: 0,
+        bottom: 0,
+      },
     },
   }
 })
@@ -257,7 +409,11 @@ const config = computed(() => {
 
 <template>
   <div class="space-y-8">
-    <CollapsibleSection id="downloads" :title="$t('package.downloads.title')">
+    <CollapsibleSection
+      id="downloads"
+      :title="$t('package.downloads.title')"
+      :subtitle="$t('package.downloads.subtitle')"
+    >
       <template #actions>
         <ButtonBase
           v-if="hasWeeklyDownloads"
@@ -272,13 +428,20 @@ const config = computed(() => {
         <span v-else-if="isLoadingWeeklyDownloads" class="min-w-6 min-h-6 -m-1 p-1" />
       </template>
 
-      <div class="w-full overflow-hidden">
+      <div class="w-full h-[76px] egg-pulse-target" :class="{ 'egg-pulse': eggPulse }">
         <template v-if="isLoadingWeeklyDownloads || hasWeeklyDownloads">
           <ClientOnly>
             <VueUiSparkline class="w-full max-w-xs" :dataset :config>
+              <!-- Keyboard navigation hint -->
+              <template #hint="{ isVisible }">
+                <p v-if="isVisible" class="text-accent text-xs text-center mt-2" aria-hidden="true">
+                  {{ $t('package.downloads.sparkline_nav_hint') }}
+                </p>
+              </template>
+
               <template #skeleton>
                 <!-- This empty div overrides the default built-in scanning animation on load -->
-                <div />
+                <div></div>
               </template>
             </VueUiSparkline>
             <template #fallback>
@@ -313,6 +476,7 @@ const config = computed(() => {
   <PackageChartModal
     v-if="isChartModalOpen && hasWeeklyDownloads"
     :modal-title="modalTitle"
+    :modal-subtitle="modalSubtitle"
     @close="handleModalClose"
     @transitioned="handleModalTransitioned"
   >
@@ -333,10 +497,7 @@ const config = computed(() => {
 
     <!-- This placeholder bears the same dimensions as the PackageTrendsChart component -->
     <!-- Avoids CLS when the dialog has transitioned -->
-    <div
-      v-if="!hasChartModalTransitioned"
-      class="w-full aspect-[390/634.5] sm:aspect-[718/622.797]"
-    />
+    <div v-if="!hasChartModalTransitioned" class="w-full aspect-[390/634.5] sm:aspect-[718/647]" />
   </PackageChartModal>
 </template>
 
@@ -355,6 +516,12 @@ const config = computed(() => {
 .opacity-leave-from {
   opacity: 1;
 }
+
+:deep(.vue-data-ui-component svg:focus-visible) {
+  outline: 0.1rem solid var(--accent) !important;
+  border-radius: 0.1rem;
+  outline-offset: 3px;
+}
 </style>
 
 <style>
@@ -362,11 +529,56 @@ const config = computed(() => {
 .vue-ui-sparkline-title span {
   padding: 0 !important;
   letter-spacing: 0.04rem;
+  @apply font-mono;
 }
 
 .vue-ui-sparkline text {
   font-family:
     Geist Mono,
     monospace !important;
+}
+
+.egg-pulse-target {
+  transform-origin: center;
+  will-change: transform;
+}
+
+.egg-pulse {
+  animation: egg-heartbeat 900ms ease-in-out 0ms 1;
+}
+
+/* 3 heart pulses */
+@keyframes egg-heartbeat {
+  0% {
+    transform: scale(1);
+  }
+  10% {
+    transform: scale(1.1);
+  }
+  20% {
+    transform: scale(1);
+  }
+  35% {
+    transform: scale(1.03);
+  }
+  45% {
+    transform: scale(1);
+  }
+  60% {
+    transform: scale(1.01);
+  }
+  70% {
+    transform: scale(1);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .egg-pulse {
+    animation: none !important;
+    transform: none !important;
+  }
 }
 </style>

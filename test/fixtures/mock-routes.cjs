@@ -124,6 +124,11 @@ function matchNpmRegistry(urlString) {
     return json({ error: 'Not found' }, 404)
   }
 
+  // Attestations endpoint - return empty attestations
+  if (pathname.startsWith('/-/npm/v1/attestations/')) {
+    return json({ attestations: [] })
+  }
+
   // Packument
   if (!pathname.startsWith('/-/')) {
     let packageName = pathname.slice(1)
@@ -176,10 +181,33 @@ function matchNpmApi(urlString) {
   }
 
   // Downloads range
-  const rangeMatch = pathname.match(/^\/downloads\/range\/[^/]+\/(.+)$/)
-  if (rangeMatch && rangeMatch[1]) {
-    const packageName = rangeMatch[1]
-    return json({ downloads: [], start: '2025-01-01', end: '2025-01-31', package: packageName })
+  const rangeMatch = pathname.match(/^\/downloads\/range\/([^/]+)\/(.+)$/)
+  if (rangeMatch && rangeMatch[1] && rangeMatch[2]) {
+    const dateRange = rangeMatch[1]
+    const packageName = rangeMatch[2]
+    const [start, end] = dateRange.split(':')
+    if (!start || !end) return null
+
+    // Generate deterministic daily download data from the package name
+    const seed = packageName.split('').reduce((s, c) => s + c.charCodeAt(0), 0)
+    const base = (seed % 9000) + 1000
+    const downloads = []
+    const startDate = new Date(start)
+    const endDate = new Date(end)
+    if (Number.isNaN(startDate.getTime()) || Number.isNaN(endDate.getTime())) return null
+
+    const cursor = new Date(startDate)
+    while (cursor.getTime() <= endDate.getTime()) {
+      const day = cursor.toISOString().slice(0, 10)
+      // Sine wave + noise for a realistic-looking sparkline
+      const dayIndex = downloads.length
+      const wave = Math.sin(dayIndex / 30) * base * 0.3
+      const noise = Math.sin(dayIndex * 7 + seed) * base * 0.1
+      downloads.push({ day, downloads: Math.max(0, Math.round(base + wave + noise)) })
+      cursor.setUTCDate(cursor.getUTCDate() + 1)
+    }
+
+    return json({ downloads, start, end, package: packageName })
   }
 
   return null
@@ -369,36 +397,6 @@ function matchBundlephobiaApi(urlString) {
 }
 
 /**
- * @param {string} urlString
- * @returns {MockResponse | null}
- */
-function matchNpmsApi(urlString) {
-  const url = new URL(urlString)
-  const pathname = decodeURIComponent(url.pathname)
-
-  const packageMatch = pathname.match(/^\/v2\/package\/(.+)$/)
-  if (packageMatch && packageMatch[1]) {
-    const packageName = packageMatch[1]
-    return json({
-      analyzedAt: new Date().toISOString(),
-      collected: {
-        metadata: { name: packageName },
-      },
-      score: {
-        final: 0.75,
-        detail: {
-          quality: 0.8,
-          popularity: 0.7,
-          maintenance: 0.75,
-        },
-      },
-    })
-  }
-
-  return null
-}
-
-/**
  * @param {string} _urlString
  * @returns {MockResponse | null}
  */
@@ -417,6 +415,12 @@ function matchJsdelivrDataApi(urlString) {
   const packageMatch = pathname.match(/^\/v1\/packages\/npm\/(.+)$/)
   if (packageMatch && packageMatch[1]) {
     const parsed = parseScopedPackage(packageMatch[1])
+
+    const fixture = readFixture(`jsdelivr/${parsed.name}.json`)
+    if (fixture) {
+      return json(fixture)
+    }
+
     return json({
       type: 'npm',
       name: parsed.name,
@@ -444,6 +448,157 @@ function matchGravatarApi(_urlString) {
  * @param {string} urlString
  * @returns {MockResponse | null}
  */
+function matchUnghApi(urlString) {
+  const url = new URL(urlString)
+
+  const repoMatch = url.pathname.match(/^\/repos\/([^/]+)\/([^/]+)$/)
+  if (repoMatch && repoMatch[1] && repoMatch[2]) {
+    return json({
+      repo: {
+        description: `${repoMatch[1]}/${repoMatch[2]} - mock repo description`,
+        stars: 1000,
+        forks: 100,
+        watchers: 50,
+        defaultBranch: 'main',
+      },
+    })
+  }
+
+  return json(null)
+}
+
+/**
+ * @param {string} urlString
+ * @returns {MockResponse | null}
+ */
+function matchConstellationApi(urlString) {
+  const url = new URL(urlString)
+
+  if (url.pathname === '/links/distinct-dids') {
+    return json({ total: 0, linking_dids: [], cursor: undefined })
+  }
+
+  if (url.pathname === '/links/all') {
+    return json({ links: {} })
+  }
+
+  if (url.pathname === '/xrpc/blue.microcosm.links.getBacklinks') {
+    return json({ total: 0, records: [], cursor: undefined })
+  }
+
+  // Unknown constellation endpoint - return empty
+  return json(null)
+}
+
+const BLUESKY_EMBED_DID = 'did:plc:2gkh62xvzokhlf6li4ol3b3d'
+
+/**
+ * @param {string} urlString
+ * @returns {MockResponse | null}
+ */
+function matchBlueskyApi(urlString) {
+  const url = new URL(urlString)
+
+  if (url.pathname === '/xrpc/com.atproto.identity.resolveHandle') {
+    return json({ did: BLUESKY_EMBED_DID })
+  }
+
+  if (url.pathname === '/xrpc/app.bsky.feed.getPosts') {
+    const requestedUri =
+      url.searchParams.getAll('uris')[0] ||
+      `at://${BLUESKY_EMBED_DID}/app.bsky.feed.post/3md3cmrg56k2r`
+
+    return json({
+      posts: [
+        {
+          uri: requestedUri,
+          author: {
+            did: BLUESKY_EMBED_DID,
+            handle: 'danielroe.dev',
+            displayName: 'Daniel Roe',
+            avatar: `https://cdn.bsky.app/img/avatar/plain/${BLUESKY_EMBED_DID}/mock-avatar@jpeg`,
+          },
+          record: {
+            text: 'Mock Bluesky post for CSP coverage.',
+            createdAt: '2026-03-03T12:00:00.000Z',
+          },
+          embed: {
+            $type: 'app.bsky.embed.images#view',
+            images: [
+              {
+                thumb: `https://cdn.bsky.app/img/feed_thumbnail/plain/${BLUESKY_EMBED_DID}/mock-image@jpeg`,
+                fullsize: `https://cdn.bsky.app/img/feed_fullsize/plain/${BLUESKY_EMBED_DID}/mock-image@jpeg`,
+                alt: 'Mock Bluesky image',
+                aspectRatio: { width: 1200, height: 630 },
+              },
+            ],
+          },
+          likeCount: 42,
+          replyCount: 7,
+          repostCount: 3,
+        },
+      ],
+    })
+  }
+
+  if (url.pathname === '/xrpc/app.bsky.actor.getProfiles') {
+    const actors = url.searchParams.getAll('actors')
+
+    return json({
+      profiles: actors.map(handle => ({
+        handle,
+        avatar: `https://cdn.bsky.app/img/avatar/plain/${BLUESKY_EMBED_DID}/mock-avatar`,
+      })),
+    })
+  }
+
+  return null
+}
+
+/**
+ * @param {string} _urlString
+ * @returns {MockResponse}
+ */
+function matchBlueskyCdn(_urlString) {
+  return {
+    status: 200,
+    contentType: 'image/svg+xml',
+    body:
+      '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 120">' +
+      '<rect width="120" height="120" fill="#0ea5e9"/>' +
+      '<circle cx="60" cy="44" r="18" fill="#f8fafc"/>' +
+      '<rect x="24" y="74" width="72" height="18" rx="9" fill="#f8fafc"/>' +
+      '</svg>',
+  }
+}
+
+/**
+ * @param {string} urlString
+ * @returns {MockResponse | null}
+ */
+function matchStarHistoryApi(urlString) {
+  const url = new URL(urlString)
+
+  if (url.pathname === '/svg') {
+    return {
+      status: 200,
+      contentType: 'image/svg+xml',
+      body:
+        '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 320">' +
+        '<rect width="640" height="320" fill="#0f172a"/>' +
+        '<path d="M32 256 L160 220 L288 168 L416 120 L544 88 L608 64" stroke="#f59e0b" stroke-width="8" fill="none"/>' +
+        '<text x="32" y="44" fill="#f8fafc" font-family="monospace" font-size="24">Mock Star History</text>' +
+        '</svg>',
+    }
+  }
+
+  return null
+}
+
+/**
+ * @param {string} urlString
+ * @returns {MockResponse | null}
+ */
 function matchGitHubApi(urlString) {
   const url = new URL(urlString)
   const pathname = url.pathname
@@ -452,6 +607,18 @@ function matchGitHubApi(urlString) {
   if (contributorsMatch) {
     const fixture = readFixture('github/contributors.json')
     return json(fixture || [])
+  }
+
+  // Commits endpoint
+  const commitsMatch = pathname.match(/^\/repos\/([^/]+)\/([^/]+)\/commits$/)
+  if (commitsMatch) {
+    return json([{ sha: 'mock-commit' }])
+  }
+
+  // Search endpoint (issues, commits, etc.)
+  const searchMatch = pathname.match(/^\/search\/(.+)$/)
+  if (searchMatch) {
+    return json({ total_count: 0, incomplete_results: false, items: [] })
   }
 
   return null
@@ -471,7 +638,6 @@ const routes = [
   { name: 'fast-npm-meta', pattern: 'https://npm.antfu.dev/**', match: matchFastNpmMeta },
   { name: 'JSR registry', pattern: 'https://jsr.io/**', match: matchJsrRegistry },
   { name: 'Bundlephobia API', pattern: 'https://bundlephobia.com/**', match: matchBundlephobiaApi },
-  { name: 'npms.io API', pattern: 'https://api.npms.io/**', match: matchNpmsApi },
   { name: 'jsdelivr CDN', pattern: 'https://cdn.jsdelivr.net/**', match: matchJsdelivrCdn },
   {
     name: 'jsdelivr Data API',
@@ -480,6 +646,19 @@ const routes = [
   },
   { name: 'Gravatar API', pattern: 'https://www.gravatar.com/**', match: matchGravatarApi },
   { name: 'GitHub API', pattern: 'https://api.github.com/**', match: matchGitHubApi },
+  { name: 'UNGH API', pattern: 'https://ungh.cc/**', match: matchUnghApi },
+  {
+    name: 'Constellation API',
+    pattern: 'https://constellation.microcosm.blue/**',
+    match: matchConstellationApi,
+  },
+  { name: 'Bluesky API', pattern: 'https://public.api.bsky.app/**', match: matchBlueskyApi },
+  { name: 'Bluesky CDN', pattern: 'https://cdn.bsky.app/**', match: matchBlueskyCdn },
+  {
+    name: 'Star History API',
+    pattern: 'https://api.star-history.com/**',
+    match: matchStarHistoryApi,
+  },
 ]
 
 /**

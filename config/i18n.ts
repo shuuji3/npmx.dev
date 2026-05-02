@@ -33,6 +33,11 @@ export const countryLocaleVariants: Record<string, (LocaleObjectData & { country
     // { code: 'ar-AE', name: 'Arabic (U.A.E.)' },
     // { code: 'ar-YE', name: 'Arabic (Yemen)' },
   ],
+  de: [
+    // de.json contains de-DE translations
+    { country: true, code: 'de-DE', name: 'Deutsch' },
+    { code: 'de-AT', name: 'Österreichisch' },
+  ],
   en: [
     // en.json contains en-US translations
     { country: true, code: 'en-US', name: 'English (US)' },
@@ -76,6 +81,10 @@ export const countryLocaleVariants: Record<string, (LocaleObjectData & { country
       { country: true, code: 'pt-PT', name: 'Português (Portugal)' },
       { code: 'pt-BR', name: 'Português (Brasil)' },
     ],*/
+  nl: [
+    { country: true, code: 'nl-NL', name: 'Nederlands' },
+    // { country: true, code: 'nl-BE', name: 'Vlaams' },
+  ],
 }
 
 function createPluralRule(locale: string, mapping: Record<string, number>) {
@@ -158,14 +167,24 @@ const locales: (LocaleObjectData | (Omit<LocaleObjectData, 'code'> & { code: str
     name: 'Ελληνικά',
   },*/
   {
-    code: 'de-DE',
-    file: 'de-DE.json',
+    code: 'de',
+    file: 'de.json',
     name: 'Deutsch',
+  },
+  {
+    code: 'ta-IN',
+    file: 'ta-IN.json',
+    name: 'தமிழ்',
   },
   {
     code: 'hi-IN',
     file: 'hi-IN.json',
     name: 'हिंदी',
+  },
+  {
+    code: 'kn-IN',
+    file: 'kn-IN.json',
+    name: 'ಕನ್ನಡ',
   },
   {
     code: 'te-IN',
@@ -203,11 +222,11 @@ const locales: (LocaleObjectData | (Omit<LocaleObjectData, 'code'> & { code: str
     file: 'ne-NP.json',
     name: 'नेपाली',
   },
-  /*{
-      code: 'nl-NL',
-      file: 'nl-NL.json',
-      name: 'Nederlands',
-    },*/
+  {
+    code: 'nl',
+    file: 'nl.json',
+    name: 'Nederlands',
+  },
   {
     code: 'es',
     file: 'es.json',
@@ -249,7 +268,13 @@ const locales: (LocaleObjectData | (Omit<LocaleObjectData, 'code'> & { code: str
     file: 'cs-CZ.json',
     name: 'Čeština',
     pluralRule: createPluralRule('cs-CZ', { zero: 2, one: 0, two: 1, few: 1, many: 2, other: 2 }),
-  } /*
+  },
+  {
+    code: 'tr-TR',
+    file: 'tr-TR.json',
+    name: 'Türkçe',
+  },
+  /*
     {
       code: 'pl-PL',
       file: 'pl-PL.json',
@@ -266,11 +291,6 @@ const locales: (LocaleObjectData | (Omit<LocaleObjectData, 'code'> & { code: str
       code: 'pt',
       file: 'pt.json',
       name: 'Português',
-    },
-    {
-      code: 'tr-TR',
-      file: 'tr-TR.json',
-      name: 'Türkçe',
     },
     {
       code: 'id-ID',
@@ -291,7 +311,7 @@ const locales: (LocaleObjectData | (Omit<LocaleObjectData, 'code'> & { code: str
       code: 'ko-KR',
       file: 'ko-KR.json',
       name: '한국어',
-    },*/,
+    },*/
   {
     code: 'id-ID',
     file: 'id-ID.json',
@@ -313,6 +333,11 @@ const locales: (LocaleObjectData | (Omit<LocaleObjectData, 'code'> & { code: str
     file: 'pt-BR.json',
     name: 'Português (Brasil)',
   },
+  {
+    code: 'pt-PT',
+    file: 'pt-PT.json',
+    name: 'Português (Portugal)',
+  },
   /*{
       code: 'sv',
       file: 'sv.json',
@@ -327,13 +352,13 @@ const locales: (LocaleObjectData | (Omit<LocaleObjectData, 'code'> & { code: str
       code: 'tl-PH',
       file: 'tl-PH.json',
       name: 'Tagalog',
-    },
-    {
-      code: 'vi-VN',
-      file: 'vi-VN.json',
-      name: 'Tiếng Việt',
-    },
-    {
+    },*/
+  {
+    code: 'vi-VN',
+    file: 'vi-VN.json',
+    name: 'Tiếng Việt',
+  },
+  /*{
       code: 'cy',
       file: 'cy.json',
       name: 'Cymraeg',
@@ -343,27 +368,36 @@ const locales: (LocaleObjectData | (Omit<LocaleObjectData, 'code'> & { code: str
     file: 'nb-NO.json',
     name: 'Norsk (Bokmål)',
   },
+  {
+    code: 'sr-Latn-RS',
+    file: 'sr-Latn-RS.json',
+    name: 'Srpski (Latinica)',
+    pluralRule: createPluralRule('sr-Latn-RS', {
+      zero: 2,
+      one: 0,
+      two: 1,
+      few: 1,
+      many: 2,
+      other: 2,
+    }),
+  },
 ]
-
-const lunariaJSONFiles: Record<string, string> = {}
 
 function buildLocales() {
   const useLocales = Object.values(locales).reduce((acc, data) => {
-    const locales = countryLocaleVariants[data.code]
-    if (locales) {
-      locales.forEach(l => {
+    const localeVariants = countryLocaleVariants[data.code]
+    if (localeVariants) {
+      localeVariants.forEach(l => {
         const entry: LocaleObjectData = {
           ...data,
           code: l.code,
           name: l.name,
           files: [data.file as string, `${l.code}.json`],
         }
-        lunariaJSONFiles[l.code] = l.country ? (data.file as string) : `${l.code}.json`
         delete entry.file
         acc.push(entry)
       })
     } else {
-      lunariaJSONFiles[data.code] = data.file as string
       acc.push(data as LocaleObjectData)
     }
     return acc
@@ -373,8 +407,6 @@ function buildLocales() {
 }
 
 export const currentLocales = buildLocales()
-
-export { lunariaJSONFiles }
 
 export const datetimeFormats = Object.values(currentLocales).reduce((acc, data) => {
   const dateTimeFormats = data.dateTimeFormats
@@ -401,9 +433,10 @@ export const datetimeFormats = Object.values(currentLocales).reduce((acc, data) 
 }, {} as DateTimeFormats)
 
 export const numberFormats = Object.values(currentLocales).reduce((acc, data) => {
-  const numberFormats = data.numberFormats
-  if (numberFormats) {
-    acc[data.code] = { ...numberFormats }
+  const numberFormatsArray = data.numberFormats
+  if (numberFormatsArray) {
+    acc[data.code] = { ...numberFormatsArray }
+
     delete data.numberFormats
   } else {
     acc[data.code] = {
