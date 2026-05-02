@@ -454,26 +454,30 @@ const pendingEnterQuery = shallowRef<string | null>(null)
 
 // Watch for results to navigate when Enter was pressed before results arrived,
 // or for "I'm feeling lucky" redirection when the query ends with "!" and there is the exact match.
-watch(displayResults, newResults => {
-  const rawQuery = normalizeSearchParam(route.query.q)
-  const isFeelingLucky = rawQuery.endsWith('!')
-  if (!pendingEnterQuery.value && !isFeelingLucky) return
+watch(
+  displayResults,
+  newResults => {
+    const rawQuery = normalizeSearchParam(route.query.q)
+    const isFeelingLucky = rawQuery.endsWith('!')
+    if (!pendingEnterQuery.value && !isFeelingLucky) return
 
-  const target = pendingEnterQuery.value || rawQuery.replace(/!$/, '')
-  if (!target) return
+    const target = pendingEnterQuery.value || rawQuery.replace(/!$/, '')
+    if (!target) return
 
-  // Navigate if first result matches the query that was entered
-  const firstResult = newResults[0]
-  // eslint-disable-next-line no-console
-  console.log('[search] watcher fired', {
-    pending: pendingEnterQuery.value,
-    firstResult: firstResult?.package.name,
-  })
-  if (firstResult?.package.name === target) {
-    pendingEnterQuery.value = null
-    navigateToPackage(firstResult.package.name)
-  }
-}, { immediate: true })
+    // Navigate if first result matches the query that was entered
+    const firstResult = newResults[0]
+    // eslint-disable-next-line no-console
+    console.log('[search] watcher fired', {
+      pending: pendingEnterQuery.value,
+      firstResult: firstResult?.package.name,
+    })
+    if (firstResult?.package.name === target) {
+      pendingEnterQuery.value = null
+      navigateToPackage(firstResult.package.name)
+    }
+  },
+  { immediate: true },
+)
 
 /**
  * Focus the header search input
